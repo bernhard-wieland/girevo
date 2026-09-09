@@ -112,7 +112,6 @@ export default function RatgeberPage() {
             ))}
           </div>
           <p>{r.wieDerBereich.p2}</p>
-          <p className={styles.smallNote}>{r.wieDerBereich.note}</p>
 
           <h2 id="innerhalb-entscheiden" className={styles.h2}>
             {r.innerhalb.h2}

@@ -212,8 +212,6 @@ export const copy = {
     bandsTitle: "Die vier Grundbereiche",
     bandsIntro:
       "Ausgangspunkt ist, wie regelmäßig du dich gerade belastest. Der Technik-Check, dein Schwerpunkt und die optionalen Angaben verschieben dich innerhalb dieser Bereiche oder um höchstens einen Bereich.",
-    bandsDraftNote:
-      "Arbeitsstand: Die Struktur aus vier Bereichen steht. Die genauen kg-Grenzen werden vor der Veröffentlichung noch gegen mehrere Quellen geprüft.",
     bandsHeadActivity: "Wie aktiv du gerade bist",
     bandsHeadRange: "Bereich für eine Allzweck-Hantel",
   },

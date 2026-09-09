@@ -79,7 +79,6 @@ export const ratgeber = {
       { k: "regelmäßiges Krafttraining", v: "14–18 kg" },
     ],
     p2: "Der Technik-Check und dein Schwerpunkt verschieben dich innerhalb dieses Bereichs oder um höchstens eine Stufe. Läuft eine der drei Bewegungen noch nicht sauber, zählt die untere Kante. Willst du vor allem schwingen und bekommst einen leichten Gegenstand sauber über den Kopf, darf es eine Stufe mehr sein. Optionale Angaben wie Alter und Geschlecht verschieben die Spanne noch einmal leicht; ohne Angaben bleibt sie etwas breiter.",
-    note: "Die kg-Grenzen sind ein Arbeitsstand und werden noch gegen mehrere Quellen geprüft. Die Struktur aus vier Bereichen steht.",
   },
 
   innerhalb: {

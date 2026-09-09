@@ -66,7 +66,11 @@ card — regenerate from `docs/`-style SVG if the tagline changes), `src/app/not
 
 Weight finder / web (`cd web`):
 - `npm run dev` — local dev server
-- `npm test` — Vitest (includes the ported D.2 table tests, `src/lib/weightFinder.test.ts`)
+- `npm test` — Vitest. Covers: the ported D.2 table (`src/lib/weightFinder.test.ts`); the content
+  helpers + the finder/Ratgeber tables staying in sync with the engine
+  (`weightFinderContent.test.ts`); §7 — no health/medical language in any shipped content module
+  (`content/de/policy.test.ts`); internal links resolving to real routes (`app/routes.test.ts`).
+  The GitHub Actions deploy runs `lint → test → build` before it will ship.
 - `npm run build` — production build (must be clean before committing)
 - `npm run lint`
 
@@ -92,7 +96,7 @@ There are **two implementations of this, kept in lockstep**:
 
 Both are pure and deterministic. The D.2 test table exists in both test suites with identical
 cases — if you change the logic in one language, change it in the other and keep the tables equal,
-or a test fails loudly. The kg boundaries (`Bands`) are a working draft (see Hard Rules).
+or a test fails loudly. The kg boundaries (`Bands`) were frozen v2 on 2026-09-09 (see below).
 
 Everything below is the project charter. It constrains *what* gets built and *how content is
 worded*, not just code style.
@@ -196,9 +200,11 @@ rule-based plan generator, progress/recalculation, then the paid product (auth +
   Kleinunternehmerregelung. Check current rules.
 - Affiliate program specifics and the German disclosure requirement (Kennzeichnungspflicht) —
   exact form belongs in the legal round.
-- The kg boundaries in the rule spec (D.1) are a WORKING draft — verify against sources before
-  go-live. Structure is stable, exact numbers are not frozen.
 - Current product models and prices for the buyer's guide.
+
+The D.1 kg boundaries were frozen as v2 on 2026-09-09 (operator-confirmed, not externally
+source-verified). To change them, update `weightFinder.ts` `BANDS`, `WeightFinder.cs`, the D.2
+tests, and the finder + Ratgeber tables — `weightFinderContent.test.ts` fails if the tables drift.
 
 ## Abort criterion (§10)
 

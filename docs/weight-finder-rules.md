@@ -76,10 +76,11 @@ des Bereichs gezogen. Es erscheint **nie** ein Hinweis in Richtung Verletzung od
 | `active_no_strength` | 12–14 kg |
 | `strength_trained` | 14–18 kg |
 
-> **Arbeitsstand.** Die *Struktur* (vier Bänder, Bereich statt Zahl) ist der belastbare Teil.
-> Die exakten kg-Grenzen sind Fitness-Content und werden **vor Go-live gegen zwei bis drei
-> seriöse deutschsprachige Quellen geprüft**, nicht aus dem Gedächtnis eingefroren. Bis dahin
-> gelten die Werte oben als Default für Implementierung und Tests.
+> **Stand v2 — vom Betreiber bestätigt (2026-09-09).** Die *Struktur* (vier Bänder, Bereich statt
+> Zahl) und die kg-Grenzen oben sind für den Launch freigegeben. Es fand keine externe
+> Quellenprüfung statt; die Werte beruhen auf der Einschätzung des Betreibers. Änderungen an den
+> Grenzen betreffen `web/src/lib/weightFinder.ts` (`BANDS`), `src/KettlebellFinder.Domain/WeightFinder.cs`,
+> die D.2-Tests sowie die Tabellen auf dem Finder und im Ratgeber.
 
 ### D.2 Deterministische Auflösungsreihenfolge
 

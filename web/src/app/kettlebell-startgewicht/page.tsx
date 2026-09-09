@@ -61,7 +61,6 @@ export default function KettlebellStartgewichtPage() {
               ))}
             </tbody>
           </table>
-          <p className={styles.note}>{copy.page.bandsDraftNote}</p>
         </section>
       </div>
     </main>
