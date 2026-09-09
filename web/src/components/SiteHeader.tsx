@@ -16,7 +16,7 @@ export default function SiteHeader() {
           <span className={styles.brandName}>girevo</span>
           <span className={styles.brandDot}>.</span>
         </Link>
-        <nav className={styles.nav}>
+        <nav className={styles.nav} aria-label="Hauptnavigation">
           {headerNav().map((n) => {
             const active = pathname === n.href;
             return (

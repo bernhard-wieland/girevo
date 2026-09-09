@@ -1,4 +1,7 @@
-/* Button — primary = coral fill, white label (--text-on-coral). */
+/* Button — primary = coral fill, white label (--text-on-coral).
+   Note: white on #EE5A36 is ~3.4:1 — short of WCAG AA for text. Kept to
+   match the reference design; switch --text-on-coral to var(--color-ink)
+   (5.6:1) or darken the fill if AA on the CTA is required. */
 
 .btn {
   display: inline-flex;

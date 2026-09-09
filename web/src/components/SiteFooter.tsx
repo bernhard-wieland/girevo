@@ -12,24 +12,24 @@ export default function SiteFooter() {
             <span className={styles.footerBrand}>girevo.de</span> — Werkzeug, kein
             Trainingsprogramm.
           </span>
-          <span className={styles.footerLinks}>
+          <nav className={styles.footerLinks} aria-label="Fußzeile">
             <Link href="/">Startseite</Link>
             {footerNav().map((n) => (
               <Link key={n.href} href={n.href}>
                 {n.label}
               </Link>
             ))}
-          </span>
+          </nav>
         </div>
         <div className={styles.footerBottom}>
           <span>© {year} girevo</span>
-          <span className={styles.footerLegal}>
+          <nav className={styles.footerLegal} aria-label="Rechtliches">
             {legalNav().map((n) => (
               <Link key={n.href} href={n.href}>
                 {n.label}
               </Link>
             ))}
-          </span>
+          </nav>
         </div>
       </div>
     </footer>
