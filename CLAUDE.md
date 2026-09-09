@@ -8,33 +8,53 @@ Hard Rules below, the Hard Rules win.
 
 ## Repository state
 
-Very early. `KettlebellFinder.slnx` (.NET 10, the new XML solution format) contains two projects:
+Very early. Two codebases, one repo:
 
-- `src/KettlebellFinder.Domain/` — the rule engine (`WeightFinder.cs`) implementing spec D.2.
-- `tests/KettlebellFinder.Domain.Tests/` — xUnit, one test per row of the verified D.2 table;
-  references the domain project.
+- **`web/`** — Next.js (App Router, TypeScript, Tailwind). The React app = website + PWA. This is
+  where the free weight finder and all SSR content pages live. Ships first (build order step 4).
+- **`KettlebellFinder.slnx`** (.NET 10, the new XML solution format) — the C#/.NET backend, for the
+  *paid* product (rule-based plan generator, recalculation, auth, payment) per the build order.
+  Not wired to a host yet. Two projects:
+  - `src/KettlebellFinder.Domain/` — the rule engine (`WeightFinder.cs`) implementing spec D.2.
+  - `tests/KettlebellFinder.Domain.Tests/` — xUnit, one test per row of the verified D.2 table.
 
 Also present: `docs/weight-finder-rules.md` — the deterministic rule spec for the free weight
-finder (source of truth; German; section D.2 defines the resolution order).
+finder. **This is the single source of truth for the weight-finder logic**; both the C# and the TS
+implementations are subordinate to its section D.2.
 
-Not built yet: the React/PWA app, SSR content pages, SQL schema. See the build order below.
+Not built yet: SSR content pages beyond the weight finder, SQL schema, the .NET web host.
 
 ## Commands
 
-- Run all tests: `dotnet test`
-- Run one test: `dotnet test --filter "FullyQualifiedName~WeightFinderTests.Female_ShiftsDownOneBand"`
-- Build: `dotnet build`
+Weight finder / web (`cd web`):
+- `npm run dev` — local dev server
+- `npm test` — Vitest (includes the ported D.2 table tests, `src/lib/weightFinder.test.ts`)
+- `npm run build` — production build (must be clean before committing)
+- `npm run lint`
+
+C# backend (repo root):
+- `dotnet test` — all xUnit tests
+- `dotnet test --filter "FullyQualifiedName~WeightFinderTests.Female_ShiftsDownOneBand"` — one test
+- `dotnet build`
 
 ## Rule engine architecture
 
-`WeightFinder.Resolve` is a pure, deterministic function: `WeightFinderInput → WeightRecommendation`
-(a `WeightRange` plus an `Edge` advisory). It applies the spec D.2 steps **in a fixed order** —
-base band from `TrainingBackground` (the main axis) → `Focus` (sets edge, may bump band up only on a
-clean overhead + press proxy) → technique check (any unclean mandatory movement forces lower edge) →
-`Sex` (female shifts one band down) → `AgeBand` (50+ only affects an untrained starter) → cap net
-band shift to ±1 from base, then clamp. Changing this order breaks the D.2 table; the tests exist to
-make that fail loudly, so treat `docs/weight-finder-rules.md` D.2 as the spec and the tests as its
-executable form. The kg boundaries in `Bands` are a working draft (see Hard Rules).
+The weight finder resolves an input to exactly one recommendation (a kg range + an `Edge` advisory,
+never a bare number — §7) by applying the spec D.2 steps **in a fixed order**: base band from
+`TrainingBackground` (the main axis) → `Focus` (sets edge; bumps the band up only on a clean
+overhead + press proxy) → technique check (any unclean mandatory movement forces the lower edge) →
+`Sex` (female shifts one band down) → `AgeBand` (50+ only affects an untrained starter) → cap the
+net band shift to ±1 from base, then clamp.
+
+There are **two implementations of this, kept in lockstep**:
+- `web/src/lib/weightFinder.ts` — runs client-side in the browser (spec D: nothing is persisted,
+  the calc never hits a server). This is the one users hit.
+- `src/KettlebellFinder.Domain/WeightFinder.cs` — the reference oracle and the future backend
+  implementation for the paid product.
+
+Both are pure and deterministic. The D.2 test table exists in both test suites with identical
+cases — if you change the logic in one language, change it in the other and keep the tables equal,
+or a test fails loudly. The kg boundaries (`Bands`) are a working draft (see Hard Rules).
 
 Everything below is the project charter. It constrains *what* gets built and *how content is
 worded*, not just code style.
