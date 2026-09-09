@@ -57,6 +57,7 @@ placeholder; a `ui_text` table.
    Decide whether the buyer's guide is the first DB-driven page or also a static route.
 3. **Migrations tooling.** This file is the canonical current state. When the .NET web
    host is built, decide between EF Core migrations and a plain SQL migration runner.
-4. **Legal locale.** CLAUDE.md is inconsistent (title says DACH; the legal-text list
-   says "Austrian"; content is aimed at Germany). Legal pages are just `content_page`
-   rows with `template = 'legal'` — the jurisdiction question is for the §8 round.
+4. **Legal locale.** Resolved: the operator is in Austria, so the legal framework is
+   Austrian (§ 5 ECG, § 25 MedienG, DSGVO). Site content stays standard German aimed at
+   Germany. `/impressum` + `/datenschutz` currently ship as static routes; if migrated to
+   the DB they are `content_page` rows with `template = 'legal'`.

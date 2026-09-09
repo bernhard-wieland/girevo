@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { footerNav } from "@/lib/nav";
+import { footerNav, legalNav } from "@/lib/nav";
 import styles from "./SiteChrome.module.css";
 
 export default function SiteFooter() {
@@ -10,6 +10,13 @@ export default function SiteFooter() {
         <span className={styles.footerLinks}>
           <Link href="/">Startseite</Link>
           {footerNav().map((n) => (
+            <Link key={n.href} href={n.href}>
+              {n.label}
+            </Link>
+          ))}
+        </span>
+        <span className={styles.footerLegal}>
+          {legalNav().map((n) => (
             <Link key={n.href} href={n.href}>
               {n.label}
             </Link>

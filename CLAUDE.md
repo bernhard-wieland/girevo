@@ -48,8 +48,13 @@ Nav: `src/lib/nav.ts` — `headerNav()` (top nav, 3 items) vs `footerNav()` (foo
 `header: false` pages like Übungen). PWA manifest (`app/manifest.ts`), theme-color, skip-link,
 BreadcrumbList JSON-LD on non-home pages.
 
-Not built yet: legal pages (Impressum/Datenschutz — required in DE before public promotion,
-§8 legal round), the .NET web host, DB-driven routing.
+Legal: operator is in **Austria** (Bad Radkersburg) — the legal framework is Austrian (§ 5 ECG,
+§ 25 MedienG, DSGVO), not German. `/impressum` + `/datenschutz` built (noindex, footer-linked),
+content in `src/content/de/legal.ts` — a careful draft for the site's actual (minimal) data
+processing, still to be verified against current AT rules before the URL is promoted. A medical
+disclaimer is deliberately absent (§7 forbids the wording; spec F.2 defers the decision).
+
+Not built yet: the .NET web host, DB-driven routing.
 
 SEO/launch wiring: `src/lib/meta.ts` `og()` (per-page OpenGraph — Next shallow-merges, so
 rebuild the whole object), `src/lib/structuredData.ts` (JSON-LD: Organization + WebSite site-wide,
