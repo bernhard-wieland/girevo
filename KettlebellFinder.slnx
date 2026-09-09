@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/KettlebellFinder.Domain/KettlebellFinder.Domain.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/KettlebellFinder.Domain.Tests/KettlebellFinder.Domain.Tests.csproj" />
+  </Folder>
+</Solution>
