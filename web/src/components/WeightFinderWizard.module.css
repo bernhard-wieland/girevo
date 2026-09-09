@@ -1,4 +1,4 @@
-/* girevo Gewichtsfinder wizard — Jetzo. Full-width step panels, soft cards. */
+/* girevo Gewichtsfinder wizard — full-width step panels, soft cards. */
 
 .wizard {
   display: flex;
@@ -59,28 +59,30 @@
 }
 
 .eyebrow {
-  font-size: 11px;
-  font-weight: 500;
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 700;
   letter-spacing: 1.6px;
   text-transform: uppercase;
-  color: var(--color-stone);
+  color: var(--color-coral);
 }
 
 .h2 {
   margin: 0;
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: clamp(26px, 3.6vw, 36px);
+  font-size: clamp(24px, 3.4vw, 32px);
   line-height: 1.14;
-  letter-spacing: -1px;
+  letter-spacing: -0.015em;
   max-width: 22ch;
 }
 
 .h3 {
   margin: 0;
+  font-family: var(--font-display);
   font-size: 17px;
-  font-weight: 600;
-  letter-spacing: -0.2px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
 }
 
 .lead {
@@ -140,9 +142,10 @@
 }
 
 .numTitle {
+  font-family: var(--font-display);
   font-size: 16px;
-  font-weight: 600;
-  letter-spacing: -0.1px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
 }
 
 .numText {
@@ -203,9 +206,10 @@
 }
 
 .movementTitle {
+  font-family: var(--font-display);
   font-size: 16px;
-  font-weight: 600;
-  letter-spacing: -0.1px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
 }
 
 .movementText {
@@ -360,9 +364,9 @@
 .readout {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: clamp(44px, 7vw, 64px);
+  font-size: clamp(44px, 7vw, 62px);
   line-height: 1;
-  letter-spacing: -2.4px;
+  letter-spacing: -0.02em;
 }
 
 .pills {
@@ -420,8 +424,10 @@
 }
 
 .ruleTitle {
+  font-family: var(--font-display);
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 700;
+  letter-spacing: -0.01em;
 }
 
 .ruleText {
@@ -491,9 +497,10 @@
 }
 
 .buyTitle {
+  font-family: var(--font-display);
   font-size: 15px;
-  font-weight: 600;
-  letter-spacing: -0.1px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
 }
 
 .buyCriterion {

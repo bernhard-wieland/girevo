@@ -1,5 +1,5 @@
 // Line-art kettlebell — the one illustration the site leans on. Ink outline,
-// coral inner handle, on a soft coral-tint disc. Two-colour, no fills (Jetzo).
+// coral inner handle, on a soft coral-tint disc. Two-colour, no fills.
 
 export function KettlebellArt({
   className,

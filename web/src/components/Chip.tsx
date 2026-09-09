@@ -1,7 +1,7 @@
 import type { ComponentProps, ReactNode } from "react";
 import styles from "./Chip.module.css";
 
-// Jetzo Chip — selectable pill. Not selected: cloud bg / ink text.
+// Chip — selectable pill. Not selected: cloud bg / ink text.
 // Selected: ink bg / paper text.
 export function Chip({
   selected = false,

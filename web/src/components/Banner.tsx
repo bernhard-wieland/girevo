@@ -4,7 +4,7 @@ import styles from "./Banner.module.css";
 
 type Tone = "info" | "success" | "warning";
 
-// Jetzo Banner — tinted callout with a leading icon, title and body.
+// Banner — tinted callout with a leading icon, title and body.
 export function Banner({
   tone = "info",
   title,

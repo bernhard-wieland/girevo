@@ -3,6 +3,7 @@ import Link from "next/link";
 import WeightFinderWizard from "@/components/WeightFinderWizard";
 import { bandRows, copy } from "@/content/de/weightFinder";
 import { og } from "@/lib/meta";
+import { breadcrumbLd, jsonLd } from "@/lib/structuredData";
 import styles from "./page.module.css";
 
 const description =
@@ -22,6 +23,15 @@ export const metadata: Metadata = {
 export default function KettlebellStartgewichtPage() {
   return (
     <main className={styles.wrap}>
+      <script
+        {...jsonLd(
+          breadcrumbLd([
+            { name: "Start", path: "/" },
+            { name: "Gewichtsfinder", path: "/kettlebell-startgewicht" },
+          ]),
+        )}
+      />
+
       <div className={styles.intro}>
         <span className={styles.eyebrow}>{copy.intro.eyebrow}</span>
         <h1 className={styles.h1}>{copy.intro.h1}</h1>
