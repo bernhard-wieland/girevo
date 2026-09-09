@@ -1,70 +1,97 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+import { home } from "@/content/de/home";
+import styles from "./page.module.css";
+
+export const metadata: Metadata = {
+  title: {
+    absolute: "girevo — Kettlebell-Einstieg: Startgewicht und die ersten Wochen",
+  },
+  description:
+    "Kein Programm, kein Konto. Bestimme dein Kettlebell-Startgewicht per Selbsttest und finde die wenigen Übungen, die für den Anfang zählen.",
+  alternates: { canonical: "/" },
+};
 
 export default function Home() {
+  const { hero, signposts, prose, summary } = home;
+
   return (
-    <main
-      style={{
-        maxWidth: "40rem",
-        margin: "0 auto",
-        padding: "64px 20px",
-        display: "flex",
-        flexDirection: "column",
-        gap: "24px",
-        flex: 1,
-        justifyContent: "center",
-      }}
-    >
-      <span
-        style={{
-          fontSize: 12,
-          letterSpacing: "0.14em",
-          textTransform: "uppercase",
-          color: "var(--color-stone)",
-          fontWeight: 600,
-        }}
-      >
-        girevo
-      </span>
-      <h1
-        style={{
-          margin: 0,
-          fontSize: 34,
-          lineHeight: "39px",
-          letterSpacing: "-0.6px",
-          fontWeight: 700,
-        }}
-      >
-        Der erste Monat mit der Kettlebell
-      </h1>
-      <p
-        style={{
-          margin: 0,
-          fontSize: 17,
-          lineHeight: "28px",
-          color: "var(--color-graphite)",
-        }}
-      >
-        Ein ruhiger Weg durch die ersten Wochen — ohne Körpermaße, ohne App-Zwang,
-        mit klaren Texten statt Videos.
-      </p>
-      <Link
-        href="/kettlebell-startgewicht"
-        style={{
-          alignSelf: "flex-start",
-          fontSize: 16,
-          fontWeight: 600,
-          minHeight: 48,
-          display: "inline-flex",
-          alignItems: "center",
-          padding: "0 22px",
-          borderRadius: 8,
-          background: "var(--color-accent)",
-          color: "var(--color-on-accent)",
-          textDecoration: "none",
-        }}
-      >
-        Startgewicht per Selbsttest bestimmen
-      </Link>
+    <main className={styles.main}>
+      <section className={styles.hero}>
+        <div className={styles.heroText}>
+          <h1 className={styles.h1}>{hero.h1}</h1>
+          <p className={styles.lead}>{hero.lead}</p>
+          <div className={styles.chips}>
+            {hero.chips.map((c) => (
+              <span key={c} className={styles.chip}>
+                {c}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <div className={styles.heroCard}>
+          <span className={styles.eyebrow}>{hero.card.eyebrow}</span>
+          <h2 className={styles.heroCardTitle}>{hero.card.title}</h2>
+          <p className={styles.heroCardText}>{hero.card.text}</p>
+          <Link href={hero.card.href} className={styles.cta}>
+            {hero.card.cta}
+          </Link>
+          <span className={styles.reassurance}>{hero.card.reassurance}</span>
+        </div>
+      </section>
+
+      <section className={styles.section}>
+        <h2 className={styles.h2}>{home.signpostTitle}</h2>
+        <div className={styles.signposts}>
+          {signposts.map((s) => {
+            const inner = (
+              <>
+                <span className={styles.signpostHead}>
+                  <span className={styles.signpostTitle}>{s.title}</span>
+                  {s.ready ? (
+                    <span className={styles.signpostArrow}>→</span>
+                  ) : (
+                    <span className={styles.soon}>{home.soonTag}</span>
+                  )}
+                </span>
+                <span className={styles.signpostText}>{s.text}</span>
+              </>
+            );
+            return s.ready ? (
+              <Link key={s.href} href={s.href} className={styles.signpost}>
+                {inner}
+              </Link>
+            ) : (
+              <div key={s.href} className={styles.signpost}>
+                {inner}
+              </div>
+            );
+          })}
+        </div>
+      </section>
+
+      <section className={styles.proseWrap}>
+        <div className={styles.prose}>
+          <h2 className={styles.proseH2}>{prose.h2}</h2>
+          <p className={styles.proseP}>{prose.intro}</p>
+          {prose.sections.map((sec) => (
+            <div key={sec.h3} className={styles.section}>
+              <h3 className={styles.proseH3}>{sec.h3}</h3>
+              <p className={styles.proseP}>{sec.p}</p>
+            </div>
+          ))}
+        </div>
+
+        <aside className={styles.aside}>
+          <span className={styles.eyebrow}>{summary.label}</span>
+          <ul className={styles.asideList}>
+            {summary.points.map((p) => (
+              <li key={p}>{p}</li>
+            ))}
+          </ul>
+        </aside>
+      </section>
     </main>
   );
 }

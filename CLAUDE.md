@@ -19,6 +19,10 @@ Very early. Two codebases, one repo:
   - The weight finder is a 4→5-step client wizard (`src/components/WeightFinderWizard.tsx`) inside
     an SSR page that also carries evergreen prose for indexing. All step copy is rendered in the
     initial HTML (`hidden` toggles the active panel) so crawlers see it.
+  - Shared chrome: `SiteHeader` / `SiteFooter` in `layout.tsx`, nav from `src/lib/nav.ts`
+    (`ready: false` entries are hidden until their page ships). Homepage (`app/page.tsx`) from
+    `Startseite.dc.html` — hero CTA into the finder (the design's rep-count mini-calc was dropped,
+    same reason as the wizard), signpost cards (unbuilt ones show a "bald" tag), long-form prose.
 - **`KettlebellFinder.slnx`** (.NET 10, the new XML solution format) — the C#/.NET backend, for the
   *paid* product (rule-based plan generator, recalculation, auth, payment) per the build order.
   Not wired to a host yet. Two projects:

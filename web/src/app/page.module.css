@@ -1,0 +1,258 @@
+.main {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 28px 20px 72px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+/* --- hero ----------------------------------------------------------------- */
+
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.heroText {
+  flex: 1 1 320px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.h1 {
+  margin: 0;
+  font-size: 30px;
+  line-height: 1.18;
+  letter-spacing: -0.6px;
+  font-weight: 700;
+}
+
+.lead {
+  margin: 0;
+  font-size: 17px;
+  line-height: 28px;
+  color: var(--color-graphite);
+  max-width: var(--measure);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-line-strong);
+  font-size: 14px;
+  color: var(--color-graphite);
+}
+
+.heroCard {
+  flex: 1 1 340px;
+  min-width: 0;
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-ink);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.eyebrow {
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-graphite);
+  font-weight: 700;
+}
+
+.heroCardTitle {
+  margin: 0;
+  font-size: 21px;
+  line-height: 1.3;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+}
+
+.heroCardText {
+  margin: 0;
+  font-size: 15px;
+  line-height: 23px;
+  color: var(--color-graphite);
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  font-weight: 600;
+  min-height: 52px;
+  padding: 14px 24px;
+  border-radius: var(--radius-md);
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+  text-decoration: none;
+}
+
+.cta:hover {
+  background: var(--color-accent-press);
+  color: var(--color-on-accent);
+}
+
+.reassurance {
+  font-size: 13px;
+  color: var(--color-stone);
+  text-align: center;
+}
+
+/* --- signposts --------------------------------------------------------------- */
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.h2 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+}
+
+.signposts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.signpost {
+  flex: 1 1 280px;
+  min-width: 0;
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-decoration: none;
+  color: inherit;
+}
+
+a.signpost:hover {
+  border-color: var(--color-line-strong);
+  background: var(--color-paper-sunk);
+}
+
+.signpostHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.signpostTitle {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--color-ink);
+}
+
+.signpostArrow {
+  font-size: 18px;
+  color: var(--color-accent);
+}
+
+.soon {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-stone);
+  border: 1px solid var(--color-line-strong);
+  border-radius: var(--radius-sm);
+  padding: 2px 6px;
+}
+
+.signpostText {
+  font-size: 15px;
+  line-height: 23px;
+  color: var(--color-graphite);
+}
+
+/* --- prose ----------------------------------------------------------------- */
+
+.proseWrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  align-items: flex-start;
+}
+
+.prose {
+  flex: 1 1 420px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: var(--measure);
+}
+
+.proseH2 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.4px;
+}
+
+.proseH3 {
+  margin: 0;
+  font-size: 19px;
+  font-weight: 600;
+}
+
+.proseP {
+  margin: 0;
+  font-size: 17px;
+  line-height: 28px;
+}
+
+.aside {
+  flex: 1 1 260px;
+  min-width: 0;
+  background: var(--color-accent-tint);
+  border: 1px solid var(--color-line-strong);
+  border-radius: var(--radius-md);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.asideList {
+  margin: 0;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 16px;
+  line-height: 25px;
+}
+
+@media (max-width: 480px) {
+  .h1 {
+    font-size: 26px;
+  }
+}

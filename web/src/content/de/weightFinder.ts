@@ -114,7 +114,7 @@ export const copy = {
   brandLine: "Kostenlos, ohne Anmeldung",
 
   intro: {
-    eyebrow: "girevo · Gewichtsfinder",
+    eyebrow: "Gewichtsfinder",
     h1: "Welches Kettlebell-Startgewicht passt zu dir?",
     lead: "Du machst gleich einen kurzen Selbsttest — drei Bewegungen ohne Zusatzgewicht. Danach zwei kurze Fragen zu deinem Training. Am Ende bekommst du einen Gewichtsbereich, keine einzelne Zahl.",
     whatToExpectTitle: "Was dich erwartet",
