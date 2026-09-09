@@ -122,11 +122,14 @@ surfaced on the free weight finder / buyer's guide.
 
 1. `weight-finder-rules.md` — rule spec (DONE, in `docs/`).
 2. Rule engine implemented + tests (DONE: `src/KettlebellFinder.Domain`, `tests/KettlebellFinder.Domain.Tests`).
-3. Minimal SQL schema with translation tables — only what the content pages need.
+3. Minimal SQL schema with translation tables — only what the content pages need. NOT STARTED.
+   (The weight finder needs no DB — spec D: client-side calc, nothing persisted. This schema is
+   for the buyer's guide and later content pages.)
 4. **Weight finder page (SSR) — ship this FIRST, before anything else.** Starts the §10 clock.
+   DONE (dev): `web/src/app/kettlebell-startgewicht/`. Not deployed yet.
 5. Buyer's guide page (SSR) — info content + tier structure (Budget = cast iron /
-   Mid = competition or coated / Premium = adjustable). Affiliate links added later.
-6. Search Console set up, §10 counter started.
+   Mid = competition or coated / Premium = adjustable). Affiliate links added later. NOT STARTED.
+6. Search Console set up, §10 counter started. Needs a deployed site first.
 
 Only if impressions appear (see §10): 12 exercises (finish one as the template first), the
 rule-based plan generator, progress/recalculation, then the paid product (auth + payment + legal).
