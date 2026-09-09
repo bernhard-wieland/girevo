@@ -147,6 +147,9 @@ surfaced on the free weight finder / buyer's guide.
 5. Buyer's guide page (SSR) — info content + tier structure (Budget = cast iron /
    Mid = competition or coated / Premium = adjustable). Affiliate links added later. NOT STARTED.
 6. Search Console set up, §10 counter started. Needs a deployed site first.
+   Deploy: static export → Cloudflare Pages, see `docs/deploy.md`. Config is ready
+   (`output: "export"`, `sitemap.ts`, `robots.ts`); the Cloudflare project + domain +
+   Search Console verification are manual (account access).
 
 Only if impressions appear (see §10): 12 exercises (finish one as the template first), the
 rule-based plan generator, progress/recalculation, then the paid product (auth + payment + legal).
