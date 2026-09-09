@@ -148,8 +148,12 @@ surfaced on the free weight finder / buyer's guide.
    The wizard collects the frozen D.2 inputs and calls the verified `weightFinder.ts`. If the
    rep-count model is ever wanted, it needs a proper spec rewrite + source-reviewed boundaries
    first (working method: table + tests before implementation).
-5. Buyer's guide page (SSR) — info content + tier structure (Budget = cast iron /
-   Mid = competition or coated / Premium = adjustable). Affiliate links added later. NOT STARTED.
+5. Buyer's guide page (SSR) — DONE (dev): `web/src/app/kettlebell-kaufen/` from
+   `Kaufberatung.dc.html`. Four decision criteria + four options compared + "was du nicht
+   brauchst". Affiliate links gated behind `web/src/lib/affiliate.ts` `AFFILIATE_READY` (false):
+   while off, no "Werbung" banner and cards show "Händler-Links folgen". Flip it only after the
+   §8 legal round signs off on the Kennzeichnungspflicht wording. Prices are observation ranges,
+   no brand/model names.
 6. Search Console set up, §10 counter started. Needs a deployed site first.
    Deploy: static export → Cloudflare Pages, see `docs/deploy.md`. Config is ready
    (`output: "export"`, `sitemap.ts`, `robots.ts`); the Cloudflare project + domain +

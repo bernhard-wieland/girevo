@@ -29,7 +29,7 @@ export const home = {
       title: "Kaufberatung",
       text: "Gusseisen oder beschichtet, Griffdurchmesser, verstellbar oder einzeln — und vier konkrete Optionen im Vergleich.",
       href: "/kettlebell-kaufen",
-      ready: false,
+      ready: true,
     },
     {
       title: "Übungen für die ersten Wochen",

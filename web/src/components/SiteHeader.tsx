@@ -1,9 +1,14 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { readyNav } from "@/lib/nav";
 import { KettlebellMark } from "./KettlebellMark";
 import styles from "./SiteChrome.module.css";
 
 export default function SiteHeader() {
+  const pathname = usePathname();
+
   return (
     <header className={styles.header}>
       <div className={styles.headerInner}>
@@ -12,11 +17,19 @@ export default function SiteHeader() {
           <span className={styles.brandName}>girevo</span>
         </Link>
         <nav className={styles.nav}>
-          {readyNav().map((n) => (
-            <Link key={n.href} href={n.href} className={styles.navLink}>
-              {n.label}
-            </Link>
-          ))}
+          {readyNav().map((n) => {
+            const active = pathname === n.href;
+            return (
+              <Link
+                key={n.href}
+                href={n.href}
+                className={active ? styles.navLinkActive : styles.navLink}
+                aria-current={active ? "page" : undefined}
+              >
+                {n.label}
+              </Link>
+            );
+          })}
         </nav>
       </div>
     </header>

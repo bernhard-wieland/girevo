@@ -8,6 +8,7 @@ export default function SiteFooter() {
       <div className={styles.footerInner}>
         <span>girevo.de — Werkzeug, kein Trainingsprogramm.</span>
         <span className={styles.footerLinks}>
+          <Link href="/">Startseite</Link>
           {readyNav().map((n) => (
             <Link key={n.href} href={n.href}>
               {n.label}

@@ -1,0 +1,104 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { kaufberatung as k } from "@/content/de/kaufberatung";
+import { AFFILIATE_READY } from "@/lib/affiliate";
+import styles from "./page.module.css";
+
+export const metadata: Metadata = {
+  title: { absolute: `${k.meta.title} — girevo` },
+  description: k.meta.description,
+  alternates: { canonical: "/kettlebell-kaufen" },
+};
+
+export default function KaufberatungPage() {
+  return (
+    <main className={styles.main}>
+      {AFFILIATE_READY && (
+        <div className={styles.disclosure}>
+          <span className={styles.adTag}>Werbung</span>
+          <span className={styles.disclosureText}>{k.disclosure}</span>
+        </div>
+      )}
+
+      <section className={styles.intro}>
+        <h1 className={styles.h1}>{k.h1}</h1>
+        <p className={styles.lead}>
+          {k.intro}{" "}
+          <Link href="/kettlebell-startgewicht">{k.introFinderLink}</Link>
+        </p>
+      </section>
+
+      <section className={styles.section}>
+        <h2 className={styles.h2}>{k.criteriaTitle}</h2>
+        <div className={styles.cards}>
+          {k.criteria.map((c) => (
+            <div key={c.title} className={styles.criteriaCard}>
+              <span className={styles.kicker}>{c.kicker}</span>
+              <span className={styles.cardTitle}>{c.title}</span>
+              <span className={styles.cardText}>{c.text}</span>
+              <span className={styles.advice}>
+                <strong>Für den Start:</strong> {c.advice}
+              </span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className={styles.section}>
+        <div className={styles.sectionHead}>
+          <h2 className={styles.h2}>{k.compareTitle}</h2>
+          <p>{k.compareIntro}</p>
+        </div>
+        <div className={styles.cards}>
+          {k.products.map((p) => (
+            <div key={p.title} className={styles.productCard}>
+              <div className={styles.productHead}>
+                <span className={styles.kicker}>{p.kind}</span>
+                <span className={styles.productTitle}>{p.title}</span>
+                <span className={styles.productFit}>
+                  <strong>Passt, wenn</strong> {p.fit}
+                </span>
+              </div>
+              {p.specs.map((row) => (
+                <div key={row.k} className={styles.specRow}>
+                  <span className={styles.specKey}>{row.k}</span>
+                  <span className={styles.specVal}>{row.v}</span>
+                </div>
+              ))}
+              <div className={styles.productFoot}>
+                <span className={styles.productNote}>{p.note}</span>
+                {AFFILIATE_READY ? (
+                  <a
+                    href="#"
+                    rel="sponsored nofollow"
+                    className={styles.productLink}
+                  >
+                    {k.linkLabel}
+                  </a>
+                ) : (
+                  <span className={styles.linkPending}>{k.linkPending}</span>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className={styles.split}>
+        <div className={styles.prose}>
+          <h2 className={styles.h2}>{k.avoid.h2}</h2>
+          <p className={styles.proseP}>{k.avoid.p}</p>
+          <h3 className={styles.h3}>{k.avoid.h3}</h3>
+          <p className={styles.proseP}>{k.avoid.p2}</p>
+        </div>
+        <aside className={styles.aside}>
+          <span className={styles.kicker}>{k.aside.label}</span>
+          <p className={styles.asideText}>{k.aside.text}</p>
+          <Link href="/kettlebell-startgewicht" className={styles.asideCta}>
+            {k.aside.cta}
+          </Link>
+        </aside>
+      </section>
+    </main>
+  );
+}

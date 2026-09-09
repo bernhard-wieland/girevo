@@ -6,7 +6,7 @@ export type NavEntry = { label: string; href: string; ready: boolean };
 
 export const NAV: NavEntry[] = [
   { label: "Gewichtsfinder", href: "/kettlebell-startgewicht", ready: true },
-  { label: "Kaufberatung", href: "/kettlebell-kaufen", ready: false },
+  { label: "Kaufberatung", href: "/kettlebell-kaufen", ready: true },
   { label: "Ratgeber", href: "/ratgeber", ready: false },
 ];
 
