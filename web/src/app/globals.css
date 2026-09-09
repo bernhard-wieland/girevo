@@ -1,99 +1,96 @@
 @import "tailwindcss";
 
-/* girevo design tokens — "Gusseisen, kein Hochglanz" (Style Tile 01).
-   Raw values live here on :root and the dark selectors; @theme inline below
-   exposes them to Tailwind utilities so `text-ink`, `bg-surface` etc. re-resolve
-   when the theme flips. */
+/* ── Jetzo design system tokens ─────────────────────────────────────────────
+   Colour, type, spacing, radius, elevation. Light-mode baseline (v1). */
 :root {
-  --color-ink: #16181a;
-  --color-iron: #2b2f33;
-  --color-graphite: #565c62;
-  --color-stone: #878d93;
-  --color-line: #ded8cf;
-  --color-line-strong: #c6beb2;
-  --color-surface: #ffffff;
-  --color-paper: #f4f1eb;
-  --color-paper-sunk: #eae5dd;
-  --color-accent: #be4318;
-  --color-accent-press: #9e3612;
-  --color-accent-tint: #f6e7e0;
-  --color-on-accent: #ffffff;
-  --color-focus: #1e5f7a;
+  /* Core */
+  --color-paper: #faf7f2;
+  --color-ink: #1e1b2e;
+  --color-coral: #ff5a3c;
+  --color-coral-press: #e8482f;
+  --color-teal: #0e7c97;
+  --color-teal-light: #2bb7da;
+  --color-stone: #6b6678;
+  --color-cloud: #ece8f0;
+  --color-coral-tint: rgba(255, 90, 60, 0.12);
+  --color-success: #2e9e6b;
+  --color-warning: #e8a427;
+  --color-error: #e5484d;
 
+  /* Semantic aliases */
+  --surface-app: var(--color-paper);
+  --surface-card: #ffffff;
+  --surface-sunken: var(--color-cloud);
+  --text-primary: var(--color-ink);
+  --text-secondary: var(--color-stone);
+  --text-link: var(--color-teal);
+  --text-on-coral: var(--color-ink); /* never white on coral */
+  --border-divider: var(--color-cloud);
+  --accent: var(--color-coral);
+  --accent-press: var(--color-coral-press);
+
+  /* Type */
+  --font-display: var(--font-poppins), "Segoe UI", system-ui, sans-serif;
+  --font-ui: var(--font-inter), system-ui, -apple-system, sans-serif;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  /* Spacing — 8-pt */
   --space-1: 4px;
   --space-2: 8px;
   --space-3: 12px;
   --space-4: 16px;
-  --space-5: 24px;
-  --space-6: 32px;
-  --space-7: 48px;
-  --space-8: 64px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
 
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
+  /* Radius */
   --radius-pill: 999px;
+  --radius-input: 12px;
+  --radius-button: 14px;
+  --radius-image: 16px;
+  --radius-card: 18px;
+  --radius-sheet: 24px;
 
-  --shadow-raised: 0 1px 2px rgba(22, 24, 26, 0.08);
+  /* Elevation — soft, low, ink-tinted */
+  --elevation-sm: 0 2px 8px rgba(30, 27, 46, 0.06);
+  --elevation-md: 0 6px 20px rgba(30, 27, 46, 0.1);
+
+  /* ── Legacy aliases — the not-yet-redesigned pages (finder, kaufberatung,
+     ratgeber, uebungen, legal) still reference the old "Gusseisen" token names.
+     Map them onto Jetzo so the whole site stays coherent until each page is
+     rebuilt against a new artboard. Remove an alias once nothing uses it. */
+  --color-surface: var(--surface-card);
+  --color-line: var(--color-cloud);
+  --color-line-strong: #d9d3e0;
+  --color-graphite: var(--color-stone);
+  --color-iron: var(--color-ink);
+  --color-paper-sunk: var(--color-cloud);
+  --color-accent: var(--color-coral);
+  --color-accent-press: var(--color-coral-press);
+  --color-accent-tint: var(--color-coral-tint);
+  --color-on-accent: var(--text-on-coral);
+  --color-focus: var(--color-teal);
+  --radius-sm: 6px;
+  --radius-md: var(--radius-input);
+  --radius-lg: var(--radius-card);
+  --space-7: 48px;
   --measure: 66ch;
-  --font-ui: var(--font-archivo), "Helvetica Neue", Arial, sans-serif;
+  --shadow-raised: var(--elevation-sm);
 
   color-scheme: light;
 }
 
-/* Same token names, dark values. Accent lightens and carries ink text. */
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --color-ink: #ece7df;
-    --color-iron: #c6c1b9;
-    --color-graphite: #9ba1a7;
-    --color-stone: #7c8288;
-    --color-line: #2e3236;
-    --color-line-strong: #3c4146;
-    --color-surface: #1b1e20;
-    --color-paper: #121415;
-    --color-paper-sunk: #191c1e;
-    --color-accent: #e2703f;
-    --color-accent-press: #c85c2e;
-    --color-accent-tint: #2a1f19;
-    --color-on-accent: #16181a;
-    --color-focus: #6bb7d4;
-    color-scheme: dark;
-  }
-}
-
-:root[data-theme="dark"] {
-  --color-ink: #ece7df;
-  --color-iron: #c6c1b9;
-  --color-graphite: #9ba1a7;
-  --color-stone: #7c8288;
-  --color-line: #2e3236;
-  --color-line-strong: #3c4146;
-  --color-surface: #1b1e20;
-  --color-paper: #121415;
-  --color-paper-sunk: #191c1e;
-  --color-accent: #e2703f;
-  --color-accent-press: #c85c2e;
-  --color-accent-tint: #2a1f19;
-  --color-on-accent: #16181a;
-  --color-focus: #6bb7d4;
-  color-scheme: dark;
-}
-
 @theme inline {
   --color-ink: var(--color-ink);
-  --color-iron: var(--color-iron);
-  --color-graphite: var(--color-graphite);
-  --color-stone: var(--color-stone);
-  --color-line: var(--color-line);
-  --color-line-strong: var(--color-line-strong);
-  --color-surface: var(--color-surface);
   --color-paper: var(--color-paper);
-  --color-paper-sunk: var(--color-paper-sunk);
-  --color-accent: var(--color-accent);
-  --color-accent-press: var(--color-accent-press);
-  --color-accent-tint: var(--color-accent-tint);
-  --color-on-accent: var(--color-on-accent);
+  --color-coral: var(--color-coral);
+  --color-teal: var(--color-teal);
+  --color-stone: var(--color-stone);
+  --color-cloud: var(--color-cloud);
   --font-sans: var(--font-ui);
 }
 
@@ -101,27 +98,37 @@
   box-sizing: border-box;
 }
 
+html,
 body {
   margin: 0;
-  background: var(--color-paper-sunk);
+}
+
+body {
+  background: var(--color-paper);
   color: var(--color-ink);
   font-family: var(--font-ui);
-  text-wrap: pretty;
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  text-wrap: pretty;
 }
 
 a {
-  color: var(--color-accent);
-  text-underline-offset: 3px;
+  color: var(--color-teal);
+  text-decoration: none;
 }
 
 a:hover {
-  color: var(--color-accent-press);
+  color: var(--color-ink);
+}
+
+::selection {
+  background: var(--color-coral-tint);
 }
 
 :where(button, input, [tabindex], a):focus-visible {
-  outline: 2px solid var(--color-focus);
-  outline-offset: 2px;
+  outline: 2px solid var(--color-teal);
+  outline-offset: 3px;
+  border-radius: 4px;
 }
 
 .skip-link {
@@ -130,7 +137,7 @@ a:hover {
   top: -100px;
   z-index: 100;
   padding: 10px 16px;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-button);
   background: var(--color-ink);
   color: var(--color-paper);
   font-weight: 600;
@@ -139,4 +146,5 @@ a:hover {
 
 .skip-link:focus {
   top: 8px;
+  color: var(--color-paper);
 }

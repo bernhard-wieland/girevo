@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { headerNav } from "@/lib/nav";
-import { KettlebellMark } from "./KettlebellMark";
 import styles from "./SiteChrome.module.css";
 
 export default function SiteHeader() {
@@ -13,8 +12,8 @@ export default function SiteHeader() {
     <header className={styles.header}>
       <div className={styles.headerInner}>
         <Link href="/" className={styles.brand}>
-          <KettlebellMark />
           <span className={styles.brandName}>girevo</span>
+          <span className={styles.brandDot} />
         </Link>
         <nav className={styles.nav}>
           {headerNav().map((n) => {

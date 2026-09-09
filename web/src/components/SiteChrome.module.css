@@ -1,93 +1,119 @@
-/* Shared site header + footer. */
+/* Jetzo site header + footer. */
 
 .header {
-  border-bottom: 1px solid var(--color-line);
-  background: var(--color-paper);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(250, 247, 242, 0.88);
+  backdrop-filter: saturate(150%) blur(8px);
+  border-bottom: 1px solid var(--color-cloud);
 }
 
 .headerInner {
   max-width: 1120px;
   margin: 0 auto;
-  padding: 12px 20px;
+  padding: 10px clamp(20px, 4vw, 40px);
+  min-height: 72px;
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
   align-items: center;
   justify-content: space-between;
+  gap: 8px 24px;
 }
 
 .brand {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  text-decoration: none;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 5px;
+  color: var(--color-ink);
+}
+
+.brand:hover {
   color: var(--color-ink);
 }
 
 .brandName {
-  font-size: 18px;
+  font-family: var(--font-display);
   font-weight: 700;
-  letter-spacing: -0.3px;
+  font-size: 21px;
+  letter-spacing: -0.6px;
+}
+
+.brandDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--color-coral);
+  display: inline-block;
 }
 
 .nav {
   display: flex;
-  flex-wrap: wrap;
-  gap: 4px;
   align-items: center;
+  gap: clamp(2px, 1.5vw, 10px);
 }
 
 .navLink {
   display: inline-flex;
   align-items: center;
-  min-height: 44px;
-  padding: 0 12px;
+  height: 44px;
+  padding: 0 10px;
   font-size: 15px;
-  font-weight: 600;
-  text-decoration: none;
-  color: var(--color-ink);
+  font-weight: 500;
+  color: var(--color-stone);
 }
 
 .navLink:hover {
-  color: var(--color-accent);
+  color: var(--color-ink);
 }
 
 .navLinkActive {
   composes: navLink;
-  color: var(--color-accent);
-  box-shadow: inset 0 -2px 0 var(--color-accent);
+  color: var(--color-ink);
+  font-weight: 600;
 }
 
+/* footer */
+
 .footer {
-  border-top: 1px solid var(--color-line);
-  background: var(--color-paper-sunk);
+  border-top: 1px solid var(--color-cloud);
 }
 
 .footerInner {
   max-width: 1120px;
   margin: 0 auto;
-  padding: 24px 20px 40px;
+  padding: 32px clamp(20px, 4vw, 40px) 48px;
   display: flex;
   flex-wrap: wrap;
-  gap: 12px 16px;
+  gap: 12px 20px;
   align-items: baseline;
   justify-content: space-between;
   font-size: 14px;
-  color: var(--color-graphite);
+  color: var(--color-stone);
 }
 
 .footerLinks {
   display: flex;
-  gap: 16px;
+  gap: 20px;
   flex-wrap: wrap;
+}
+
+.footerLinks a,
+.footerLegal a {
+  color: var(--color-stone);
+}
+
+.footerLinks a:hover,
+.footerLegal a:hover {
+  color: var(--color-ink);
 }
 
 .footerLegal {
   display: flex;
-  gap: 16px;
+  gap: 20px;
   flex-wrap: wrap;
   flex-basis: 100%;
-  padding-top: 12px;
-  border-top: 1px solid var(--color-line);
-  color: var(--color-stone);
+  padding-top: 14px;
+  border-top: 1px solid var(--color-cloud);
+  font-size: 13px;
 }

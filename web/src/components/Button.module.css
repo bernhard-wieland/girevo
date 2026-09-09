@@ -1,0 +1,80 @@
+/* Jetzo Button — primary = coral + ink text (never white on coral). */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: none;
+  border-radius: var(--radius-button);
+  font-family: var(--font-ui);
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+  text-decoration: none;
+  transition:
+    background-color 0.16s ease-out,
+    transform 0.12s ease-out,
+    opacity 0.16s ease-out;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.large {
+  height: 52px;
+  padding: 0 22px;
+  font-size: 16px;
+}
+
+.small {
+  height: 40px;
+  padding: 0 16px;
+  font-size: 15px;
+}
+
+.full {
+  width: 100%;
+}
+
+.primary {
+  background: var(--color-coral);
+  color: var(--color-ink);
+}
+
+.primary:hover {
+  background: var(--color-coral-press);
+  color: var(--color-ink);
+}
+
+.secondary {
+  background: transparent;
+  color: var(--color-teal);
+  border: 1.5px solid var(--color-teal);
+}
+
+.secondary:hover {
+  color: var(--color-teal);
+  background: var(--color-coral-tint);
+}
+
+.tertiary {
+  background: transparent;
+  color: var(--color-teal);
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.tertiary:hover {
+  color: var(--color-ink);
+}
+
+.btn:disabled {
+  background: var(--color-cloud);
+  color: var(--color-stone);
+  cursor: not-allowed;
+  transform: none;
+}
