@@ -6,17 +6,36 @@ import {
   ratgeber as r,
   RATGEBER_UPDATED,
 } from "@/content/de/ratgeber";
+import { articleLd, jsonLd } from "@/lib/structuredData";
+import { og } from "@/lib/meta";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
   title: { absolute: `${r.meta.title} — girevo Ratgeber` },
   description: r.meta.description,
   alternates: { canonical: "/ratgeber" },
+  openGraph: og({
+    type: "article",
+    title: r.meta.title,
+    description: r.meta.description,
+    url: "/ratgeber",
+  }),
 };
 
 export default function RatgeberPage() {
   return (
     <div className={styles.wrap}>
+      <script
+        {...jsonLd(
+          articleLd({
+            path: "/ratgeber",
+            headline: r.meta.title,
+            description: r.meta.description,
+            datePublished: RATGEBER_UPDATED,
+            dateModified: RATGEBER_UPDATED,
+          }),
+        )}
+      />
       <header className={styles.head}>
         <div className={styles.metaLine}>
           <span>{r.kicker}</span>

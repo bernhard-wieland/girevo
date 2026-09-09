@@ -1,15 +1,19 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { home } from "@/content/de/home";
+import { og } from "@/lib/meta";
 import styles from "./page.module.css";
 
+const title =
+  "girevo — Kettlebell-Einstieg: Startgewicht und die ersten Wochen";
+const description =
+  "Kein Programm, kein Konto. Bestimme dein Kettlebell-Startgewicht per Selbsttest und finde die wenigen Übungen, die für den Anfang zählen.";
+
 export const metadata: Metadata = {
-  title: {
-    absolute: "girevo — Kettlebell-Einstieg: Startgewicht und die ersten Wochen",
-  },
-  description:
-    "Kein Programm, kein Konto. Bestimme dein Kettlebell-Startgewicht per Selbsttest und finde die wenigen Übungen, die für den Anfang zählen.",
+  title: { absolute: title },
+  description,
   alternates: { canonical: "/" },
+  openGraph: og({ title, description, url: "/" }),
 };
 
 export default function Home() {

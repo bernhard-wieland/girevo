@@ -2,12 +2,18 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { kaufberatung as k } from "@/content/de/kaufberatung";
 import { AFFILIATE_READY } from "@/lib/affiliate";
+import { og } from "@/lib/meta";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
   title: { absolute: `${k.meta.title} — girevo` },
   description: k.meta.description,
   alternates: { canonical: "/kettlebell-kaufen" },
+  openGraph: og({
+    title: k.meta.title,
+    description: k.meta.description,
+    url: "/kettlebell-kaufen",
+  }),
 };
 
 export default function KaufberatungPage() {

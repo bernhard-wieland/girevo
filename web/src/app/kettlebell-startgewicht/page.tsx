@@ -1,13 +1,21 @@
 import type { Metadata } from "next";
 import WeightFinderWizard from "@/components/WeightFinderWizard";
 import { bandRows, copy } from "@/content/de/weightFinder";
+import { og } from "@/lib/meta";
 import styles from "./page.module.css";
+
+const description =
+  "Welche Kettlebell zum Anfangen? Ein Selbsttest ohne Gewicht nennt dir einen Gewichtsbereich statt einer festen Zahl — abgestimmt auf deine Grundbewegungen und deinen Schwerpunkt.";
 
 export const metadata: Metadata = {
   title: "Kettlebell-Startgewicht per Selbsttest bestimmen",
-  description:
-    "Welche Kettlebell zum Anfangen? Ein Selbsttest ohne Gewicht nennt dir einen Gewichtsbereich statt einer festen Zahl — abgestimmt auf deine Grundbewegungen und deinen Schwerpunkt.",
+  description,
   alternates: { canonical: "/kettlebell-startgewicht" },
+  openGraph: og({
+    title: "Kettlebell-Startgewicht per Selbsttest bestimmen",
+    description,
+    url: "/kettlebell-startgewicht",
+  }),
 };
 
 export default function KettlebellStartgewichtPage() {

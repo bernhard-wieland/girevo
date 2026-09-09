@@ -45,6 +45,12 @@ Pages built (dev): `/` (home), `/kettlebell-startgewicht` (finder), `/kettlebell
 Not built yet: `/uebungen` (exercises), legal pages (Impressum/Datenschutz — required in DE
 before public promotion, §8 legal round), the .NET web host, DB-driven routing.
 
+SEO/launch wiring: `src/lib/meta.ts` `og()` (per-page OpenGraph — Next shallow-merges, so
+rebuild the whole object), `src/lib/structuredData.ts` (JSON-LD: Organization + WebSite site-wide,
+Article on `/ratgeber`), `src/app/icon.svg`+`icon.png` (favicon), `public/og.png` (1200×630 social
+card — regenerate from `docs/`-style SVG if the tagline changes), `src/app/not-found.tsx`,
+`sitemap.ts` + `robots.ts`.
+
 ## Commands
 
 Weight finder / web (`cd web`):
