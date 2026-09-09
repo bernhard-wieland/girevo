@@ -18,11 +18,16 @@ Very early. Two codebases, one repo:
   - `src/KettlebellFinder.Domain/` — the rule engine (`WeightFinder.cs`) implementing spec D.2.
   - `tests/KettlebellFinder.Domain.Tests/` — xUnit, one test per row of the verified D.2 table.
 
+- **`db/`** — PostgreSQL content schema (`schema.sql` = DDL + structural seed;
+  `seed_draft_de.sql` = German draft copy owned by the content pass). Covers content pages,
+  the buyer's-guide tier/type structure, and a thin product/affiliate placeholder. Not wired to
+  an app yet. See `db/README.md` for conventions and open decisions.
+
 Also present: `docs/weight-finder-rules.md` — the deterministic rule spec for the free weight
 finder. **This is the single source of truth for the weight-finder logic**; both the C# and the TS
 implementations are subordinate to its section D.2.
 
-Not built yet: SSR content pages beyond the weight finder, SQL schema, the .NET web host.
+Not built yet: SSR content pages beyond the weight finder, the .NET web host, DB-driven routing.
 
 ## Commands
 
@@ -122,9 +127,8 @@ surfaced on the free weight finder / buyer's guide.
 
 1. `weight-finder-rules.md` — rule spec (DONE, in `docs/`).
 2. Rule engine implemented + tests (DONE: `src/KettlebellFinder.Domain`, `tests/KettlebellFinder.Domain.Tests`).
-3. Minimal SQL schema with translation tables — only what the content pages need. NOT STARTED.
-   (The weight finder needs no DB — spec D: client-side calc, nothing persisted. This schema is
-   for the buyer's guide and later content pages.)
+3. Minimal SQL schema with translation tables — only what the content pages need. DONE (draft):
+   `db/schema.sql`. Not applied by any app yet. (The weight finder needs no DB — spec D.)
 4. **Weight finder page (SSR) — ship this FIRST, before anything else.** Starts the §10 clock.
    DONE (dev): `web/src/app/kettlebell-startgewicht/`. Not deployed yet.
 5. Buyer's guide page (SSR) — info content + tier structure (Budget = cast iron /
