@@ -16,10 +16,10 @@
 
 .eyebrow {
   font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 1.6px;
+  font-weight: 600;
+  letter-spacing: 1.8px;
   text-transform: uppercase;
-  color: var(--color-stone);
+  color: var(--color-coral);
 }
 
 .h1 {
@@ -47,10 +47,33 @@
 
 .h2 {
   margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
   font-family: var(--font-display);
   font-weight: 600;
   font-size: clamp(22px, 2.6vw, 28px);
   letter-spacing: -0.7px;
+}
+
+.h2::before {
+  content: "";
+  flex: 0 0 auto;
+  width: 22px;
+  height: 4px;
+  border-radius: var(--radius-pill);
+  background: var(--color-coral);
+}
+
+.cardIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-image);
+  background: var(--color-coral-tint);
+  color: var(--color-coral);
 }
 
 .h3 {
@@ -93,9 +116,6 @@
   min-width: 0;
 }
 
-.card svg {
-  color: var(--color-ink);
-}
 
 .kicker {
   font-size: 11px;

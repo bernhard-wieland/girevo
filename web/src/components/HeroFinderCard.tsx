@@ -1,11 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { ButtonLink } from "@/components/Button";
 import { home } from "@/content/de/home";
 import { bandRows, trainingBackgroundOptions } from "@/content/de/weightFinder";
-import styles from "@/app/page.module.css";
+import styles from "./HeroFinderCard.module.css";
 
 const cx = (...c: (string | false)[]) => c.filter(Boolean).join(" ");
 
@@ -49,10 +49,10 @@ export default function HeroFinderCard() {
         </div>
       )}
 
-      <Link href={heroCard.href} className={styles.cardCta}>
+      <ButtonLink href={heroCard.href} fullWidth>
         {heroCard.cta}
-        <ArrowRight size={18} strokeWidth={1.75} aria-hidden="true" />
-      </Link>
+        <ArrowRight size={18} strokeWidth={2} aria-hidden="true" />
+      </ButtonLink>
     </div>
   );
 }

@@ -1,0 +1,113 @@
+.card {
+  background: var(--surface-card);
+  border-radius: var(--radius-card);
+  box-shadow: var(--elevation-md);
+  padding: clamp(24px, 3.5vw, 32px);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 0;
+}
+
+.cardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: var(--color-coral);
+}
+
+.progress {
+  display: inline-flex;
+  gap: 4px;
+}
+
+.progressDot {
+  width: 18px;
+  height: 3px;
+  border-radius: var(--radius-pill);
+  background: var(--color-cloud);
+}
+
+.progressDotOn {
+  background: var(--color-coral);
+}
+
+.cardQ {
+  margin: 0;
+  font-size: 21px;
+  line-height: 29px;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+}
+
+.cardExplain {
+  margin: 0;
+  font-size: 15px;
+  line-height: 23px;
+  color: var(--color-stone);
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.option {
+  font: inherit;
+  text-align: left;
+  padding: 13px 16px;
+  border-radius: var(--radius-input);
+  border: 1.5px solid var(--color-cloud);
+  background: var(--surface-card);
+  color: var(--color-ink);
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    border-color 0.15s ease-out,
+    background-color 0.15s ease-out;
+}
+
+.option:hover {
+  border-color: var(--color-stone);
+}
+
+.optionOn {
+  border-color: var(--color-coral);
+  background: var(--color-coral-tint);
+  font-weight: 600;
+}
+
+.peek {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 18px;
+  border-radius: var(--radius-input);
+  background: var(--color-coral-tint);
+}
+
+.peekRange {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(36px, 5vw, 44px);
+  line-height: 1.05;
+  letter-spacing: -1.6px;
+  color: var(--color-ink);
+}
+
+.peekNote {
+  margin: 0;
+  font-size: 14px;
+  line-height: 21px;
+  color: var(--color-stone);
+}

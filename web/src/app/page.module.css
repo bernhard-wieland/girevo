@@ -4,7 +4,7 @@
   padding: clamp(48px, 8vw, 88px) clamp(20px, 4vw, 40px) clamp(72px, 10vw, 120px);
   display: flex;
   flex-direction: column;
-  gap: clamp(64px, 9vw, 104px);
+  gap: clamp(56px, 8vw, 96px);
 }
 
 /* ── hero ─────────────────────────────────────────────────────────────── */
@@ -25,10 +25,10 @@
 
 .eyebrow {
   font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 1.6px;
+  font-weight: 600;
+  letter-spacing: 1.8px;
   text-transform: uppercase;
-  color: var(--color-stone);
+  color: var(--color-coral);
 }
 
 .h1 {
@@ -52,7 +52,7 @@
 .facts {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 12px;
   padding-top: 4px;
 }
 
@@ -64,130 +64,22 @@
   color: var(--color-ink);
 }
 
-.fact svg {
+.factIcon {
   flex: 0 0 auto;
-  color: var(--color-stone);
-}
-
-/* ── hero finder card ─────────────────────────────────────────────────── */
-
-.card {
-  background: var(--surface-card);
-  border-radius: var(--radius-card);
-  box-shadow: var(--elevation-md);
-  padding: clamp(24px, 3.5vw, 32px);
-  display: flex;
-  flex-direction: column;
-  gap: 22px;
-  min-width: 0;
-}
-
-.cardTop {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-}
-
-.progress {
-  display: inline-flex;
-  gap: 4px;
-}
-
-.progressDot {
-  width: 18px;
-  height: 3px;
-  border-radius: 999px;
-  background: var(--color-cloud);
-}
-
-.progressDotOn {
-  background: var(--color-coral);
-}
-
-.cardQ {
-  margin: 0;
-  font-size: 21px;
-  line-height: 29px;
-  font-weight: 600;
-  letter-spacing: -0.3px;
-}
-
-.cardExplain {
-  margin: 0;
-  font-size: 15px;
-  line-height: 23px;
-  color: var(--color-stone);
-}
-
-.options {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.option {
-  font: inherit;
-  text-align: left;
-  padding: 13px 16px;
-  border-radius: var(--radius-input);
-  border: 1.5px solid var(--color-cloud);
-  background: var(--surface-card);
-  color: var(--color-ink);
-  font-size: 15px;
-  font-weight: 500;
-  cursor: pointer;
-  transition:
-    border-color 0.15s ease-out,
-    background-color 0.15s ease-out;
-}
-
-.option:hover {
-  border-color: var(--color-stone);
-}
-
-.optionOn {
-  border-color: var(--color-coral);
-  background: var(--color-coral-tint);
-  font-weight: 600;
-}
-
-.peek {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  padding-top: 18px;
-  border-top: 1px solid var(--color-cloud);
-}
-
-.peekRange {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: clamp(36px, 5vw, 44px);
-  line-height: 1.05;
-  letter-spacing: -1.6px;
-}
-
-.peekNote {
-  margin: 0;
-  font-size: 14px;
-  line-height: 21px;
-  color: var(--color-stone);
-}
-
-.cardCta {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  height: 44px;
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--color-teal);
+  width: 30px;
+  height: 30px;
+  border-radius: var(--radius-pill);
+  background: var(--color-coral-tint);
+  color: var(--color-coral);
 }
 
-.cardCta:hover {
-  color: var(--color-ink);
+.heroArt {
+  width: clamp(180px, 28vw, 280px);
+  height: auto;
+  margin-top: 16px;
 }
 
 /* ── signposts ────────────────────────────────────────────────────────── */
@@ -200,10 +92,21 @@
 
 .h2 {
   margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
   font-family: var(--font-display);
   font-weight: 600;
   font-size: clamp(22px, 2.6vw, 28px);
   letter-spacing: -0.7px;
+}
+
+.h2Mark {
+  flex: 0 0 auto;
+  width: 22px;
+  height: 4px;
+  border-radius: var(--radius-pill);
+  background: var(--color-coral);
 }
 
 .signposts {
@@ -219,7 +122,7 @@
   padding: 24px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
   color: var(--color-ink);
   min-width: 0;
   transition:
@@ -231,6 +134,25 @@ a.signpost:hover {
   box-shadow: var(--elevation-md);
   transform: translateY(-2px);
   color: var(--color-ink);
+}
+
+.signpostIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-image);
+}
+
+.signpostIcon.coral {
+  background: var(--color-coral-tint);
+  color: var(--color-coral);
+}
+
+.signpostIcon.teal {
+  background: var(--color-info-tint);
+  color: var(--color-teal);
 }
 
 .signpostHead {
@@ -289,14 +211,23 @@ a.signpost:hover {
 
 .essential {
   display: flex;
-  flex-direction: column;
-  gap: 8px;
+  gap: 16px;
+  align-items: flex-start;
   padding-top: 20px;
   border-top: 1px solid var(--color-cloud);
 }
 
+.essentialNum {
+  flex: 0 0 auto;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--color-coral);
+  padding-top: 2px;
+}
+
 .h3 {
-  margin: 0;
+  margin: 0 0 8px;
   font-size: 17px;
   font-weight: 600;
   letter-spacing: -0.2px;
@@ -310,14 +241,21 @@ a.signpost:hover {
 }
 
 .aside {
-  background: var(--surface-card);
+  background: var(--color-info-tint);
   border-radius: var(--radius-card);
-  box-shadow: var(--elevation-sm);
   padding: clamp(24px, 3vw, 28px);
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 16px;
   min-width: 0;
+}
+
+.asideEyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: var(--color-teal);
 }
 
 .summaryRow {
@@ -328,8 +266,15 @@ a.signpost:hover {
   line-height: 23px;
 }
 
-.summaryRow svg {
+.summaryCheck {
   flex: 0 0 auto;
-  margin-top: 2px;
-  color: var(--color-coral);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  margin-top: 1px;
+  border-radius: var(--radius-pill);
+  background: var(--color-teal);
+  color: var(--color-paper);
 }

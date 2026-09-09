@@ -70,7 +70,9 @@ export default function KaufberatungPage() {
             const Icon = CRITERIA_ICONS[c.icon] ?? Layers;
             return (
               <div key={c.title} className={styles.card}>
-                <Icon size={24} strokeWidth={1.75} aria-hidden="true" />
+                <span className={styles.cardIcon}>
+                  <Icon size={22} strokeWidth={1.9} aria-hidden="true" />
+                </span>
                 <span className={styles.kicker}>{c.kicker}</span>
                 <span className={styles.cardTitle}>{c.title}</span>
                 <span className={styles.cardText}>{c.text}</span>
