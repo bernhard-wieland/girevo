@@ -1,148 +1,312 @@
-// German content for the weight finder. One locale shipped (de); a future locale is a
-// sibling file with the same shape. No shipped string is hard-coded in a component (§4).
+// German content for the weight finder wizard. One locale shipped (de); a future
+// locale is a sibling file with the same shape. No shipped string is hard-coded in
+// a component (§4).
 //
 // §7 self-check for everything in this file:
 //  - no output is a bare number — always a condition plus a range
 //  - not one word about pain, complaints, injury, rehab, therapy, or seeing anyone
 //  - no body metrics are asked for
 //  - sex and age appear only as optional range modifiers
+//
+// The wizard collects the inputs of docs/weight-finder-rules.md D.2 (the frozen
+// spec). The visual design (Gewichtsfinder.dc.html) contributed the flow, tone and
+// layout; its prototype scoring is NOT used — resolveWeight() is.
 
 import type {
   AgeBand,
   Edge,
   Focus,
+  Sex,
   TrainingBackground,
   WeightRange,
 } from "@/lib/weightFinder";
 
-export const focusLabels: Record<Focus, string> = {
-  strength_press: "überwiegend Kraft und Drücken",
-  mixed: "gemischt",
-  conditioning_swings: "überwiegend Swings und Kondition",
-};
+export const STEP_LABELS = [
+  "Einstieg",
+  "Selbsttest",
+  "Dein Training",
+  "Optionale Angaben",
+  "Ergebnis",
+] as const;
 
-export const trainingBackgroundLabels: Record<TrainingBackground, string> = {
-  untrained: "kein regelmäßiges Training",
-  occasional: "gelegentlich aktiv",
-  active_no_strength: "regelmäßig aktiv, kein Krafttraining",
-  strength_trained: "regelmäßiges Krafttraining",
-};
+export type StepIndex = 0 | 1 | 2 | 3 | 4;
 
-export const sexLabels = {
-  unset: "keine Angabe",
-  female: "weiblich",
-  male: "männlich",
-} as const;
+// --- Option lists (engine value + German label) --------------------------------
 
-export const ageBandLabels: Record<AgeBand | "unset", string> = {
-  unset: "keine Angabe",
-  under_50: "unter 50",
-  age_50_plus: "50 oder älter",
-};
+export const focusOptions: { value: Focus; label: string; hint: string }[] = [
+  {
+    value: "strength_press",
+    label: "Kraft und Drücken über Kopf",
+    hint: "Military Press, Push Press, Halten über Kopf",
+  },
+  {
+    value: "mixed",
+    label: "Gemischt",
+    hint: "Swings, Squats und Drücken zu etwa gleichen Teilen",
+  },
+  {
+    value: "conditioning_swings",
+    label: "Swings und Kondition",
+    hint: "überwiegend Schwungübungen, wenig über Kopf",
+  },
+];
 
-export const techniqueMovements = [
+export const trainingBackgroundOptions: {
+  value: TrainingBackground;
+  label: string;
+}[] = [
+  { value: "untrained", label: "Kein regelmäßiges Training zurzeit" },
+  { value: "occasional", label: "Ab und zu aktiv, nichts Festes" },
+  { value: "active_no_strength", label: "Regelmäßig aktiv, aber kein Krafttraining" },
+  { value: "strength_trained", label: "Regelmäßiges Krafttraining" },
+];
+
+export const ageOptions: { value: AgeBand; label: string }[] = [
+  { value: "under_50", label: "Unter 50" },
+  { value: "age_50_plus", label: "50 oder älter" },
+];
+
+export const sexOptions: { value: Sex | null; label: string }[] = [
+  { value: "female", label: "Weiblich" },
+  { value: "male", label: "Männlich" },
+  { value: null, label: "Keine Angabe" },
+];
+
+// --- Static copy --------------------------------------------------------------
+
+export const movements = [
   {
     key: "squatClean",
     label: "Tiefe Kniebeuge",
-    detail:
-      "In die tiefe Hocke und wieder hoch, Fersen bleiben am Boden, der Rücken bleibt lang, die Bewegung bleibt kontrolliert.",
+    howTo:
+      "Füße etwa schulterbreit, Zehen leicht nach außen. So tief runter, wie es kontrolliert geht, Fersen bleiben am Boden. Wieder hoch.",
+    cleanMeans:
+      "Fersen bleiben unten, die Knie fallen nicht nach innen, der untere Rücken rundet sich nicht ein.",
   },
   {
     key: "hingeClean",
-    label: "Hüftbeuge (Hip Hinge)",
-    detail:
-      "Das Gesäß nach hinten schieben und den Oberkörper nach vorn neigen, Knie nur leicht gebeugt, der Rücken bleibt lang.",
+    label: "Hüftbeuge mit Besenstiel",
+    howTo:
+      "Besenstiel senkrecht am Rücken: Kopf, Schulterblätter und Kreuzbein berühren ihn. Becken nach hinten schieben, bis der Oberkörper etwa waagerecht ist, dann wieder aufrichten.",
+    cleanMeans:
+      "Der Stiel behält an allen drei Stellen Kontakt, die Bewegung kommt aus der Hüfte, nicht aus dem unteren Rücken.",
   },
   {
     key: "overheadClean",
     label: "Arme über den Kopf strecken",
-    detail:
-      "Beide Arme frei nach oben strecken, ohne dass du ins Hohlkreuz ausweichst oder die Rippen nach vorn kippst.",
+    howTo:
+      "Aufrecht stehen, beide Arme gerade nach oben strecken, bis die Oberarme neben den Ohren sind.",
+    cleanMeans:
+      "Die Arme kommen neben die Ohren, ohne dass die Rippen nach vorn kippen oder du ins Hohlkreuz ausweichst.",
   },
 ] as const;
 
+export type MovementKey = (typeof movements)[number]["key"];
+
 export const pressProxy = {
-  label: "Optionaler Drück-Test",
+  label: "Optionaler Zusatz-Check",
   detail:
-    "Einen vollen 5-Liter-Kanister (etwa 5 kg) einige Male sauber über den Kopf drücken. Nur drücken, nie schwingen. Lass diesen Test weg, wenn du dir unsicher bist.",
+    "Nur wenn du bei „Swings und Kondition“ bist: einen vollen 5-Liter-Kanister (etwa 5 kg) ein paar Mal sauber über den Kopf drücken. Nur drücken, nie schwingen. Lass ihn weg, wenn du unsicher bist.",
   checkboxLabel: "Den 5-kg-Kanister habe ich sauber über den Kopf gedrückt",
 };
 
-const rangeText = (range: WeightRange) => `${range.lowKg}–${range.highKg} kg`;
-
-const edgeHint: Record<Edge, string> = {
-  lower: "Fang an der unteren Kante des Bereichs an.",
-  upper: "Du kannst an der oberen Kante des Bereichs anfangen.",
-  either: "Wo im Bereich du anfängst, kannst du nach deinem Schwerpunkt wählen: eher unten, wenn du viel über Kopf drücken willst, eher oben, wenn du vor allem schwingen willst.",
-};
-
-/**
- * Builds the §7-compliant recommendation text: always a condition, then a range, then an
- * edge hint. `techniqueClean` is false when at least one mandatory movement was marked
- * "noch nicht" — in that case the extra, value-neutral technique line is appended.
- */
-export function recommendationText(args: {
-  range: WeightRange;
-  edge: Edge;
-  trainingBackground: TrainingBackground;
-  techniqueClean: boolean;
-}): { headline: string; body: string; techniqueNote: string | null } {
-  const backgroundClause = {
-    untrained: "aktuell nicht regelmäßig trainierst",
-    occasional: "gelegentlich aktiv bist",
-    active_no_strength: "regelmäßig aktiv bist, aber kein Krafttraining machst",
-    strength_trained: "regelmäßig Krafttraining machst",
-  }[args.trainingBackground];
-
-  return {
-    headline: `Für dich liegt eine Allzweck-Kettlebell im Bereich ${rangeText(args.range)}.`,
-    body: `Wenn du die drei Bewegungen sauber schaffst und ${backgroundClause}, ist das der Bereich, aus dem du deine erste Hantel wählst. ${edgeHint[args.edge]}`,
-    techniqueNote: args.techniqueClean
-      ? null
-      : "Weil eine der drei Bewegungen noch nicht rund läuft: Setz an der unteren Kante an und arbeite zuerst an der Technik. Wenn die Bewegungen sauber sitzen, kannst du im Bereich nach oben gehen.",
-  };
-}
-
 export const copy = {
-  h1: "Kettlebell-Startgewicht: welches ist deins?",
-  intro:
-    "Die passende erste Kettlebell hängt nicht von einer Tabelle mit Körpergewicht ab, sondern davon, wie sicher du dich in ein paar Grundbewegungen bewegst und was du mit der Hantel vorhast. Der Selbsttest unten braucht keine Kettlebell — du kannst ihn machen, bevor du eine kaufst.",
-  howItWorksTitle: "So funktioniert der Selbsttest",
-  howItWorksSteps: [
-    "Probiere die drei Bewegungen ohne Gewicht aus und markiere für jede, ob sie kontrolliert läuft oder noch nicht.",
-    "Wähle, was du vor allem trainieren willst und wie aktiv du gerade bist.",
-    "Du bekommst einen Gewichtsbereich statt einer einzelnen Zahl — plus einen Hinweis, wo im Bereich du für deinen Schwerpunkt anfängst.",
-  ],
-  whyRangeTitle: "Warum ein Bereich und keine feste Zahl",
-  whyRangeBody:
-    "Eine einzelne Kettlebell ist immer ein Kompromiss: Zum Schwingen dürfte sie schwerer sein, zum Drücken über Kopf leichter. Der begrenzende Faktor ist das Drücken. Deshalb nennt dir dieser Finder einen Bereich und überlässt dir die Feinwahl — je nachdem, ob du eher schwingen oder eher drücken willst.",
-  bandsTitle: "Die vier Grundbereiche",
-  bandsIntro:
-    "Ausgangspunkt ist, wie regelmäßig du dich gerade belastest. Fokus, Technik-Check und die optionalen Angaben verschieben dich innerhalb dieser Bereiche oder um höchstens einen Bereich.",
-  bandsDraftNote:
-    "Arbeitsstand: Die Struktur aus vier Bereichen steht. Die genauen kg-Grenzen werden vor der Veröffentlichung noch gegen mehrere Quellen geprüft.",
-  formTitle: "Dein Startgewicht bestimmen",
-  resultPlaceholder:
-    "Sobald du die drei Bewegungen und deinen Schwerpunkt gewählt hast, erscheint hier dein Bereich.",
-  fieldsetFocus: "Was willst du vor allem trainieren?",
-  fieldsetBackground: "Wie aktiv bist du gerade?",
-  fieldsetTechnique: "Technik-Check ohne Gewicht",
-  fieldsetTechniqueHint:
-    "Für jede Bewegung: läuft sie kontrolliert, oder noch nicht?",
-  techniqueClean: "läuft kontrolliert",
-  techniqueNotClean: "noch nicht",
-  fieldsetOptional: "Optional",
-  fieldsetOptionalHint:
-    "Beides ist freiwillig und verschiebt den Bereich nur leicht. Ohne Angabe rechnet der Finder neutral.",
-  labelSex: "Geschlecht",
-  labelAge: "Alter",
+  brandLine: "Kostenlos, ohne Anmeldung",
+
+  intro: {
+    eyebrow: "girevo · Gewichtsfinder",
+    h1: "Welches Kettlebell-Startgewicht passt zu dir?",
+    lead: "Du machst gleich einen kurzen Selbsttest — drei Bewegungen ohne Zusatzgewicht. Danach zwei kurze Fragen zu deinem Training. Am Ende bekommst du einen Gewichtsbereich, keine einzelne Zahl.",
+    whatToExpectTitle: "Was dich erwartet",
+    steps: [
+      {
+        n: "1",
+        title: "Drei Bewegungen, kein Gerät",
+        text: "Kniebeuge, Hüftbeuge, Arme über Kopf. Für jede hältst du fest, ob sie sauber läuft oder noch nicht.",
+      },
+      {
+        n: "2",
+        title: "Zwei Fragen zum Training",
+        text: "Was du vor allem trainieren willst und wie aktiv du gerade bist. Mehr braucht die Empfehlung nicht.",
+      },
+      {
+        n: "3",
+        title: "Bereich statt Zahl",
+        text: "Du bekommst eine Spanne in Kilogramm und die Begründung dazu, wovon die Wahl innerhalb der Spanne abhängt.",
+      },
+    ],
+    facts: ["Etwa 2 Minuten", "Kein Konto, keine E-Mail", "Nichts wird gespeichert"],
+    cta: "Selbsttest starten",
+  },
+
+  technique: {
+    h2: "Selbsttest: drei Bewegungen ohne Gewicht",
+    lead: "Diese drei Bewegungen stecken in fast jeder Kettlebell-Übung. Wie sauber sie ohne Gewicht laufen, sagt mehr über dein Startgewicht als jede Tabelle.",
+    doNowLabel: "Jetzt machen",
+    doNowHint: "Handy hinlegen, mitlesen",
+    cleanHeading: "Sauber heißt:",
+    optionClean: "läuft sauber",
+    optionNotClean: "noch nicht",
+    cta: "Weiter",
+  },
+
+  training: {
+    h2: "Zwei Fragen zu deinem Training",
+    lead: "Beides bestimmt, in welchem Bereich du landest — die Aktivität am stärksten.",
+    focusLabel: "Was willst du vor allem trainieren?",
+    backgroundLabel: "Wie aktiv bist du gerade?",
+    cta: "Weiter",
+  },
+
+  optional: {
+    eyebrow: "Optional",
+    h2: "Zwei Angaben, die den Bereich schärfen",
+    lead: "Beides kannst du weglassen. Ohne Angaben bekommst du denselben Bereich, nur etwas breiter.",
+    ageLabel: "Alter",
+    sexLabel: "Geschlecht",
+    sexNote:
+      "Wird nur benutzt, um Erfahrungswerte aus Anfängerkursen einzuordnen. Nichts davon wird gespeichert oder verschickt.",
+    optionalTag: "optional",
+    cta: "Bereich anzeigen",
+    skip: "Ohne Angaben weiter",
+  },
+
+  result: {
+    eyebrow: "Dein Startbereich",
+    factorsUnset: "ohne optionale Angaben",
+    rulesTitle: "Wovon die Wahl im Bereich abhängt",
+    secondWeight: {
+      title: "Zweites Gewicht später",
+      text: "Die meisten kommen nach sechs bis acht Wochen mit einer zweiten Kettlebell weiter — üblicherweise vier Kilogramm über der ersten. Kein Grund, heute schon zwei zu kaufen.",
+    },
+    techniqueNote:
+      "Weil eine der drei Bewegungen noch nicht sauber läuft: Setz an der unteren Kante an und arbeite zuerst an der Technik. Wenn die Bewegungen sitzen, kannst du im Bereich nach oben gehen.",
+    ageNote:
+      "Für einen Start ohne regelmäßiges Training zählt hier die untere Kante — es geht schneller nach oben, als du denkst.",
+    restart: "Test wiederholen",
+    back: "Angaben ändern",
+    buy: {
+      h3: "Wenn du jetzt kaufst",
+      intro:
+        "Drei Wege, sortiert nach Situation — nicht nach Preis. Die Links sind Affiliate-Links; für dich ändert sich am Preis nichts.",
+      cta: "Zum Kaufratgeber",
+      disclosure:
+        "girevo verkauft nichts selbst und empfiehlt keine Marke, die wir nicht selbst in der Hand hatten.",
+    },
+  },
+
+  nav: {
+    back: "Zurück",
+    counter: (step: number, total: number) => `Schritt ${step} von ${total}`,
+  },
+
   disclaimerNote:
     "Dieser Finder rechnet komplett in deinem Browser. Es wird nichts gespeichert und nichts übertragen.",
+
+  // Server-rendered evergreen section below the wizard (SEO — the only channel).
+  page: {
+    aboveTitle: "Kettlebell-Startgewicht",
+    whyRangeTitle: "Warum ein Bereich und keine feste Zahl",
+    whyRangeBody:
+      "Eine einzelne Kettlebell ist immer ein Kompromiss: Zum Schwingen dürfte sie schwerer sein, zum Drücken über Kopf leichter. Der begrenzende Faktor ist das Drücken. Deshalb nennt dir dieser Finder einen Bereich und überlässt dir die Feinwahl — je nachdem, ob du eher schwingst oder eher drückst.",
+    bandsTitle: "Die vier Grundbereiche",
+    bandsIntro:
+      "Ausgangspunkt ist, wie regelmäßig du dich gerade belastest. Der Technik-Check, dein Schwerpunkt und die optionalen Angaben verschieben dich innerhalb dieser Bereiche oder um höchstens einen Bereich.",
+    bandsDraftNote:
+      "Arbeitsstand: Die Struktur aus vier Bereichen steht. Die genauen kg-Grenzen werden vor der Veröffentlichung noch gegen mehrere Quellen geprüft.",
+    bandsHeadActivity: "Wie aktiv du gerade bist",
+    bandsHeadRange: "Bereich für eine Allzweck-Hantel",
+  },
 };
 
-export const bandRows: { background: TrainingBackground; range: string }[] = [
-  { background: "untrained", range: "8–10 kg" },
-  { background: "occasional", range: "10–12 kg" },
-  { background: "active_no_strength", range: "12–14 kg" },
-  { background: "strength_trained", range: "14–18 kg" },
+export const bandRows: { label: string; range: string }[] = [
+  { label: "kein regelmäßiges Training", range: "8–10 kg" },
+  { label: "gelegentlich aktiv", range: "10–12 kg" },
+  { label: "regelmäßig aktiv, kein Krafttraining", range: "12–14 kg" },
+  { label: "regelmäßiges Krafttraining", range: "14–18 kg" },
 ];
+
+// --- Result helpers ----------------------------------------------------------
+
+export const rangeText = (r: WeightRange) => `${r.lowKg}–${r.highKg} kg`;
+
+const half = (r: WeightRange) => {
+  const mid = (r.lowKg + r.highKg) / 2;
+  return { low: `${r.lowKg}–${mid} kg`, high: `${mid}–${r.highKg} kg` };
+};
+
+export function resultLead(range: WeightRange): string {
+  return `Alles innerhalb von ${rangeText(
+    range,
+  )} ist für deinen Start eine vernünftige Wahl. Der Bereich ist keine Unschärfe — er deckt ab, dass eine Kettlebell für Schwungübungen schwerer sein darf als für Druck- und Halteübungen.`;
+}
+
+export function resultCallout(range: WeightRange): string {
+  return `Innerhalb von ${rangeText(
+    range,
+  )} entscheidet die Übung, nicht der Katalog. Fang am unteren Ende an, wenn du zuerst die Bewegung sauber haben willst.`;
+}
+
+export function resultRules(range: WeightRange): { title: string; text: string }[] {
+  const h = half(range);
+  return [
+    {
+      title: `Unteres Ende (${h.low})`,
+      text: "Wenn du die Bewegung erst sauber bekommen willst, überwiegend über Kopf oder einarmig drückst oder länger als vier Wochen nicht trainiert hast.",
+    },
+    {
+      title: `Oberes Ende (${h.high})`,
+      text: "Wenn der Selbsttest glatt lief, du zwei- bis dreimal pro Woche trainieren willst und mit Schwungübungen anfängst.",
+    },
+    copy.result.secondWeight,
+  ];
+}
+
+export function buyOptions(range: WeightRange): {
+  title: string;
+  price: string;
+  criterion: string;
+  detail: string;
+}[] {
+  const h = half(range);
+  return [
+    {
+      title: `Eine Kettlebell, unteres Ende (${h.low})`,
+      price: "ca. 30–55 €",
+      criterion:
+        "du zum ersten Mal mit Kettlebells arbeitest und erst die Bewegung willst.",
+      detail:
+        "Gusseisen am Stück, pulverbeschichteter Griff, keine Schweißnaht in der Handfläche. Griffdurchmesser 33–35 mm.",
+    },
+    {
+      title: `Zwei Gewichte über den Bereich (${rangeText(range)})`,
+      price: "ca. 70–110 €",
+      criterion:
+        "du sicher bist, dass du dranbleibst, und Platz zum Abstellen hast.",
+      detail:
+        "Je eine Kettlebell am unteren und am oberen Ende. Deckt leichte und schwere Übungen ab dem ersten Tag ab und ist zusammen meist günstiger als zwei Einzelbestellungen.",
+    },
+    {
+      title: "Verstellbare Kettlebell",
+      price: "ca. 90–160 €",
+      criterion:
+        "du in einer Wohnung wenig Stellfläche hast oder das Gerät wegräumen musst.",
+      detail:
+        "Ein Korpus, mehrere Stufen. Etwas klobiger im Griff — für Schwungübungen prüfen, ob der Verschluss ruhig bleibt.",
+    },
+  ];
+}
+
+/** Which advisory note (if any) to show, derived the same way as spec D.2. */
+export function advisoryNote(args: {
+  edge: Edge;
+  techniqueClean: boolean;
+  trainingBackground: TrainingBackground;
+  ageBand: AgeBand | null;
+}): string | null {
+  if (!args.techniqueClean) return copy.result.techniqueNote;
+  if (args.ageBand === "age_50_plus" && args.trainingBackground === "untrained") {
+    return copy.result.ageNote;
+  }
+  return null;
+}

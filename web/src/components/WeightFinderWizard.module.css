@@ -1,0 +1,662 @@
+/* girevo Gewichtsfinder wizard — styling per Style Tile 01.
+   8-pt grid, hairlines over shadows, one accent reserved for actions. */
+
+.frame {
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+  background: var(--color-paper);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.frameResult {
+  max-width: 920px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--color-line);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.brand svg {
+  stroke: var(--color-ink);
+}
+
+.brandName {
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+}
+
+.brandLine {
+  font-size: 13px;
+  color: var(--color-graphite);
+}
+
+.body {
+  padding: 20px;
+}
+
+/* --- progress --------------------------------------------------------------- */
+
+.progress {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.progressTrack {
+  display: flex;
+  gap: 6px;
+}
+
+.seg {
+  height: 4px;
+  flex: 1;
+  border-radius: var(--radius-pill);
+  background: var(--color-line);
+}
+
+.segOn {
+  background: var(--color-accent);
+}
+
+.stepMeta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: var(--color-graphite);
+}
+
+/* --- step shell ------------------------------------------------------------- */
+
+.step {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.stepHead {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.eyebrow {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  min-height: 26px;
+  padding: 0 10px;
+  border-radius: var(--radius-sm);
+  background: var(--color-paper-sunk);
+  border: 1px solid var(--color-line-strong);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--color-graphite);
+}
+
+.h1 {
+  margin: 0;
+  font-size: 30px;
+  line-height: 1.15;
+  letter-spacing: -0.6px;
+  font-weight: 700;
+}
+
+.h2 {
+  margin: 0;
+  font-size: 26px;
+  line-height: 1.2;
+  letter-spacing: -0.4px;
+  font-weight: 700;
+}
+
+.h3 {
+  margin: 0;
+  font-size: 19px;
+  font-weight: 600;
+}
+
+.lead {
+  margin: 0;
+  font-size: 17px;
+  line-height: 28px;
+  color: var(--color-graphite);
+  max-width: var(--measure);
+}
+
+.smallNote {
+  font-size: 14px;
+  line-height: 21px;
+  color: var(--color-stone);
+  max-width: var(--measure);
+}
+
+/* --- cards ---------------------------------------------------------------- */
+
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.cardStrong {
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-ink);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.sectionLabel {
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-stone);
+  font-weight: 600;
+}
+
+/* numbered list (intro "what to expect", protocol) */
+
+.numItem {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.numBadge {
+  flex: 0 0 auto;
+  width: 26px;
+  height: 26px;
+  border-radius: var(--radius-pill);
+  border: 1.5px solid var(--color-ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.numBody {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.numTitle {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.numText {
+  font-size: 15px;
+  line-height: 23px;
+  color: var(--color-graphite);
+}
+
+/* fact chips (non-interactive) */
+
+.chipRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.factChip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 0 14px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-line-strong);
+  font-size: 14px;
+  color: var(--color-graphite);
+}
+
+/* --- buttons ------------------------------------------------------------- */
+
+.btnPrimary {
+  font: inherit;
+  font-size: 17px;
+  font-weight: 600;
+  min-height: 52px;
+  padding: 14px 24px;
+  border-radius: var(--radius-md);
+  border: none;
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+  cursor: pointer;
+  width: 100%;
+}
+
+.btnPrimary:hover {
+  background: var(--color-accent-press);
+}
+
+.btnSecondary {
+  font: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  min-height: 48px;
+  padding: 0 20px;
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--color-ink);
+  background: transparent;
+  color: var(--color-ink);
+  cursor: pointer;
+}
+
+.btnSecondary:hover {
+  background: var(--color-paper-sunk);
+}
+
+.btnGhost {
+  font: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  min-height: 44px;
+  padding: 0 4px;
+  border: none;
+  background: transparent;
+  color: var(--color-graphite);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  align-self: flex-start;
+}
+
+.btnGhostAccent {
+  composes: btnGhost;
+  color: var(--color-accent);
+}
+
+.navRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* --- selectable options (chips) --------------------------------------------- */
+
+.optionGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.optionGroupLabel {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.optionGroupLabel .opt {
+  font-size: 14px;
+  color: var(--color-stone);
+  font-weight: 400;
+  margin-left: 8px;
+}
+
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.option {
+  font: inherit;
+  min-height: 48px;
+  padding: 8px 18px;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-ink);
+  border: 1px solid var(--color-line-strong);
+  background: var(--color-surface);
+  text-align: left;
+}
+
+.optionOn {
+  border: 1.5px solid var(--color-ink);
+  background: var(--color-accent-tint);
+}
+
+.optionStack {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.optionStack .option {
+  border-radius: var(--radius-md);
+}
+
+.optionHint {
+  display: block;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--color-graphite);
+  margin-top: 2px;
+}
+
+/* --- technique step ------------------------------------------------------- */
+
+.doNow {
+  padding: 12px 16px;
+  background: var(--color-ink);
+  color: var(--color-paper);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.doNowLabel {
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.doNowHint {
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+.movement {
+  border-top: 1px solid var(--color-line);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.movement:first-of-type {
+  border-top: none;
+}
+
+.movementTitle {
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.movementText {
+  font-size: 15px;
+  line-height: 23px;
+  color: var(--color-graphite);
+}
+
+.cleanMeans {
+  font-size: 15px;
+  line-height: 23px;
+  color: var(--color-ink);
+}
+
+.cleanMeans strong {
+  font-weight: 700;
+}
+
+.toggle {
+  display: flex;
+  gap: 8px;
+  margin-top: 2px;
+}
+
+.toggleBtn {
+  font: inherit;
+  flex: 1;
+  min-height: 46px;
+  padding: 0 12px;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-ink);
+  border: 1px solid var(--color-line-strong);
+  background: var(--color-surface);
+}
+
+.toggleOn {
+  border: 1.5px solid var(--color-ink);
+  background: var(--color-accent-tint);
+}
+
+.checkRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 15px;
+  cursor: pointer;
+  line-height: 22px;
+}
+
+.checkRow input {
+  margin-top: 3px;
+  accent-color: var(--color-accent);
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+}
+
+.dashed {
+  border: 1px dashed var(--color-line-strong);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* --- result step -------------------------------------------------------- */
+
+.resultGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.resultMain {
+  flex: 1 1 320px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.resultAside {
+  flex: 1 1 280px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.readoutCard {
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-ink);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.readout {
+  font-size: 56px;
+  line-height: 56px;
+  font-weight: 700;
+  letter-spacing: -1.5px;
+  color: var(--color-ink);
+}
+
+.hr {
+  height: 1px;
+  background: var(--color-line);
+}
+
+.readoutLead {
+  margin: 0;
+  font-size: 17px;
+  line-height: 27px;
+  color: var(--color-ink);
+}
+
+.factChipSm {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0 12px;
+  border-radius: var(--radius-sm);
+  background: var(--color-paper-sunk);
+  border: 1px solid var(--color-line-strong);
+  font-size: 14px;
+  color: var(--color-graphite);
+}
+
+.ruleCard {
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ruleTitle {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.ruleText {
+  font-size: 15px;
+  line-height: 23px;
+  color: var(--color-graphite);
+}
+
+.callout {
+  background: var(--color-accent-tint);
+  border: 1px solid var(--color-line-strong);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  font-size: 15px;
+  line-height: 23px;
+  color: var(--color-ink);
+}
+
+.callout svg {
+  flex: 0 0 auto;
+  margin-top: 2px;
+  stroke: var(--color-ink);
+}
+
+.advisory {
+  background: var(--color-accent-tint);
+  border: 1px solid var(--color-line-strong);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  font-size: 15px;
+  line-height: 23px;
+  color: var(--color-ink);
+}
+
+.buyCard {
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.buyHead {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: baseline;
+}
+
+.buyTitle {
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.buyPrice {
+  font-size: 14px;
+  color: var(--color-stone);
+  white-space: nowrap;
+}
+
+.buyCriterion {
+  font-size: 15px;
+  line-height: 23px;
+  color: var(--color-graphite);
+}
+
+.buyCriterion strong {
+  color: var(--color-ink);
+}
+
+.buyDetail {
+  font-size: 14px;
+  line-height: 21px;
+  color: var(--color-stone);
+}
+
+.buyLink {
+  font-size: 15px;
+  font-weight: 600;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.disclaimer {
+  margin-top: 4px;
+  border-top: 1px solid var(--color-line);
+  padding-top: 12px;
+  font-size: 12px;
+  line-height: 18px;
+  color: var(--color-stone);
+}
+
+@media (max-width: 480px) {
+  .readout {
+    font-size: 44px;
+    line-height: 44px;
+  }
+  .h1 {
+    font-size: 26px;
+  }
+}

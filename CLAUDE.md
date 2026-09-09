@@ -12,6 +12,13 @@ Very early. Two codebases, one repo:
 
 - **`web/`** — Next.js (App Router, TypeScript, Tailwind). The React app = website + PWA. This is
   where the free weight finder and all SSR content pages live. Ships first (build order step 4).
+  - Design system: **"Gusseisen, kein Hochglanz"** (girevo brand) — warm-paper palette, one rust
+    accent reserved for actions, Archivo type, 8-pt grid, hairlines over shadows, light + dark.
+    Tokens in `src/app/globals.css` (`--color-*`, `--space-*`, `--radius-*`), sourced from the
+    Claude Design project (`Style Tile.dc.html`). New UI uses these tokens, not raw Tailwind colors.
+  - The weight finder is a 4→5-step client wizard (`src/components/WeightFinderWizard.tsx`) inside
+    an SSR page that also carries evergreen prose for indexing. All step copy is rendered in the
+    initial HTML (`hidden` toggles the active panel) so crawlers see it.
 - **`KettlebellFinder.slnx`** (.NET 10, the new XML solution format) — the C#/.NET backend, for the
   *paid* product (rule-based plan generator, recalculation, auth, payment) per the build order.
   Not wired to a host yet. Two projects:
@@ -130,7 +137,13 @@ surfaced on the free weight finder / buyer's guide.
 3. Minimal SQL schema with translation tables — only what the content pages need. DONE (draft):
    `db/schema.sql`. Not applied by any app yet. (The weight finder needs no DB — spec D.)
 4. **Weight finder page (SSR) — ship this FIRST, before anything else.** Starts the §10 clock.
-   DONE (dev): `web/src/app/kettlebell-startgewicht/`. Not deployed yet.
+   DONE (dev): `web/src/app/kettlebell-startgewicht/` — girevo-branded wizard.
+   Not deployed yet. NOTE: the Claude Design artboard (`Gewichtsfinder.dc.html`) proposed a
+   different rule model (rep-count self-test, 6 bands, 8–28 kg). That was NOT adopted — its
+   `<script>` scoring is prototype-quality and its kg numbers are unreviewed and skew heavy.
+   The wizard collects the frozen D.2 inputs and calls the verified `weightFinder.ts`. If the
+   rep-count model is ever wanted, it needs a proper spec rewrite + source-reviewed boundaries
+   first (working method: table + tests before implementation).
 5. Buyer's guide page (SSR) — info content + tier structure (Budget = cast iron /
    Mid = competition or coated / Premium = adjustable). Affiliate links added later. NOT STARTED.
 6. Search Console set up, §10 counter started. Needs a deployed site first.
