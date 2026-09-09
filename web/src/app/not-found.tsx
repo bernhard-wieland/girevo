@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { readyNav } from "@/lib/nav";
+import { footerNav } from "@/lib/nav";
 
 export default function NotFound() {
   return (
@@ -51,7 +51,7 @@ export default function NotFound() {
         <li>
           <Link href="/">Startseite</Link>
         </li>
-        {readyNav().map((n) => (
+        {footerNav().map((n) => (
           <li key={n.href}>
             <Link href={n.href}>{n.label}</Link>
           </li>

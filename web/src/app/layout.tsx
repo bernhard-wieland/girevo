@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Archivo } from "next/font/google";
 import "./globals.css";
 import SiteHeader from "@/components/SiteHeader";
@@ -31,13 +31,25 @@ export const metadata: Metadata = {
   twitter: { card: "summary_large_image", images: ["/og.png"] },
 };
 
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f4f1eb" },
+    { media: "(prefers-color-scheme: dark)", color: "#121415" },
+  ],
+};
+
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="de" className={`${archivo.variable} h-full`}>
       <body className="min-h-full flex flex-col">
         <script {...jsonLd([organizationLd(), websiteLd()])} />
+        <a href="#inhalt" className="skip-link">
+          Zum Inhalt springen
+        </a>
         <SiteHeader />
-        <div className="grow">{children}</div>
+        <div id="inhalt" className="grow">
+          {children}
+        </div>
         <SiteFooter />
       </body>
     </html>

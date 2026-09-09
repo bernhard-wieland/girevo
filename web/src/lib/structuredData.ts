@@ -40,6 +40,17 @@ export const articleLd = (args: {
   publisher: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
 });
 
+export const breadcrumbLd = (trail: { name: string; path: string }[]) => ({
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: trail.map((t, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    name: t.name,
+    item: `${SITE_URL}${t.path}`,
+  })),
+});
+
 /** Renders one or more JSON-LD objects as a script tag props object. */
 export const jsonLd = (data: object | object[]) => ({
   type: "application/ld+json",

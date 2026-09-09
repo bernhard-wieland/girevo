@@ -35,7 +35,7 @@ export const home = {
       title: "Übungen für die ersten Wochen",
       text: "Vier Bewegungen mit Ausführung, Zählweise und den häufigsten Ausführungsfehlern.",
       href: "/uebungen",
-      ready: false,
+      ready: true,
     },
     {
       title: "Ratgeber: Startgewicht",

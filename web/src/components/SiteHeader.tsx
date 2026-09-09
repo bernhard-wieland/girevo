@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { readyNav } from "@/lib/nav";
+import { headerNav } from "@/lib/nav";
 import { KettlebellMark } from "./KettlebellMark";
 import styles from "./SiteChrome.module.css";
 
@@ -17,7 +17,7 @@ export default function SiteHeader() {
           <span className={styles.brandName}>girevo</span>
         </Link>
         <nav className={styles.nav}>
-          {readyNav().map((n) => {
+          {headerNav().map((n) => {
             const active = pathname === n.href;
             return (
               <Link

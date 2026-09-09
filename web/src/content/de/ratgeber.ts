@@ -128,7 +128,7 @@ export const ratgeber = {
       label: "Weiter",
       title: "Vier Übungen für die ersten Wochen",
       href: "/uebungen",
-      ready: false,
+      ready: true,
     },
   ],
   soonTag: "bald",

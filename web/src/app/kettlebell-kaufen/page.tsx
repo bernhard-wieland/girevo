@@ -3,6 +3,7 @@ import Link from "next/link";
 import { kaufberatung as k } from "@/content/de/kaufberatung";
 import { AFFILIATE_READY } from "@/lib/affiliate";
 import { og } from "@/lib/meta";
+import { breadcrumbLd, jsonLd } from "@/lib/structuredData";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -19,6 +20,14 @@ export const metadata: Metadata = {
 export default function KaufberatungPage() {
   return (
     <main className={styles.main}>
+      <script
+        {...jsonLd(
+          breadcrumbLd([
+            { name: "Start", path: "/" },
+            { name: "Kaufberatung", path: "/kettlebell-kaufen" },
+          ]),
+        )}
+      />
       {AFFILIATE_READY && (
         <div className={styles.disclosure}>
           <span className={styles.adTag}>Werbung</span>

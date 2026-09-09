@@ -39,11 +39,17 @@ finder. **This is the single source of truth for the weight-finder logic**; both
 implementations are subordinate to its section D.2.
 
 Pages built (dev): `/` (home), `/kettlebell-startgewicht` (finder), `/kettlebell-kaufen`
-(buyer's guide), `/ratgeber` (long-form article, from `Ratgeber.dc.html` — its rep-count widget
-+ reps→kg table were rewritten to the D.1 spec). All from the Claude Design project.
+(buyer's guide), `/ratgeber` (long-form article — its rep-count widget + reps→kg table were
+rewritten to the D.1 spec), `/uebungen` (four-movement overview — free orientation content, NOT
+the §12-gated exercise library + plan generator). First four from the Claude Design project;
+`/uebungen` built in the same style (no artboard).
 
-Not built yet: `/uebungen` (exercises), legal pages (Impressum/Datenschutz — required in DE
-before public promotion, §8 legal round), the .NET web host, DB-driven routing.
+Nav: `src/lib/nav.ts` — `headerNav()` (top nav, 3 items) vs `footerNav()` (footer, incl.
+`header: false` pages like Übungen). PWA manifest (`app/manifest.ts`), theme-color, skip-link,
+BreadcrumbList JSON-LD on non-home pages.
+
+Not built yet: legal pages (Impressum/Datenschutz — required in DE before public promotion,
+§8 legal round), the .NET web host, DB-driven routing.
 
 SEO/launch wiring: `src/lib/meta.ts` `og()` (per-page OpenGraph — Next shallow-merges, so
 rebuild the whole object), `src/lib/structuredData.ts` (JSON-LD: Organization + WebSite site-wide,

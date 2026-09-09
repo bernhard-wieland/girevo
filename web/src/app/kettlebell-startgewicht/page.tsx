@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import WeightFinderWizard from "@/components/WeightFinderWizard";
 import { bandRows, copy } from "@/content/de/weightFinder";
 import { og } from "@/lib/meta";
@@ -33,6 +34,12 @@ export default function KettlebellStartgewichtPage() {
         <section className={styles.section}>
           <h2 className={styles.h2}>{copy.page.whyRangeTitle}</h2>
           <p className={styles.body}>{copy.page.whyRangeBody}</p>
+          <p className={styles.body}>
+            Die lange Fassung — woher die Bereiche kommen und wie du dich
+            innerhalb entscheidest — steht im{" "}
+            <Link href="/ratgeber">Ratgeber</Link>. Welches Gewicht du kaufst,
+            klärt die <Link href="/kettlebell-kaufen">Kaufberatung</Link>.
+          </p>
         </section>
 
         <section className={styles.section}>

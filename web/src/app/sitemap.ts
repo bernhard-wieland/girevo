@@ -18,5 +18,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     { url: `${BASE}/ratgeber`, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE}/uebungen`, changeFrequency: "monthly", priority: 0.8 },
   ];
 }

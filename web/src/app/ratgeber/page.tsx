@@ -6,7 +6,7 @@ import {
   ratgeber as r,
   RATGEBER_UPDATED,
 } from "@/content/de/ratgeber";
-import { articleLd, jsonLd } from "@/lib/structuredData";
+import { articleLd, breadcrumbLd, jsonLd } from "@/lib/structuredData";
 import { og } from "@/lib/meta";
 import styles from "./page.module.css";
 
@@ -26,7 +26,7 @@ export default function RatgeberPage() {
   return (
     <div className={styles.wrap}>
       <script
-        {...jsonLd(
+        {...jsonLd([
           articleLd({
             path: "/ratgeber",
             headline: r.meta.title,
@@ -34,7 +34,11 @@ export default function RatgeberPage() {
             datePublished: RATGEBER_UPDATED,
             dateModified: RATGEBER_UPDATED,
           }),
-        )}
+          breadcrumbLd([
+            { name: "Start", path: "/" },
+            { name: "Ratgeber", path: "/ratgeber" },
+          ]),
+        ])}
       />
       <header className={styles.head}>
         <div className={styles.metaLine}>
