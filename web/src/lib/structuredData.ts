@@ -9,6 +9,7 @@ export const organizationLd = () => ({
   "@type": "Organization",
   name: SITE_NAME,
   url: SITE_URL,
+  logo: `${SITE_URL}/icon.png`,
   description:
     "girevo ist ein Werkzeug für den Einstieg mit der Kettlebell — Startgewicht per Selbsttest und eine erste Struktur, ohne Trainingsprogramm.",
 });
@@ -32,6 +33,7 @@ export const articleLd = (args: {
   "@type": "Article",
   headline: args.headline,
   description: args.description,
+  image: `${SITE_URL}/og.png`,
   inLanguage: "de-DE",
   datePublished: args.datePublished,
   dateModified: args.dateModified,
