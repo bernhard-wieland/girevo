@@ -70,19 +70,13 @@ export default function UebungenPage() {
         ))}
       </div>
 
-      <div className={styles.split}>
-        <div className={styles.repsBox}>
-          <h2 className={styles.h2}>{u.reps.title}</h2>
-          <p className={styles.repsText}>{u.reps.text}</p>
-        </div>
-        <aside className={styles.aside}>
-          <span className={styles.subLabel}>{u.aside.label}</span>
-          <p className={styles.asideText}>{u.aside.text}</p>
-          <Link href="/kettlebell-startgewicht" className={styles.asideCta}>
-            {u.aside.cta}
-          </Link>
-        </aside>
-      </div>
+      <section className={styles.repsBox}>
+        <h2 className={styles.h2}>
+          <span className={styles.h2Mark} aria-hidden="true" />
+          {u.reps.title}
+        </h2>
+        <p className={styles.repsText}>{u.reps.text}</p>
+      </section>
     </main>
   );
 }

@@ -95,12 +95,6 @@ export const uebungen = {
 
   reps: {
     title: "Wie viel in den ersten Wochen",
-    text: "Kurze Sätze, viele Pausen. Fünf bis zehn saubere Wiederholungen am Stück reichen völlig; sobald eine davon nicht mehr sauber aussieht, ist der Satz vorbei. Zwei bis drei kurze Einheiten pro Woche mit einem Tag Abstand sind mehr als genug, um die Bewegungen zu lernen.",
-  },
-
-  aside: {
-    label: "Noch kein Gewicht?",
-    text: "Der Selbsttest im Gewichtsfinder dauert ein paar Minuten und nennt dir einen Bereich, mit dem du hier anfangen kannst.",
-    cta: "Zum Gewichtsfinder",
+    text: "Kurze Sätze, viele Pausen: fünf bis zehn saubere Wiederholungen am Stück, dann ist der Satz vorbei. Zwei bis drei kurze Einheiten pro Woche mit einem Tag Abstand reichen, um die Bewegungen zu lernen.",
   },
 };

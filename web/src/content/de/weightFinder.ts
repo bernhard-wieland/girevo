@@ -206,14 +206,12 @@ export const copy = {
   // Server-rendered evergreen section below the wizard (SEO — the only channel).
   page: {
     aboveTitle: "Kettlebell-Startgewicht",
-    whyRangeTitle: "Warum ein Bereich und keine feste Zahl",
-    whyRangeBody:
-      "Eine einzelne Kettlebell ist immer ein Kompromiss: Zum Schwingen dürfte sie schwerer sein, zum Drücken über Kopf leichter. Der begrenzende Faktor ist das Drücken. Deshalb nennt dir dieser Finder einen Bereich und überlässt dir die Feinwahl — je nachdem, ob du eher schwingst oder eher drückst.",
-    bandsTitle: "Die vier Grundbereiche",
+    bandsTitle: "Warum ein Bereich und keine feste Zahl",
     bandsIntro:
-      "Ausgangspunkt ist, wie regelmäßig du dich gerade belastest. Der Technik-Check, dein Schwerpunkt und die optionalen Angaben verschieben dich innerhalb dieser Bereiche oder um höchstens einen Bereich.",
+      "Zum Schwingen darf die Kettlebell schwerer sein, zum Drücken über Kopf leichter — deshalb ein Bereich statt einer Zahl. Ausgangspunkt ist, wie regelmäßig du dich belastest; Technik-Check und Schwerpunkt verschieben dich darin um höchstens eine Stufe.",
     bandsHeadActivity: "Wie aktiv du gerade bist",
     bandsHeadRange: "Bereich für eine Allzweck-Hantel",
+    ratgeberLine: "Die lange Fassung steht im",
   },
 };
 

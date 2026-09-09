@@ -13,7 +13,7 @@ export const kaufberatung = {
 
   h1: "Kettlebell kaufen: wonach du entscheidest",
   intro:
-    "Das hier ist kein Shop und keine Deal-Seite. Vier Merkmale entscheiden über den Alltag mit einer Kettlebell — Bauart, Griff, Beschichtung und Verstellbarkeit. Wenn du die verstanden hast, ist die Auswahl darunter in fünf Minuten erledigt.",
+    "Kein Shop, keine Deal-Seite. Vier Merkmale entscheiden über den Alltag mit einer Kettlebell: Bauart, Griff, Beschichtung und Verstellbarkeit.",
   introFinderLink: "Welchen Bereich du brauchst, klärt der Gewichtsfinder.",
 
   criteriaTitle: "Die vier Entscheidungen",
@@ -111,15 +111,9 @@ export const kaufberatung = {
 
   avoid: {
     h2: "Was du nicht brauchst",
-    p: "Wettkampf-Kettlebells aus Stahl haben bei jedem Gewicht dieselbe Größe — sinnvoll, wenn du in einer Sportart antrittst, sonst zahlst du für eine Norm, die dich nichts angeht. Vinyl- oder Neoprenhüllen in bunten Farben verdecken schlechte Gussnähte und machen den Griff dicker, ohne dass du siehst warum. Und ein Set aus sechs Gewichten steht nach acht Wochen zu zwei Dritteln unbenutzt an der Wand.",
+    p: "Vinyl- oder Neoprenhüllen in bunten Farben verdecken schlechte Gussnähte und machen den Griff dicker. Ein Sechser-Set steht nach acht Wochen zu zwei Dritteln unbenutzt an der Wand. Wettkampf-Stahl lohnt nur, wenn du in einer Sportart antrittst.",
     h3: "Gebraucht kaufen",
-    p2: "Gusseisen altert nicht. Prüf beim Abholen nur drei Sachen: Der Bügel darf keine scharfen Kanten und keine sichtbare Naht in der Griffzone haben, die Standfläche muss plan sein, und die Beschichtung sollte nicht in Platten abblättern. Rost an sich ist kein Ausschlussgrund — er lässt sich abschleifen.",
-  },
-
-  aside: {
-    label: "Noch kein Bereich?",
-    text: "Kauf nichts nach Gefühl. Der Selbsttest dauert ein paar Minuten und liefert dir eine Spanne, mit der du die Tabelle oben lesen kannst.",
-    cta: "Zum Gewichtsfinder",
+    p2: "Gusseisen altert nicht. Prüf beim Abholen drei Sachen: keine scharfen Kanten oder sichtbare Naht in der Griffzone, plane Standfläche, Beschichtung blättert nicht in Platten ab. Rost lässt sich abschleifen.",
   },
 
   meta: {

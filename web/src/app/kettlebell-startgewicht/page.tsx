@@ -30,39 +30,32 @@ export default function KettlebellStartgewichtPage() {
 
       <WeightFinderWizard />
 
-      <div className={styles.evergreen}>
-        <section className={styles.section}>
-          <h2 className={styles.h2}>{copy.page.whyRangeTitle}</h2>
-          <p className={styles.body}>{copy.page.whyRangeBody}</p>
-          <p className={styles.body}>
-            Die lange Fassung — woher die Bereiche kommen und wie du dich
-            innerhalb entscheidest — steht im{" "}
-            <Link href="/ratgeber">Ratgeber</Link>. Welches Gewicht du kaufst,
-            klärt die <Link href="/kettlebell-kaufen">Kaufberatung</Link>.
-          </p>
-        </section>
-
-        <section className={styles.section}>
-          <h2 className={styles.h2}>{copy.page.bandsTitle}</h2>
-          <p className={styles.body}>{copy.page.bandsIntro}</p>
-          <table className={styles.table}>
-            <thead>
-              <tr>
-                <th>{copy.page.bandsHeadActivity}</th>
-                <th>{copy.page.bandsHeadRange}</th>
+      <section className={styles.evergreen}>
+        <h2 className={styles.h2}>
+          <span className={styles.h2Mark} aria-hidden="true" />
+          {copy.page.bandsTitle}
+        </h2>
+        <p className={styles.body}>{copy.page.bandsIntro}</p>
+        <table className={styles.table}>
+          <thead>
+            <tr>
+              <th>{copy.page.bandsHeadActivity}</th>
+              <th>{copy.page.bandsHeadRange}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {bandRows.map((row) => (
+              <tr key={row.label}>
+                <td>{row.label}</td>
+                <td>{row.range}</td>
               </tr>
-            </thead>
-            <tbody>
-              {bandRows.map((row) => (
-                <tr key={row.label}>
-                  <td>{row.label}</td>
-                  <td>{row.range}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </section>
-      </div>
+            ))}
+          </tbody>
+        </table>
+        <p className={styles.body}>
+          {copy.page.ratgeberLine} <Link href="/ratgeber">Ratgeber</Link>.
+        </p>
+      </section>
     </main>
   );
 }

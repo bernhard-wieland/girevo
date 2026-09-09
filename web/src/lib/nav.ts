@@ -15,7 +15,7 @@ export const NAV: NavEntry[] = [
   { label: "Gewichtsfinder", href: "/kettlebell-startgewicht", ready: true, header: true },
   { label: "Kaufberatung", href: "/kettlebell-kaufen", ready: true, header: true },
   { label: "Ratgeber", href: "/ratgeber", ready: true, header: true },
-  { label: "Übungen", href: "/uebungen", ready: true, header: false },
+  { label: "Übungen", href: "/uebungen", ready: true, header: true },
   { label: "Impressum", href: "/impressum", ready: true, header: false, legal: true },
   { label: "Datenschutz", href: "/datenschutz", ready: true, header: false, legal: true },
 ];

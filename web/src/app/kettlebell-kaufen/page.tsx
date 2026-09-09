@@ -1,13 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import {
-  ArrowRight,
   ArrowUpRight,
   Check,
   Droplets,
   Grip,
   Layers,
-  Scale,
   SlidersHorizontal,
   type LucideIcon,
 } from "lucide-react";
@@ -123,24 +121,15 @@ export default function KaufberatungPage() {
         </div>
       </section>
 
-      <section className={styles.split}>
+      <section className={styles.section}>
+        <h2 className={styles.h2}>{k.avoid.h2}</h2>
         <div className={styles.prose}>
-          <h2 className={styles.h2}>{k.avoid.h2}</h2>
           <p className={styles.proseP}>{k.avoid.p}</p>
           <div className={styles.subBlock}>
             <h3 className={styles.h3}>{k.avoid.h3}</h3>
             <p className={styles.proseP}>{k.avoid.p2}</p>
           </div>
         </div>
-        <aside className={styles.aside}>
-          <Scale size={24} strokeWidth={1.75} aria-hidden="true" />
-          <span className={styles.h3}>{k.aside.label}</span>
-          <p className={styles.asideText}>{k.aside.text}</p>
-          <Link href="/kettlebell-startgewicht" className={styles.asideCta}>
-            {k.aside.cta}
-            <ArrowRight size={18} strokeWidth={2} aria-hidden="true" />
-          </Link>
-        </aside>
       </section>
     </main>
   );

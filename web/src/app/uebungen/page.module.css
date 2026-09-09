@@ -15,20 +15,21 @@
 }
 
 .eyebrow {
-  font-size: 11px;
-  font-weight: 500;
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 700;
   letter-spacing: 1.6px;
   text-transform: uppercase;
-  color: var(--color-stone);
+  color: var(--color-coral);
 }
 
 .h1 {
   margin: 0;
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: clamp(30px, 4.4vw, 44px);
+  font-size: clamp(30px, 4.4vw, 42px);
   line-height: 1.1;
-  letter-spacing: -1.2px;
+  letter-spacing: -0.02em;
   text-wrap: balance;
 }
 
@@ -73,8 +74,8 @@
   margin: 0;
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 22px;
-  letter-spacing: -0.6px;
+  font-size: 21px;
+  letter-spacing: -0.015em;
 }
 
 .whatFor {
@@ -122,68 +123,38 @@
   color: var(--color-stone);
 }
 
-.split {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: clamp(24px, 4vw, 40px);
-  align-items: start;
-}
-
 .repsBox {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  min-width: 0;
-  max-width: 62ch;
-}
-
-.h2 {
-  margin: 0;
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: clamp(22px, 2.6vw, 28px);
-  letter-spacing: -0.7px;
-}
-
-.repsText {
-  margin: 0;
-  font-size: 17px;
-  line-height: 29px;
-  color: var(--color-stone);
-}
-
-.aside {
-  background: var(--surface-card);
-  border-radius: var(--radius-card);
-  box-shadow: var(--elevation-md);
-  padding: clamp(24px, 3vw, 28px);
   display: flex;
   flex-direction: column;
   gap: 12px;
   min-width: 0;
+  max-width: 62ch;
+  padding-top: clamp(24px, 4vw, 40px);
+  border-top: 1px solid var(--color-cloud);
 }
 
-.asideText {
+.h2 {
   margin: 0;
-  font-size: 15px;
-  line-height: 24px;
-  color: var(--color-stone);
-}
-
-.asideCta {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  justify-content: center;
-  height: 48px;
-  padding: 0 20px;
-  border-radius: var(--radius-button);
-  background: var(--color-coral);
-  color: var(--color-ink);
-  font-size: 16px;
-  font-weight: 600;
+  gap: 12px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(22px, 2.6vw, 26px);
+  letter-spacing: -0.015em;
 }
 
-.asideCta:hover {
-  background: var(--color-coral-press);
-  color: var(--color-ink);
+.h2Mark {
+  flex: 0 0 auto;
+  width: 18px;
+  height: 3px;
+  border-radius: var(--radius-pill);
+  background: var(--color-coral);
+}
+
+.repsText {
+  margin: 0;
+  font-size: 16px;
+  line-height: 27px;
+  color: var(--color-stone);
 }

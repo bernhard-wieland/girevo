@@ -15,11 +15,12 @@ export default function NotFound() {
     <main style={wrap}>
       <span
         style={{
-          fontSize: 11,
+          fontFamily: "var(--font-display)",
+          fontSize: 12,
           letterSpacing: "1.6px",
           textTransform: "uppercase",
-          color: "var(--color-stone)",
-          fontWeight: 500,
+          color: "var(--color-coral)",
+          fontWeight: 700,
         }}
       >
         Seite nicht gefunden
@@ -29,9 +30,9 @@ export default function NotFound() {
           margin: 0,
           fontFamily: "var(--font-display)",
           fontWeight: 700,
-          fontSize: 32,
+          fontSize: 34,
           lineHeight: 1.1,
-          letterSpacing: "-1.2px",
+          letterSpacing: "-0.02em",
         }}
       >
         Diese Seite gibt es nicht (mehr).

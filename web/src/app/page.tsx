@@ -37,10 +37,10 @@ const ICONS: Record<string, LucideIcon> = {
   BookOpen,
 };
 
-const SIGNPOST_TONE = ["coral", "teal", "coral"] as const;
+const SIGNPOST_TONE = ["coral", "teal", "amber"] as const;
 
 export default function Home() {
-  const { hero, signposts, prose, summary } = home;
+  const { hero, signposts, summary } = home;
 
   return (
     <main className={styles.main}>
@@ -55,7 +55,7 @@ export default function Home() {
               return (
                 <div key={f.text} className={styles.fact}>
                   <span className={styles.factIcon}>
-                    <Icon size={17} strokeWidth={2} aria-hidden="true" />
+                    <Icon size={16} strokeWidth={2} aria-hidden="true" />
                   </span>
                   <span>{f.text}</span>
                 </div>
@@ -80,7 +80,7 @@ export default function Home() {
             const inner = (
               <>
                 <span className={`${styles.signpostIcon} ${styles[tone]}`}>
-                  <Icon size={22} strokeWidth={1.9} aria-hidden="true" />
+                  <Icon size={20} strokeWidth={1.9} aria-hidden="true" />
                 </span>
                 <span className={styles.signpostHead}>
                   <span className={styles.signpostTitle}>{s.title}</span>
@@ -111,35 +111,21 @@ export default function Home() {
         </div>
       </section>
 
-      <section className={styles.essentials}>
-        <div className={styles.prose}>
-          <h2 className={styles.h2}>
-            <span className={styles.h2Mark} aria-hidden="true" />
-            {prose.h2}
-          </h2>
-          <p className={styles.proseIntro}>{prose.intro}</p>
-          {prose.sections.map((sec, i) => (
-            <div key={sec.h3} className={styles.essential}>
-              <span className={styles.essentialNum}>{`0${i + 1}`}</span>
-              <div>
-                <h3 className={styles.h3}>{sec.h3}</h3>
-                <p className={styles.essentialText}>{sec.p}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <aside className={styles.aside}>
-          <span className={styles.asideEyebrow}>{summary.label}</span>
+      <section className={styles.summary}>
+        <h2 className={styles.h2}>
+          <span className={styles.h2Mark} aria-hidden="true" />
+          {summary.h2}
+        </h2>
+        <ul className={styles.summaryList}>
           {summary.points.map((p) => (
-            <div key={p} className={styles.summaryRow}>
+            <li key={p} className={styles.summaryRow}>
               <span className={styles.summaryCheck}>
-                <Check size={14} strokeWidth={2.5} aria-hidden="true" />
+                <Check size={13} strokeWidth={3} aria-hidden="true" />
               </span>
               <span>{p}</span>
-            </div>
+            </li>
           ))}
-        </aside>
+        </ul>
       </section>
     </main>
   );

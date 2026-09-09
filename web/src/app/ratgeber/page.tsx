@@ -76,25 +76,12 @@ export default function RatgeberPage() {
         <article className={styles.article}>
           <p>{r.intro}</p>
 
-          <div className={styles.ctaCard}>
-            <span className={styles.ctaEyebrow}>{r.ctaCard.eyebrow}</span>
-            <p className={styles.ctaText}>{r.ctaCard.text}</p>
-            <Link href="/kettlebell-startgewicht" className={styles.ctaButton}>
-              {r.ctaCard.cta}
-            </Link>
-          </div>
-
           <h2 id="warum-bereich" className={styles.h2}>
             {r.warumBereich.h2}
           </h2>
           {r.warumBereich.p.map((p, i) => (
             <p key={i}>{p}</p>
           ))}
-
-          <h3 id="was-der-bereich-nicht-ist" className={styles.h3}>
-            {r.wasNicht.h3}
-          </h3>
-          <p>{r.wasNicht.p}</p>
 
           <h2 id="selbsttest" className={styles.h2}>
             {r.selbsttest.h2}
@@ -155,6 +142,14 @@ export default function RatgeberPage() {
             </Link>
             {r.zweitesGewicht.p2Suffix}
           </p>
+
+          <div className={styles.ctaCard}>
+            <span className={styles.ctaEyebrow}>{r.ctaCard.eyebrow}</span>
+            <p className={styles.ctaText}>{r.ctaCard.text}</p>
+            <Link href="/kettlebell-startgewicht" className={styles.ctaButton}>
+              {r.ctaCard.cta}
+            </Link>
+          </div>
 
           <div className={styles.nextRow}>
             {r.nextCards.map((c) => {

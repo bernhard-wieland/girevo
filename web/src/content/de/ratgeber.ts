@@ -20,12 +20,12 @@ export const ratgeber = {
   },
 
   kicker: "Ratgeber",
-  readingTime: "8 Minuten Lesezeit",
+  readingTime: "6 Minuten Lesezeit",
   h1: "Kettlebell-Startgewicht: warum es ein Bereich ist",
-  deck: "Die meisten Tabellen im Netz geben dir eine einzelne Zahl. Diese Seite erklärt, warum das nicht funktionieren kann, wie dein eigener Bereich zustande kommt und wie du dich innerhalb dieses Bereichs von Übung zu Übung entscheidest.",
+  deck: "Warum eine einzelne Zahl nicht funktioniert, wie dein Bereich zustande kommt und wie du dich innerhalb der Spanne von Übung zu Übung entscheidest.",
 
   intro:
-    "Du hast eine Kettlebell im Warenkorb oder sie steht schon im Keller, und die Frage ist immer dieselbe: reicht das Gewicht, oder ist es zu viel? Die Antwort hängt nicht an deiner Person allein, sondern daran, was du mit dem Ding vorhast. Genau deshalb steht am Ende des Gewichtsfinders kein Wert, sondern eine Spanne.",
+    "Die Frage ist immer dieselbe: reicht das Gewicht, oder ist es zu viel? Die Antwort hängt nicht an deiner Person allein, sondern daran, was du mit der Kettlebell vorhast. Deshalb steht am Ende des Gewichtsfinders kein Wert, sondern eine Spanne.",
 
   ctaCard: {
     eyebrow: "Gewichtsfinder",
@@ -35,7 +35,6 @@ export const ratgeber = {
 
   toc: [
     { id: "warum-bereich", label: "Warum eine einzelne Zahl nicht funktioniert" },
-    { id: "was-der-bereich-nicht-ist", label: "Was der Bereich nicht ist" },
     { id: "selbsttest", label: "Der Selbsttest" },
     { id: "wie-der-bereich", label: "So kommt dein Bereich zustande" },
     { id: "innerhalb-entscheiden", label: "Innerhalb des Bereichs entscheiden" },
@@ -46,14 +45,9 @@ export const ratgeber = {
   warumBereich: {
     h2: "Warum eine einzelne Zahl nicht funktioniert",
     p: [
-      "Eine Kettlebell wird in sehr unterschiedlichen Lagen bewegt. Beim Schwung aus der Hüfte arbeiten die größten Muskelgruppen des Körpers gemeinsam, die Bewegung ist kurz und der Griff hält das Gewicht nur im Vorbeigehen. Beim Überkopfdrücken arbeitet ein Arm allein gegen dasselbe Gewicht, über einen deutlich längeren Weg. Der Unterschied zwischen diesen beiden Anforderungen liegt in der Praxis bei acht bis zwölf Kilogramm — bei derselben Person, am selben Tag.",
-      "Eine Tabelle, die dir „16 kg“ sagt, hat sich stillschweigend für eine dieser Übungen entschieden und dir nicht gesagt, für welche. Ein Bereich macht das sichtbar: Das untere Ende ist dein Arbeitsgewicht für alles, was über Kopf oder einarmig passiert, das obere Ende dein Gewicht für Schwungübungen.",
+      "Eine Kettlebell wird in sehr unterschiedlichen Lagen bewegt. Beim Schwung aus der Hüfte arbeiten die größten Muskelgruppen gemeinsam, die Bewegung ist kurz und der Griff hält das Gewicht nur im Vorbeigehen. Beim Überkopfdrücken arbeitet ein Arm allein gegen dasselbe Gewicht, über einen längeren Weg. Der Unterschied liegt in der Praxis bei acht bis zwölf Kilogramm — bei derselben Person, am selben Tag.",
+      "Eine Tabelle, die dir „16 kg“ sagt, hat sich stillschweigend für eine dieser Übungen entschieden und nicht gesagt, für welche. Ein Bereich macht das sichtbar: Das untere Ende ist dein Gewicht für alles über Kopf oder einarmig, das obere für Schwungübungen. Beide Enden bleiben dauerhaft in Gebrauch — es ist keine Reihenfolge, die du abarbeitest.",
     ],
-  },
-
-  wasNicht: {
-    h3: "Was der Bereich nicht ist",
-    p: "Er ist keine Unsicherheit und keine Absicherung. Er ist auch keine Reihenfolge — du musst dich nicht vom unteren zum oberen Ende hocharbeiten und dann fertig sein. Beide Enden bleiben dauerhaft in Gebrauch, weil beide Übungsarten dauerhaft in Gebrauch bleiben.",
   },
 
   selbsttest: {

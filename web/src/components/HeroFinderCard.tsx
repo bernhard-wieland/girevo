@@ -10,8 +10,9 @@ import styles from "./HeroFinderCard.module.css";
 const cx = (...c: (string | false)[]) => c.filter(Boolean).join(" ");
 
 export default function HeroFinderCard() {
-  const [picked, setPicked] = useState<number | null>(null);
+  const [picked, setPicked] = useState(1);
   const { heroCard } = home;
+  const range = bandRows[picked].range;
 
   return (
     <div className={styles.card}>
@@ -26,7 +27,11 @@ export default function HeroFinderCard() {
       <h2 className={styles.cardQ}>{heroCard.question}</h2>
       <p className={styles.cardExplain}>{heroCard.explainer}</p>
 
-      <div className={styles.options} role="radiogroup" aria-label={heroCard.question}>
+      <div
+        className={styles.options}
+        role="radiogroup"
+        aria-label={heroCard.question}
+      >
         {trainingBackgroundOptions.map((o, i) => (
           <button
             key={o.value}
@@ -36,23 +41,25 @@ export default function HeroFinderCard() {
             className={cx(styles.option, picked === i && styles.optionOn)}
             onClick={() => setPicked(i)}
           >
-            {o.label}
+            <span className={styles.optionLabel}>{o.label}</span>
+            <span className={styles.optionKg}>{bandRows[i].range}</span>
           </button>
         ))}
       </div>
 
-      {picked !== null && (
-        <div className={styles.peek} aria-live="polite">
-          <span className={styles.eyebrow}>{heroCard.resultEyebrow}</span>
-          <span className={styles.peekRange}>{bandRows[picked].range}</span>
-          <p className={styles.peekNote}>{heroCard.resultNote}</p>
-        </div>
-      )}
+      <div className={styles.result} aria-live="polite">
+        <span className={styles.eyebrow}>{heroCard.resultEyebrow}</span>
+        <span className={styles.resultRange}>{range}</span>
+        <p className={styles.resultNote}>{heroCard.resultNote}</p>
+      </div>
 
-      <ButtonLink href={heroCard.href} fullWidth>
-        {heroCard.cta}
-        <ArrowRight size={18} strokeWidth={2} aria-hidden="true" />
-      </ButtonLink>
+      <div className={styles.ctaWrap}>
+        <ButtonLink href={heroCard.href} fullWidth>
+          {heroCard.cta}
+          <ArrowRight size={18} strokeWidth={2} aria-hidden="true" />
+        </ButtonLink>
+        <p className={styles.ctaNote}>{heroCard.ctaNote}</p>
+      </div>
     </div>
   );
 }

@@ -1,15 +1,15 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Poppins } from "next/font/google";
+import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import { jsonLd, organizationLd, websiteLd } from "@/lib/structuredData";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-const poppins = Poppins({
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
-  weight: ["600", "700"],
-  variable: "--font-poppins",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-space-grotesk",
 });
 
 const SITE_NAME = "girevo";
@@ -33,12 +33,15 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#faf7f2",
+  themeColor: "#faf6f0",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="de" className={`${inter.variable} ${poppins.variable} h-full`}>
+    <html
+      lang="de"
+      className={`${inter.variable} ${spaceGrotesk.variable} h-full`}
+    >
       <body className="min-h-full flex flex-col">
         <script {...jsonLd([organizationLd(), websiteLd()])} />
         <a href="#inhalt" className="skip-link">
