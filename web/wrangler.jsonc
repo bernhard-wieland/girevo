@@ -1,0 +1,12 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "girevo",
+  "compatibility_date": "2026-09-09",
+  // Static-assets-only Worker: no `main` script. `next build` with
+  // output:"export" writes ./out; wrangler uploads it as-is.
+  "assets": {
+    "directory": "./out",
+    // Missing paths serve the exported 404.html rather than a blank page.
+    "not_found_handling": "404-page"
+  }
+}

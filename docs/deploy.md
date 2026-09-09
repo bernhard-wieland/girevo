@@ -3,25 +3,31 @@
 The `web/` app is a **static export** (`output: "export"` in `web/next.config.ts`).
 `npm run build` writes plain HTML to `web/out/`. No server runtime.
 
-## Cloudflare Pages (production)
+## Cloudflare Workers (production)
 
-Git-connected project, auto-deploys on push to `main`.
+Deployed as a **static-assets-only Worker** (no server code). Config:
+`web/wrangler.jsonc` — `assets.directory: ./out`, no `main`. Git-connected via
+Workers Builds, auto-deploys on push to `main`.
+
+Workers Builds settings (dashboard → the Worker → Settings → Build):
 
 | Setting | Value |
 |---|---|
 | Repository | `bernhard-wieland/girevo` |
-| Production branch | `main` |
-| Framework preset | Next.js (Static HTML Export) |
 | Root directory | `web` |
-| Build command | `npm run build` |
-| Build output directory | `out` |
-| Node version | 20+ (set `NODE_VERSION` env var if the default is older) |
+| Build command | `npx next build` |
+| Deploy command | `npx wrangler deploy` |
 
-Custom domain `girevo.de` (apex) + `www` redirect, added in the Pages project's
-**Custom domains** tab. DNS is already on Cloudflare, so this is one click each.
+`next build` (with `output: "export"`) writes `web/out/`; `wrangler deploy` reads
+`wrangler.jsonc` and uploads it. Do **not** use a "Next.js" framework preset —
+that pulls in `@opennextjs/cloudflare`, which expects `output: "standalone"` and
+fails against our static export.
 
-Preview deployments (every PR / non-`main` push) get a `*.pages.dev` URL —
-useful, but keep them out of Search Console.
+Custom domain `girevo.de` (apex) + `www`: the Worker → Settings → Domains &
+Routes → Add. DNS is already on Cloudflare, one click each.
+
+Preview deployments (non-`main` pushes) get a `*.workers.dev` URL — keep those
+out of Search Console.
 
 ## If a route ever needs SSR/ISR/route handlers
 
