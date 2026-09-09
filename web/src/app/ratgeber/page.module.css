@@ -1,168 +1,189 @@
 .wrap {
   max-width: 1120px;
   margin: 0 auto;
-  padding: 24px 20px 72px;
+  padding: clamp(32px, 5vw, 56px) clamp(20px, 4vw, 40px) clamp(72px, 10vw, 120px);
 }
 
 .head {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  padding-bottom: 24px;
-  border-bottom: 1px solid var(--color-line);
+  gap: 20px;
+  padding-bottom: clamp(32px, 4vw, 48px);
+  border-bottom: 1px solid var(--color-cloud);
 }
 
 .metaLine {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
-  font-size: 14px;
+  gap: 8px 20px;
+  font-size: 13px;
   color: var(--color-stone);
+}
+
+.metaLine span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
 }
 
 .h1 {
   margin: 0;
-  font-size: 34px;
-  line-height: 1.14;
-  letter-spacing: -0.8px;
+  font-family: var(--font-display);
   font-weight: 700;
-  max-width: 22ch;
+  font-size: clamp(32px, 4.8vw, 50px);
+  line-height: 1.08;
+  letter-spacing: -1.5px;
+  max-width: 20ch;
+  text-wrap: balance;
 }
 
 .deck {
   margin: 0;
-  font-size: 19px;
+  font-size: 18px;
   line-height: 30px;
-  color: var(--color-graphite);
-  max-width: var(--measure);
+  color: var(--color-stone);
+  max-width: 62ch;
 }
 
 .body {
   display: flex;
   flex-wrap: wrap;
-  gap: 40px;
+  gap: clamp(32px, 5vw, 64px);
   align-items: flex-start;
-  padding-top: 28px;
+  padding-top: clamp(32px, 4vw, 48px);
 }
 
-/* --- table of contents --------------------------------------------------- */
+/* --- table of contents ------------------------------------------------- */
 
 .toc {
-  flex: 0 1 240px;
-  min-width: 240px;
+  flex: 1 1 200px;
+  max-width: 260px;
   position: sticky;
-  top: 16px;
+  top: 96px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
+  min-width: 0;
 }
 
 .tocLabel {
-  font-size: 13px;
-  letter-spacing: 0.1em;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1.6px;
   text-transform: uppercase;
   color: var(--color-stone);
-  font-weight: 700;
 }
 
 .tocNav {
   display: flex;
   flex-direction: column;
-  border-left: 1px solid var(--color-line);
+  border-left: 1px solid var(--color-cloud);
 }
 
 .tocLink {
   display: flex;
   align-items: center;
   min-height: 44px;
-  padding: 4px 12px;
-  font-size: 15px;
-  line-height: 21px;
-  text-decoration: none;
-  color: var(--color-graphite);
+  padding: 6px 14px;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--color-stone);
   border-left: 2px solid transparent;
   margin-left: -1px;
+  transition:
+    color 0.15s ease-out,
+    border-color 0.15s ease-out;
 }
 
 .tocLink:hover {
-  color: var(--color-accent);
-  border-left-color: var(--color-accent);
+  color: var(--color-ink);
+  border-left-color: var(--color-coral);
 }
 
-/* --- article ----------------------------------------------------------- */
+/* --- article --------------------------------------------------------- */
 
 .article {
-  flex: 1 1 460px;
+  flex: 999 1 min(100%, 420px);
   min-width: 0;
-  max-width: var(--measure);
+  max-width: 64ch;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 22px;
   font-size: 17px;
-  line-height: 29px;
+  line-height: 30px;
 }
 
 .article p {
   margin: 0;
 }
 
+.article a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
 .h2 {
-  margin: 20px 0 0;
-  font-size: 26px;
-  line-height: 1.22;
-  letter-spacing: -0.5px;
-  font-weight: 700;
-  scroll-margin-top: 16px;
+  margin: 18px 0 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(24px, 3vw, 30px);
+  line-height: 1.18;
+  letter-spacing: -0.9px;
+  scroll-margin-top: 96px;
 }
 
 .h3 {
-  margin: 8px 0 0;
-  font-size: 20px;
-  line-height: 1.35;
+  margin: 6px 0 0;
+  font-size: 19px;
+  line-height: 1.4;
   font-weight: 600;
-  scroll-margin-top: 16px;
+  letter-spacing: -0.3px;
+  scroll-margin-top: 96px;
 }
 
 .ctaCard {
-  background: var(--color-surface);
-  border: 1.5px solid var(--color-ink);
-  border-radius: var(--radius-lg);
-  padding: 18px;
+  background: var(--surface-card);
+  border-radius: var(--radius-card);
+  box-shadow: var(--elevation-md);
+  padding: clamp(24px, 3.5vw, 32px);
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 16px;
 }
 
 .ctaEyebrow {
-  font-size: 13px;
-  letter-spacing: 0.1em;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1.6px;
   text-transform: uppercase;
-  color: var(--color-graphite);
-  font-weight: 700;
+  color: var(--color-stone);
 }
 
 .ctaText {
+  margin: 0;
   font-size: 16px;
-  line-height: 25px;
+  line-height: 26px;
+  color: var(--color-stone);
 }
 
 .ctaButton {
   align-self: flex-start;
   display: inline-flex;
   align-items: center;
-  min-height: 48px;
+  height: 48px;
   padding: 0 20px;
-  border-radius: var(--radius-md);
-  background: var(--color-accent);
-  color: var(--color-on-accent);
-  font-size: 16px;
+  border-radius: var(--radius-button);
+  background: var(--color-coral);
+  color: var(--color-ink);
+  font-size: 15px;
   font-weight: 600;
   text-decoration: none;
 }
 
 .ctaButton:hover {
-  background: var(--color-accent-press);
-  color: var(--color-on-accent);
+  background: var(--color-coral-press);
+  color: var(--color-ink);
 }
 
 .steps {
@@ -179,19 +200,19 @@
 }
 
 .dataTable {
-  border: 1px solid var(--color-line);
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  background: var(--color-surface);
+  background: var(--surface-card);
+  border-radius: var(--radius-card);
+  box-shadow: var(--elevation-sm);
+  padding: 8px 24px;
 }
 
 .dataRow {
   display: flex;
-  gap: 12px;
+  gap: 16px;
   justify-content: space-between;
   align-items: baseline;
-  padding: 12px 16px;
-  border-bottom: 1px solid var(--color-line);
+  padding: 14px 0;
+  border-bottom: 1px solid var(--color-cloud);
 }
 
 .dataRow:last-child {
@@ -200,98 +221,76 @@
 
 .dataKey {
   font-size: 15px;
-  color: var(--color-graphite);
+  line-height: 22px;
+  color: var(--color-stone);
 }
 
 .dataVal {
-  font-size: 17px;
-  font-weight: 700;
+  font-size: 16px;
+  font-weight: 600;
   white-space: nowrap;
 }
 
-.smallNote {
-  font-size: 15px;
-  line-height: 24px;
-  color: var(--color-stone);
-}
-
-.callout {
-  background: var(--color-accent-tint);
-  border: 1px solid var(--color-line-strong);
-  border-radius: var(--radius-md);
-  padding: 16px;
-  display: flex;
-  gap: 12px;
-  align-items: flex-start;
-  font-size: 16px;
-  line-height: 25px;
-}
-
-.callout svg {
-  flex: 0 0 auto;
-  margin-top: 3px;
-  stroke: var(--color-ink);
-}
-
 .nextRow {
-  border-top: 1px solid var(--color-line);
-  padding-top: 20px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
+  margin-top: 18px;
+  padding-top: 28px;
+  border-top: 1px solid var(--color-cloud);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
 }
 
 .nextCard {
-  flex: 1 1 220px;
-  background: var(--color-surface);
-  border: 1px solid var(--color-line);
-  border-radius: var(--radius-md);
-  padding: 14px 16px;
-  text-decoration: none;
-  color: inherit;
+  background: var(--surface-card);
+  border-radius: var(--radius-card);
+  box-shadow: var(--elevation-sm);
+  padding: 20px;
+  color: var(--color-ink);
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 8px;
+  transition:
+    box-shadow 0.18s ease-out,
+    transform 0.18s ease-out;
 }
 
 a.nextCard:hover {
-  background: var(--color-paper-sunk);
+  box-shadow: var(--elevation-md);
+  transform: translateY(-2px);
+  color: var(--color-ink);
 }
 
 .nextLabel {
-  font-size: 14px;
-  color: var(--color-stone);
   display: flex;
-  gap: 8px;
   align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 13px;
+  color: var(--color-stone);
 }
 
 .nextTitle {
-  font-size: 17px;
-  font-weight: 700;
-  color: var(--color-ink);
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+  letter-spacing: -0.2px;
 }
 
 .soon {
   font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
+  font-weight: 600;
+  letter-spacing: 0.6px;
   text-transform: uppercase;
   color: var(--color-stone);
-  border: 1px solid var(--color-line-strong);
-  border-radius: var(--radius-sm);
-  padding: 1px 5px;
+  background: var(--color-cloud);
+  border-radius: var(--radius-pill);
+  padding: 2px 8px;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 720px) {
   .toc {
     position: static;
     flex-basis: 100%;
-  }
-}
-
-@media (max-width: 480px) {
-  .h1 {
-    font-size: 27px;
+    max-width: none;
   }
 }

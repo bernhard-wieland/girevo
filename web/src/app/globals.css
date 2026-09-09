@@ -16,6 +16,9 @@
   --color-success: #2e9e6b;
   --color-warning: #e8a427;
   --color-error: #e5484d;
+  --color-info-tint: rgba(14, 124, 151, 0.12);
+  --color-success-tint: rgba(46, 158, 107, 0.12);
+  --color-warning-tint: rgba(232, 164, 39, 0.12);
 
   /* Semantic aliases */
   --surface-app: var(--color-paper);
@@ -58,28 +61,6 @@
   /* Elevation — soft, low, ink-tinted */
   --elevation-sm: 0 2px 8px rgba(30, 27, 46, 0.06);
   --elevation-md: 0 6px 20px rgba(30, 27, 46, 0.1);
-
-  /* ── Legacy aliases — the not-yet-redesigned pages (finder, kaufberatung,
-     ratgeber, uebungen, legal) still reference the old "Gusseisen" token names.
-     Map them onto Jetzo so the whole site stays coherent until each page is
-     rebuilt against a new artboard. Remove an alias once nothing uses it. */
-  --color-surface: var(--surface-card);
-  --color-line: var(--color-cloud);
-  --color-line-strong: #d9d3e0;
-  --color-graphite: var(--color-stone);
-  --color-iron: var(--color-ink);
-  --color-paper-sunk: var(--color-cloud);
-  --color-accent: var(--color-coral);
-  --color-accent-press: var(--color-coral-press);
-  --color-accent-tint: var(--color-coral-tint);
-  --color-on-accent: var(--text-on-coral);
-  --color-focus: var(--color-teal);
-  --radius-sm: 6px;
-  --radius-md: var(--radius-input);
-  --radius-lg: var(--radius-card);
-  --space-7: 48px;
-  --measure: 66ch;
-  --shadow-raised: var(--elevation-sm);
 
   color-scheme: light;
 }

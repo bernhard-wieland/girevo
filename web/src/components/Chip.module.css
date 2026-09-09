@@ -1,0 +1,30 @@
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 36px;
+  padding: 0 14px;
+  border: none;
+  border-radius: var(--radius-pill);
+  background: var(--color-cloud);
+  color: var(--color-ink);
+  font-family: var(--font-ui);
+  font-weight: 600;
+  font-size: 14px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.16s ease-out;
+}
+
+.chip:hover {
+  background: #e2dce8;
+}
+
+.selected {
+  background: var(--color-ink);
+  color: var(--color-paper);
+}
+
+.selected:hover {
+  background: var(--color-ink);
+}

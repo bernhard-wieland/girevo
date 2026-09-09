@@ -24,7 +24,7 @@ export default function KettlebellStartgewichtPage() {
     <main className={styles.wrap}>
       <div className={styles.intro}>
         <span className={styles.eyebrow}>{copy.intro.eyebrow}</span>
-        <h1 className={styles.h1}>{copy.page.aboveTitle}: welches passt zu dir?</h1>
+        <h1 className={styles.h1}>{copy.intro.h1}</h1>
         <p className={styles.introLead}>{copy.intro.lead}</p>
       </div>
 

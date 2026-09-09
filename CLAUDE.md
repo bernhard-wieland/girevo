@@ -18,11 +18,8 @@ Very early. Two codebases, one repo:
     shadows (`--elevation-sm/md`), rounded (`--radius-card` 18). Tokens in `src/app/globals.css`,
     from the Claude Design project's `_ds/jetzo-design-system-.../tokens/*.css`. Icons: `lucide-react`.
     `src/components/Button.tsx` is the Jetzo button.
-    **Migration in progress:** only `app/page.tsx` + the site chrome are rebuilt in Jetzo. The other
-    pages (finder wizard, kaufberatung, ratgeber, uebungen, legal) still use their old `.module.css`
-    — globals.css keeps a "legacy alias" block mapping the old `--color-surface`/`--color-line`/
-    `--color-accent`/… names onto Jetzo so the whole site stays coherent. Remove aliases as each
-    page is rebuilt against its new artboard.
+    Shared components: `Button.tsx` (coral primary), `Chip.tsx` (cloud→ink pill), `Banner.tsx`
+    (tinted callout). All pages are on Jetzo — the legacy alias block is gone.
   - The weight finder is a 4→5-step client wizard (`src/components/WeightFinderWizard.tsx`) inside
     an SSR page that also carries evergreen prose for indexing. All step copy is in the initial
     HTML (`hidden` toggles the active panel) so crawlers see it.

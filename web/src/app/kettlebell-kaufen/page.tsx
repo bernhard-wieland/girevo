@@ -1,5 +1,17 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import {
+  ArrowRight,
+  ArrowUpRight,
+  Check,
+  Droplets,
+  Grip,
+  Layers,
+  Scale,
+  SlidersHorizontal,
+  type LucideIcon,
+} from "lucide-react";
+import { Banner } from "@/components/Banner";
 import { kaufberatung as k } from "@/content/de/kaufberatung";
 import { AFFILIATE_READY } from "@/lib/affiliate";
 import { og } from "@/lib/meta";
@@ -17,6 +29,13 @@ export const metadata: Metadata = {
   }),
 };
 
+const CRITERIA_ICONS: Record<string, LucideIcon> = {
+  Layers,
+  Grip,
+  Droplets,
+  SlidersHorizontal,
+};
+
 export default function KaufberatungPage() {
   return (
     <main className={styles.main}>
@@ -28,14 +47,15 @@ export default function KaufberatungPage() {
           ]),
         )}
       />
+
       {AFFILIATE_READY && (
-        <div className={styles.disclosure}>
-          <span className={styles.adTag}>Werbung</span>
-          <span className={styles.disclosureText}>{k.disclosure}</span>
-        </div>
+        <Banner tone="info" title="Werbung · Affiliate-Links">
+          {k.disclosure}
+        </Banner>
       )}
 
       <section className={styles.intro}>
+        <span className={styles.eyebrow}>Kaufberatung</span>
         <h1 className={styles.h1}>{k.h1}</h1>
         <p className={styles.lead}>
           {k.intro}{" "}
@@ -45,17 +65,22 @@ export default function KaufberatungPage() {
 
       <section className={styles.section}>
         <h2 className={styles.h2}>{k.criteriaTitle}</h2>
-        <div className={styles.cards}>
-          {k.criteria.map((c) => (
-            <div key={c.title} className={styles.criteriaCard}>
-              <span className={styles.kicker}>{c.kicker}</span>
-              <span className={styles.cardTitle}>{c.title}</span>
-              <span className={styles.cardText}>{c.text}</span>
-              <span className={styles.advice}>
-                <strong>Für den Start:</strong> {c.advice}
-              </span>
-            </div>
-          ))}
+        <div className={styles.grid}>
+          {k.criteria.map((c) => {
+            const Icon = CRITERIA_ICONS[c.icon] ?? Layers;
+            return (
+              <div key={c.title} className={styles.card}>
+                <Icon size={24} strokeWidth={1.75} aria-hidden="true" />
+                <span className={styles.kicker}>{c.kicker}</span>
+                <span className={styles.cardTitle}>{c.title}</span>
+                <span className={styles.cardText}>{c.text}</span>
+                <span className={styles.advice}>
+                  <Check size={17} strokeWidth={2} aria-hidden="true" />
+                  <span>{c.advice}</span>
+                </span>
+              </div>
+            );
+          })}
         </div>
       </section>
 
@@ -64,31 +89,28 @@ export default function KaufberatungPage() {
           <h2 className={styles.h2}>{k.compareTitle}</h2>
           <p>{k.compareIntro}</p>
         </div>
-        <div className={styles.cards}>
+        <div className={styles.productGrid}>
           {k.products.map((p) => (
             <div key={p.title} className={styles.productCard}>
               <div className={styles.productHead}>
-                <span className={styles.kicker}>{p.kind}</span>
+                <span className={styles.productKind}>{p.kind}</span>
                 <span className={styles.productTitle}>{p.title}</span>
-                <span className={styles.productFit}>
-                  <strong>Passt, wenn</strong> {p.fit}
-                </span>
+                <span className={styles.productFit}>Passt, wenn {p.fit}</span>
               </div>
-              {p.specs.map((row) => (
-                <div key={row.k} className={styles.specRow}>
-                  <span className={styles.specKey}>{row.k}</span>
-                  <span className={styles.specVal}>{row.v}</span>
-                </div>
-              ))}
+              <div className={styles.specs}>
+                {p.specs.map((row) => (
+                  <div key={row.k} className={styles.specRow}>
+                    <span className={styles.specKey}>{row.k}</span>
+                    <span className={styles.specVal}>{row.v}</span>
+                  </div>
+                ))}
+              </div>
               <div className={styles.productFoot}>
                 <span className={styles.productNote}>{p.note}</span>
                 {AFFILIATE_READY ? (
-                  <a
-                    href="#"
-                    rel="sponsored nofollow"
-                    className={styles.productLink}
-                  >
-                    {k.linkLabel}
+                  <a href="#" rel="sponsored nofollow" className={styles.productLink}>
+                    Händler ansehen
+                    <ArrowUpRight size={17} strokeWidth={1.75} aria-hidden="true" />
                   </a>
                 ) : (
                   <span className={styles.linkPending}>{k.linkPending}</span>
@@ -103,14 +125,18 @@ export default function KaufberatungPage() {
         <div className={styles.prose}>
           <h2 className={styles.h2}>{k.avoid.h2}</h2>
           <p className={styles.proseP}>{k.avoid.p}</p>
-          <h3 className={styles.h3}>{k.avoid.h3}</h3>
-          <p className={styles.proseP}>{k.avoid.p2}</p>
+          <div className={styles.subBlock}>
+            <h3 className={styles.h3}>{k.avoid.h3}</h3>
+            <p className={styles.proseP}>{k.avoid.p2}</p>
+          </div>
         </div>
         <aside className={styles.aside}>
-          <span className={styles.kicker}>{k.aside.label}</span>
+          <Scale size={24} strokeWidth={1.75} aria-hidden="true" />
+          <span className={styles.h3}>{k.aside.label}</span>
           <p className={styles.asideText}>{k.aside.text}</p>
           <Link href="/kettlebell-startgewicht" className={styles.asideCta}>
             {k.aside.cta}
+            <ArrowRight size={18} strokeWidth={2} aria-hidden="true" />
           </Link>
         </aside>
       </section>

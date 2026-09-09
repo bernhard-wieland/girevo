@@ -1,25 +1,25 @@
 import Link from "next/link";
 import { footerNav } from "@/lib/nav";
 
+const wrap: React.CSSProperties = {
+  maxWidth: "40rem",
+  margin: "0 auto",
+  padding: "clamp(48px, 8vw, 96px) clamp(20px, 4vw, 40px)",
+  display: "flex",
+  flexDirection: "column",
+  gap: "16px",
+};
+
 export default function NotFound() {
   return (
-    <main
-      style={{
-        maxWidth: "40rem",
-        margin: "0 auto",
-        padding: "64px 20px",
-        display: "flex",
-        flexDirection: "column",
-        gap: "16px",
-      }}
-    >
+    <main style={wrap}>
       <span
         style={{
-          fontSize: 12,
-          letterSpacing: "0.14em",
+          fontSize: 11,
+          letterSpacing: "1.6px",
           textTransform: "uppercase",
           color: "var(--color-stone)",
-          fontWeight: 600,
+          fontWeight: 500,
         }}
       >
         Seite nicht gefunden
@@ -27,15 +27,16 @@ export default function NotFound() {
       <h1
         style={{
           margin: 0,
-          fontSize: 30,
-          lineHeight: 1.15,
-          letterSpacing: "-0.6px",
+          fontFamily: "var(--font-display)",
           fontWeight: 700,
+          fontSize: 32,
+          lineHeight: 1.1,
+          letterSpacing: "-1.2px",
         }}
       >
         Diese Seite gibt es nicht (mehr).
       </h1>
-      <p style={{ margin: 0, fontSize: 17, lineHeight: "28px", color: "var(--color-graphite)" }}>
+      <p style={{ margin: 0, fontSize: 17, lineHeight: "29px", color: "var(--color-stone)" }}>
         Vielleicht hilft eine davon:
       </p>
       <ul
@@ -46,6 +47,7 @@ export default function NotFound() {
           display: "flex",
           flexDirection: "column",
           gap: 8,
+          fontSize: 16,
         }}
       >
         <li>

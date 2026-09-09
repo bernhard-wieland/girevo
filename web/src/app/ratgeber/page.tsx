@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import { Fragment } from "react";
 import Link from "next/link";
+import { ArrowUpRight, Bookmark, CalendarDays, Clock } from "lucide-react";
 import {
   formatUpdated,
   ratgeber as r,
   RATGEBER_UPDATED,
 } from "@/content/de/ratgeber";
+import { Banner } from "@/components/Banner";
 import { articleLd, breadcrumbLd, jsonLd } from "@/lib/structuredData";
 import { og } from "@/lib/meta";
 import styles from "./page.module.css";
@@ -42,11 +44,18 @@ export default function RatgeberPage() {
       />
       <header className={styles.head}>
         <div className={styles.metaLine}>
-          <span>{r.kicker}</span>
-          <span>·</span>
-          <span>{formatUpdated(RATGEBER_UPDATED)}</span>
-          <span>·</span>
-          <span>{r.readingTime}</span>
+          <span>
+            <Bookmark size={15} strokeWidth={1.75} aria-hidden="true" />
+            {r.kicker}
+          </span>
+          <span>
+            <CalendarDays size={15} strokeWidth={1.75} aria-hidden="true" />
+            {formatUpdated(RATGEBER_UPDATED)}
+          </span>
+          <span>
+            <Clock size={15} strokeWidth={1.75} aria-hidden="true" />
+            {r.readingTime}
+          </span>
         </div>
         <h1 className={styles.h1}>{r.h1}</h1>
         <p className={styles.deck}>{r.deck}</p>
@@ -117,23 +126,9 @@ export default function RatgeberPage() {
             {r.innerhalb.h2}
           </h2>
           <p>{r.innerhalb.p}</p>
-          <div className={styles.callout}>
-            <svg
-              width="22"
-              height="22"
-              viewBox="0 0 24 24"
-              fill="none"
-              strokeWidth="1.9"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden="true"
-            >
-              <circle cx="12" cy="12" r="9" />
-              <path d="M12 8h.01" />
-              <path d="M11 12h1v4h1" />
-            </svg>
-            <span>{r.innerhalb.callout}</span>
-          </div>
+          <Banner tone="info" title="Wenn du nur eine kaufst">
+            {r.innerhalb.callout}
+          </Banner>
 
           <h2 id="fehler" className={styles.h2}>
             {r.fehler.h2}
@@ -166,8 +161,15 @@ export default function RatgeberPage() {
               const inner = (
                 <>
                   <span className={styles.nextLabel}>
-                    {c.label}
-                    {!c.ready && (
+                    <span>{c.label}</span>
+                    {c.ready ? (
+                      <ArrowUpRight
+                        size={17}
+                        strokeWidth={2}
+                        aria-hidden="true"
+                        color="var(--color-coral)"
+                      />
+                    ) : (
                       <span className={styles.soon}>{r.soonTag}</span>
                     )}
                   </span>

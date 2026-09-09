@@ -19,24 +19,28 @@ export const kaufberatung = {
   criteriaTitle: "Die vier Entscheidungen",
   criteria: [
     {
+      icon: "Layers",
       kicker: "Bauart",
       title: "Gusseisen am Stück",
       text: "Korpus und Bügel in einem Guss haben keine Schweißnaht, die man in der Handfläche spürt. Zweiteilige Billigmodelle erkennst du an der umlaufenden Kante am Bügelansatz.",
       advice: "Ein Guss, keine Naht in der Griffzone.",
     },
     {
+      icon: "Grip",
       kicker: "Griff",
       title: "Durchmesser 33–35 mm",
       text: "Dicker heißt nicht robuster, sondern nur schwerer zu halten. Unter 30 mm wird der Bügel bei schwereren Gewichten unangenehm kantig.",
       advice: "33–35 mm, zwei Handbreiten Innenmaß.",
     },
     {
+      icon: "Droplets",
       kicker: "Oberfläche",
       title: "Pulverbeschichtet statt lackiert",
       text: "Pulverbeschichtung gibt leichten Grip und nutzt sich gleichmäßig ab. Lack wird glatt, sobald die Hände feucht sind, und Vinylhüllen verdecken, was darunter ist.",
       advice: "Matte Pulverbeschichtung, Bügel unbeschichtet oder fein geschliffen.",
     },
     {
+      icon: "SlidersHorizontal",
       kicker: "Aufbau",
       title: "Einzelgewicht oder verstellbar",
       text: "Verstellbar spart Stellfläche, kostet aber Griffgefühl und hat einen Verschluss, den du bei Schwungübungen im Ohr hast. Einzelgewichte sind kompromisslos einfach.",
