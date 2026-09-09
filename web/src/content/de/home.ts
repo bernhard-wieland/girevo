@@ -41,7 +41,7 @@ export const home = {
       title: "Ratgeber: Startgewicht",
       text: "Die lange Fassung: woher die Bereiche kommen und wie du dich innerhalb entscheidest.",
       href: "/ratgeber",
-      ready: false,
+      ready: true,
     },
   ],
   soonTag: "bald",

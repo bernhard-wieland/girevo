@@ -17,5 +17,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.9,
     },
+    { url: `${BASE}/ratgeber`, changeFrequency: "monthly", priority: 0.7 },
   ];
 }

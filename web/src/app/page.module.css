@@ -244,6 +244,7 @@ a.signpost:hover {
 .asideList {
   margin: 0;
   padding-left: 18px;
+  list-style: disc;
   display: flex;
   flex-direction: column;
   gap: 8px;

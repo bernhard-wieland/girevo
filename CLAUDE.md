@@ -38,7 +38,12 @@ Also present: `docs/weight-finder-rules.md` — the deterministic rule spec for 
 finder. **This is the single source of truth for the weight-finder logic**; both the C# and the TS
 implementations are subordinate to its section D.2.
 
-Not built yet: SSR content pages beyond the weight finder, the .NET web host, DB-driven routing.
+Pages built (dev): `/` (home), `/kettlebell-startgewicht` (finder), `/kettlebell-kaufen`
+(buyer's guide), `/ratgeber` (long-form article, from `Ratgeber.dc.html` — its rep-count widget
++ reps→kg table were rewritten to the D.1 spec). All from the Claude Design project.
+
+Not built yet: `/uebungen` (exercises), legal pages (Impressum/Datenschutz — required in DE
+before public promotion, §8 legal round), the .NET web host, DB-driven routing.
 
 ## Commands
 
