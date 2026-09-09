@@ -112,13 +112,13 @@ export const ratgeber = {
 
   nextCards: [
     {
-      label: "Weiter",
+      label: "Kaufberatung",
       title: "Kettlebell kaufen: wonach du entscheidest",
       href: "/kettlebell-kaufen",
       ready: true,
     },
     {
-      label: "Weiter",
+      label: "Übungen",
       title: "Vier Übungen für die ersten Wochen",
       href: "/uebungen",
       ready: true,

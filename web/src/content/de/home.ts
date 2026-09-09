@@ -8,8 +8,8 @@
 export const home = {
   hero: {
     eyebrow: "Kettlebell · Startgewicht",
-    h1: "Das richtige Gewicht, bevor du es kaufst.",
-    lead: "girevo führt dich in ein paar Minuten zu einem Startbereich in Kilogramm — kein Konto, keine App, kein Trainingsprogramm.",
+    h1: "Das richtige Kettlebell-Gewicht, bevor du es kaufst.",
+    lead: "girevo führt dich in ein paar Minuten zu deinem Kettlebell-Startgewicht: ein Bereich in Kilogramm statt einer Zahl — kein Konto, keine App, kein Trainingsprogramm.",
     facts: [
       { icon: "Timer", text: "Ein paar Minuten, ohne Anmeldung" },
       { icon: "House", text: "Zwei Quadratmeter genügen" },
@@ -34,7 +34,7 @@ export const home = {
     {
       icon: "ShoppingBag",
       title: "Kaufberatung",
-      text: "Guss oder beschichtet, Griff, verstellbar oder einzeln — vier Optionen im Vergleich.",
+      text: "Bauart, Griff, Beschichtung, verstellbar oder einzeln — vier Optionen im Vergleich.",
       href: "/kettlebell-kaufen",
       ready: true,
     },

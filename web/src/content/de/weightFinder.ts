@@ -111,8 +111,6 @@ export const pressProxy = {
 };
 
 export const copy = {
-  brandLine: "Kostenlos, ohne Anmeldung",
-
   intro: {
     eyebrow: "Gewichtsfinder",
     h1: "Welches Kettlebell-Startgewicht passt zu dir?",
@@ -187,11 +185,12 @@ export const copy = {
     back: "Angaben ändern",
     buy: {
       h3: "Wenn du jetzt kaufst",
-      intro:
-        "Drei Wege, sortiert nach Situation — nicht nach Preis. Die Links sind Affiliate-Links; für dich ändert sich am Preis nichts.",
-      cta: "Zum Kaufratgeber",
+      intro: "Drei Wege, sortiert nach Situation — nicht nach Preis.",
+      introAffiliate:
+        "Die Händler-Links sind Affiliate-Links; für dich ändert sich am Preis nichts.",
+      cta: "Zur Kaufberatung",
       disclosure:
-        "girevo verkauft nichts selbst und empfiehlt keine Marke, die wir nicht selbst in der Hand hatten.",
+        "girevo verkauft nichts selbst. Die Kaufberatung nennt keine Marken, nur die Merkmale, auf die es ankommt.",
     },
   },
 
@@ -205,8 +204,7 @@ export const copy = {
 
   // Server-rendered evergreen section below the wizard (SEO — the only channel).
   page: {
-    aboveTitle: "Kettlebell-Startgewicht",
-    bandsTitle: "Warum ein Bereich und keine feste Zahl",
+    bandsTitle: "Kettlebell-Startgewicht: ein Bereich statt einer Zahl",
     bandsIntro:
       "Zum Schwingen darf die Kettlebell schwerer sein, zum Drücken über Kopf leichter — deshalb ein Bereich statt einer Zahl. Ausgangspunkt ist, wie regelmäßig du dich belastest; Technik-Check und Schwerpunkt verschieben dich darin um höchstens eine Stufe.",
     bandsHeadActivity: "Wie aktiv du gerade bist",

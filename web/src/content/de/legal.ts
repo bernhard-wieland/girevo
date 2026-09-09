@@ -97,7 +97,7 @@ export const datenschutz = {
     },
     {
       h2: "Schriftarten",
-      body: "Die verwendete Schriftart „Archivo“ wird lokal von diesem Server ausgeliefert. Beim Seitenaufruf besteht keine Verbindung zu Google Fonts oder anderen externen Schriftanbietern.",
+      body: "Die verwendeten Schriftarten („Inter“ und „Space Grotesk“) werden lokal von diesem Server ausgeliefert. Beim Seitenaufruf besteht keine Verbindung zu Google Fonts oder anderen externen Schriftanbietern.",
     },
     {
       h2: "Cookies und lokale Speicherung",

@@ -1,7 +1,8 @@
 @import "tailwindcss";
 
-/* ── Jetzo design system tokens ─────────────────────────────────────────────
-   Colour, type, spacing, radius, elevation. Light-mode baseline (v1). */
+/* ── Design tokens ─────────────────────────────────────────────────────────
+   Warm-paper light theme. Space Grotesk display + Inter UI, coral #EE5A36 CTA
+   (white label), teal links. Colour, type, spacing, radius, elevation. */
 :root {
   /* Core */
   --color-paper: #faf6f0;

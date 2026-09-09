@@ -10,6 +10,7 @@ import {
   type Sex,
   type TrainingBackground,
 } from "@/lib/weightFinder";
+import { AFFILIATE_READY } from "@/lib/affiliate";
 import { Banner } from "./Banner";
 import { Button } from "./Button";
 import { Chip } from "./Chip";
@@ -378,9 +379,14 @@ export default function WeightFinderWizard() {
             </div>
 
             <aside className={styles.resultAside}>
-              <span className={styles.adTag}>Werbung · Affiliate</span>
+              {AFFILIATE_READY && (
+                <span className={styles.adTag}>Werbung · Affiliate</span>
+              )}
               <h3 className={styles.h3}>{copy.result.buy.h3}</h3>
-              <p className={styles.smallNote}>{copy.result.buy.intro}</p>
+              <p className={styles.smallNote}>
+                {copy.result.buy.intro}
+                {AFFILIATE_READY ? ` ${copy.result.buy.introAffiliate}` : ""}
+              </p>
               <div className={styles.buyList}>
                 {buyOptions(result.range).map((b) => (
                   <Link key={b.title} href={BUYERS_GUIDE} className={styles.buyRow}>

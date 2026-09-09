@@ -1,4 +1,4 @@
-/* Jetzo Button — primary = coral + ink text (never white on coral). */
+/* Button — primary = coral fill, white label (--text-on-coral). */
 
 .btn {
   display: inline-flex;

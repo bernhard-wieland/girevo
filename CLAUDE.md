@@ -12,14 +12,17 @@ Very early. Two codebases, one repo:
 
 - **`web/`** — Next.js (App Router, TypeScript, Tailwind). The React app = website + PWA. This is
   where the free weight finder and all SSR content pages live. Ships first (build order step 4).
-  - Design system: **"Jetzo"** (v2, replacing "Gusseisen") — paper `#FAF7F2`, ink `#1E1B2E`, coral
-    `#FF5A3C` (primary/CTA, **ink text on coral, never white**), teal `#0E7C97` (links), stone
-    (secondary text), cloud (dividers/fields). Inter (UI) + Poppins (display/wordmark). Soft low
-    shadows (`--elevation-sm/md`), rounded (`--radius-card` 18). Tokens in `src/app/globals.css`,
-    from the Claude Design project's `_ds/jetzo-design-system-.../tokens/*.css`. Icons: `lucide-react`.
-    `src/components/Button.tsx` is the Jetzo button.
-    Shared components: `Button.tsx` (coral primary), `Chip.tsx` (cloud→ink pill), `Banner.tsx`
-    (tinted callout). All pages are on Jetzo — the legacy alias block is gone.
+  - Design system: warm-paper light theme, Stitch-inspired refinement (successor to "Jetzo" /
+    "Gusseisen") — paper `#FAF6F0`, ink `#141517`, coral `#EE5A36` (primary/CTA, **white label
+    via `--text-on-coral`**), teal `#0F766E` (links), amber `#B45309` (third accent), stone
+    (secondary text), cloud `#EAE2D8` (dividers/fields), sage `#E1EBE7` (tinted panels). Space
+    Grotesk (display/headings/wordmark, `--font-display`) + Inter (UI/body, `--font-ui`), both
+    self-hosted via `next/font/google`. Soft low shadows (`--elevation-sm/md`), rounded
+    (`--radius-card` 20). Tokens in `src/app/globals.css`. Icons: `lucide-react` (no icon font).
+    Heading accent: a short coral dash (`.h2Mark`) before section `h2`s.
+    Shared components: `Button.tsx` (`Button` + `ButtonLink`, coral primary / teal secondary+
+    tertiary), `Chip.tsx` (cloud→ink pill), `Banner.tsx` (tinted callout).
+    Pages were pared back for less text, fewer sections, no side-by-side prose/aside splits.
   - The weight finder is a 4→5-step client wizard (`src/components/WeightFinderWizard.tsx`) inside
     an SSR page that also carries evergreen prose for indexing. All step copy is in the initial
     HTML (`hidden` toggles the active panel) so crawlers see it.
@@ -48,9 +51,10 @@ rewritten to the D.1 spec), `/uebungen` (four-movement overview — free orienta
 the §12-gated exercise library + plan generator). First four from the Claude Design project;
 `/uebungen` built in the same style (no artboard).
 
-Nav: `src/lib/nav.ts` — `headerNav()` (top nav, 3 items) vs `footerNav()` (footer, incl.
-`header: false` pages like Übungen). PWA manifest (`app/manifest.ts`), theme-color, skip-link,
-BreadcrumbList JSON-LD on non-home pages.
+Nav: `src/lib/nav.ts` — `headerNav()` (top nav: Gewichtsfinder, Kaufberatung, Ratgeber, Übungen)
+vs `footerNav()` (footer) vs `legalNav()` (Impressum, Datenschutz). The sticky header also carries
+a coral "Startgewicht ermitteln" CTA, hidden on the finder page itself. PWA manifest
+(`app/manifest.ts`), theme-color, skip-link, BreadcrumbList JSON-LD on non-home pages.
 
 Legal: operator is in **Austria** (Bad Radkersburg) — the legal framework is Austrian (§ 5 ECG,
 § 25 MedienG, DSGVO), not German. `/impressum` + `/datenschutz` built (noindex, footer-linked),
@@ -62,9 +66,10 @@ Not built yet: the .NET web host, DB-driven routing.
 
 SEO/launch wiring: `src/lib/meta.ts` `og()` (per-page OpenGraph — Next shallow-merges, so
 rebuild the whole object), `src/lib/structuredData.ts` (JSON-LD: Organization + WebSite site-wide,
-Article on `/ratgeber`), `src/app/icon.svg`+`icon.png` (favicon), `public/og.png` (1200×630 social
-card — regenerate from `docs/`-style SVG if the tagline changes), `src/app/not-found.tsx`,
-`sitemap.ts` + `robots.ts`.
+Article on `/ratgeber`, BreadcrumbList on inner pages), `src/app/icon.svg` (favicon; `icon.png` is
+rasterised from it with `sharp`), `public/og.png` (1200×630 social card — an SVG rasterised with
+`sharp`, Segoe UI standing in for Space Grotesk; regenerate if the wordmark or palette changes),
+`src/app/not-found.tsx`, `sitemap.ts` + `robots.ts`.
 
 ## Commands
 
