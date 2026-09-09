@@ -6,28 +6,43 @@ The `web/` app is a **static export** (`output: "export"` in `web/next.config.ts
 ## Cloudflare Workers (production)
 
 Deployed as a **static-assets-only Worker** (no server code). Config:
-`web/wrangler.jsonc` — `assets.directory: ./out`, no `main`. Git-connected via
-Workers Builds, auto-deploys on push to `main`.
+`web/wrangler.jsonc` — `assets.directory: ./out`, no `main`.
 
-Workers Builds settings (dashboard → the Worker → Settings → Build):
+### Deploy path: GitHub Actions (`.github/workflows/deploy.yml`)
 
-| Setting | Value |
+On every push to `main` (and via the manual "Run workflow" button) the action runs
+`npm ci → lint → test → build → wrangler deploy` from `web/`. This replaces
+Cloudflare's own Workers Builds, whose per-Worker git integration was unreliable
+(it kept using a build token from another project and stopped firing).
+
+**If Workers Builds is still connected in the Cloudflare dashboard, disconnect it**
+(Worker → Settings → Build) so the two don't race.
+
+Required GitHub repo secrets (Settings → Secrets and variables → Actions):
+
+| Secret | Where to get it |
 |---|---|
-| Repository | `bernhard-wieland/girevo` |
-| Root directory | `web` |
-| Build command | `npx next build` |
-| Deploy command | `npx wrangler deploy` |
+| `CLOUDFLARE_ACCOUNT_ID` | Cloudflare dashboard → Workers & Pages → Account ID (right sidebar) |
+| `CLOUDFLARE_API_TOKEN` | Cloudflare → My Profile → API Tokens → Create Token → "Edit Cloudflare Workers" template, scoped to this account |
 
-`next build` (with `output: "export"`) writes `web/out/`; `wrangler deploy` reads
-`wrangler.jsonc` and uploads it. Do **not** use a "Next.js" framework preset —
-that pulls in `@opennextjs/cloudflare`, which expects `output: "standalone"` and
-fails against our static export.
+### Manual deploy (fallback / first-time)
 
-Custom domain `girevo.de` (apex) + `www`: the Worker → Settings → Domains &
-Routes → Add. DNS is already on Cloudflare, one click each.
+```bash
+cd web
+npx wrangler login      # once, opens a browser
+npm run build && npx wrangler deploy
+```
 
-Preview deployments (non-`main` pushes) get a `*.workers.dev` URL — keep those
-out of Search Console.
+Or dashboard → Worker → "New deployment" → upload the contents of `web/out/`.
+
+### Custom domain
+
+`girevo.de` (apex) + `www`: Worker → Settings → Domains & Routes → Add. DNS on
+Cloudflare, one click each. `www` → apex via a Redirect Rule (301).
+
+> Do **not** use a "Next.js" framework preset anywhere — it pulls in
+> `@opennextjs/cloudflare`, which expects `output: "standalone"` and fails against
+> our static export.
 
 ## If a route ever needs SSR/ISR/route handlers
 
