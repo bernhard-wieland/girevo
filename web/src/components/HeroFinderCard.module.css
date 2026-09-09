@@ -23,7 +23,7 @@
   font-weight: 700;
   letter-spacing: 1.4px;
   text-transform: uppercase;
-  color: var(--color-coral);
+  color: var(--color-coral-text);
 }
 
 .progress {
@@ -106,7 +106,7 @@
 }
 
 .optionOn .optionKg {
-  color: var(--color-coral);
+  color: var(--color-coral-text);
 }
 
 .result {

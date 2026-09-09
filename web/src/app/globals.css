@@ -9,6 +9,9 @@
   --color-ink: #141517;
   --color-coral: #ee5a36;
   --color-coral-press: #d84926;
+  /* Darker coral for small text on paper/white — #ee5a36 is only ~3.1:1 there.
+     Use for eyebrows/labels; keep --color-coral for fills, dashes and icons. */
+  --color-coral-text: #c4431f;
   --color-teal: #0f766e;
   --color-amber: #b45309;
   --color-stone: #686766;
@@ -82,6 +85,17 @@
 
 * {
   box-sizing: border-box;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 html,
