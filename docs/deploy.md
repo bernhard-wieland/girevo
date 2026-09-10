@@ -37,8 +37,21 @@ Or dashboard → Worker → "New deployment" → upload the contents of `web/out
 
 ### Custom domain
 
-`girevo.de` (apex) + `www`: Worker → Settings → Domains & Routes → Add. DNS on
-Cloudflare, one click each. `www` → apex via a Redirect Rule (301).
+Status: **not connected yet.** `girevo.de` and `www` are still parked at
+Hostinger (`Server: hcdn`); production only lives at
+`https://girevo.bernhard-wieland.workers.dev`.
+
+To connect it:
+1. Cloudflare dashboard → *Add a site* → `girevo.de` → it prints two
+   nameservers. Set those as the domain's nameservers **at Hostinger**
+   (Domains → girevo.de → DNS / Nameservers → Change).
+2. Once Cloudflare shows the zone as active: Worker → Settings → Domains &
+   Routes → **Add Custom Domain** → `girevo.de` (and `www.girevo.de`).
+   Cloudflare issues the cert automatically.
+3. `www` → apex via a Redirect Rule (301) so there's one canonical host.
+
+All absolute URLs in code already assume `https://girevo.de` (see below), so
+nothing to change if the domain stays `girevo.de`.
 
 > Do **not** use a "Next.js" framework preset anywhere — it pulls in
 > `@opennextjs/cloudflare`, which expects `output: "standalone"` and fails against
