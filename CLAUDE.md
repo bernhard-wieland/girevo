@@ -66,10 +66,13 @@ Not built yet: the .NET web host, DB-driven routing.
 
 SEO/launch wiring: `src/lib/meta.ts` `og()` (per-page OpenGraph — Next shallow-merges, so
 rebuild the whole object), `src/lib/structuredData.ts` (JSON-LD: Organization + WebSite site-wide,
-Article on `/ratgeber`, BreadcrumbList on inner pages), `src/app/icon.svg` (favicon; `icon.png` is
-rasterised from it with `sharp`), `public/og.png` (1200×630 social card — an SVG rasterised with
-`sharp`, Segoe UI standing in for Space Grotesk; regenerate if the wordmark or palette changes),
-`src/app/not-found.tsx`, `sitemap.ts` + `robots.ts`.
+Article on `/ratgeber`, BreadcrumbList on inner pages), `src/app/icon.svg` (small favicon, dark
+ground; `icon.png` rasterised from it with `sharp`), `public/icon-app.svg` (installed-app icon —
+full-bleed coral, off-white monoline kettlebell, wide safe-zone margin; `icon-app-512/192.png` +
+`src/app/apple-icon.png` rasterised from it, wired into `manifest.ts` as `maskable`),
+`public/og.png` (1200×630 social card — an SVG rasterised with `sharp`, Segoe UI standing in for
+Space Grotesk; regenerate if the wordmark or palette changes), `src/app/not-found.tsx`,
+`sitemap.ts` + `robots.ts`.
 
 ## Commands
 
