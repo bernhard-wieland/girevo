@@ -79,6 +79,22 @@
   letter-spacing: -0.015em;
 }
 
+.nameEn {
+  margin: -2px 0 2px;
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 500;
+  color: var(--color-ink);
+}
+
+.nameEnLabel {
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  font-size: 11px;
+  color: var(--color-stone);
+}
+
 .whatFor {
   margin: 0;
   font-size: 16px;

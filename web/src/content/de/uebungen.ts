@@ -12,7 +12,7 @@ export const uebungen = {
   meta: {
     title: "Vier Kettlebell-Übungen für die ersten Wochen",
     description:
-      "Hüftbeuge und Swing, Goblet-Kniebeuge, Überkopfdrücken, Tragegang — was jede Bewegung ist, woran du saubere Ausführung erkennst und der häufigste Fehler.",
+      "Hüftbeuge und Swing, Goblet-Kniebeuge, Überkopfdrücken, Tragegang (engl. Kettlebell Swing, Goblet Squat, Overhead Press, Suitcase Carry) — was jede Bewegung ist und der häufigste Fehler.",
   },
 
   eyebrow: "Übungen",
@@ -27,6 +27,7 @@ export const uebungen = {
     {
       key: "hinge-swing",
       name: "Hüftbeuge und Swing",
+      nameEn: "Hip Hinge & Kettlebell Swing",
       whatFor:
         "Die Grundbewegung schlechthin. Aus der sauberen Hüftbeuge wird mit mehr Tempo der Swing.",
       how: [
@@ -43,6 +44,7 @@ export const uebungen = {
     {
       key: "goblet-squat",
       name: "Goblet-Kniebeuge",
+      nameEn: "Goblet Squat",
       whatFor:
         "Kniebeuge mit der Kettlebell vor der Brust. Das Gegengewicht hält den Oberkörper aufrecht und macht die Bewegung leichter zu lernen als ohne Gewicht.",
       how: [
@@ -59,6 +61,7 @@ export const uebungen = {
     {
       key: "overhead-press",
       name: "Überkopfdrücken",
+      nameEn: "Overhead Press (Strict Press)",
       whatFor:
         "Eine Kettlebell von der Schulter gerade nach oben drücken. Die Übung, die das obere Ende deines Gewichtsbereichs begrenzt.",
       how: [
@@ -75,6 +78,7 @@ export const uebungen = {
     {
       key: "carry",
       name: "Tragegang",
+      nameEn: "Suitcase Carry (Loaded Carry)",
       whatFor:
         "Eine Kettlebell aufnehmen und ein paar Schritte gehen. Trainiert Griff und Rumpf, ohne dass viel schiefgehen kann.",
       how: [
@@ -89,6 +93,7 @@ export const uebungen = {
     },
   ],
 
+  nameEnLabel: "In Videos meist",
   howToTitle: "So geht’s",
   cleanLabel: "Sauber heißt",
   errorLabel: "Häufigster Fehler",

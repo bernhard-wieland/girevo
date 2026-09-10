@@ -46,6 +46,10 @@ export default function UebungenPage() {
             <div className={styles.cardHead}>
               <span className={styles.num}>{`Bewegung ${i + 1}`}</span>
               <h2 className={styles.name}>{m.name}</h2>
+              <p className={styles.nameEn}>
+                <span className={styles.nameEnLabel}>{u.nameEnLabel}:</span>{" "}
+                {m.nameEn}
+              </p>
               <p className={styles.whatFor}>{m.whatFor}</p>
             </div>
 
