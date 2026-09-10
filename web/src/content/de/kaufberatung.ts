@@ -57,6 +57,7 @@ export const kaufberatung = {
   products: [
     {
       kind: "Klassiker",
+      illo: "klassiker",
       title: "Gusseisen, pulverbeschichtet",
       fit: "du zum ersten Mal kaufst und es unkompliziert willst.",
       specs: [
@@ -70,6 +71,7 @@ export const kaufberatung = {
     },
     {
       kind: "Zwei Enden",
+      illo: "paar",
       title: "Paar aus dem Bereich",
       fit: "du weißt, dass du dranbleibst, und Platz zum Abstellen hast.",
       specs: [
@@ -83,6 +85,7 @@ export const kaufberatung = {
     },
     {
       kind: "Wenig Platz",
+      illo: "verstellbar",
       title: "Verstellbare Kettlebell",
       fit: "du in der Wohnung trainierst und wegräumen musst.",
       specs: [
@@ -96,6 +99,7 @@ export const kaufberatung = {
     },
     {
       kind: "Langfristig",
+      illo: "wettkampf",
       title: "Wettkampf-Stahl",
       fit: "du in einer Kettlebell-Sportart antrittst oder es fest vorhast.",
       specs: [

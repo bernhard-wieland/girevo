@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import WeightFinderWizard from "@/components/WeightFinderWizard";
+import { RangeIllustration } from "@/components/illustrations";
 import { bandRows, copy } from "@/content/de/weightFinder";
 import { og } from "@/lib/meta";
 import { breadcrumbLd, jsonLd } from "@/lib/structuredData";
@@ -46,6 +47,7 @@ export default function KettlebellStartgewichtPage() {
           {copy.page.bandsTitle}
         </h2>
         <p className={styles.body}>{copy.page.bandsIntro}</p>
+        <RangeIllustration className={styles.rangeIllo} />
         <table className={styles.table}>
           <thead>
             <tr>

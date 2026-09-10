@@ -20,6 +20,10 @@ Very early. Two codebases, one repo:
     self-hosted via `next/font/google`. Soft low shadows (`--elevation-sm/md`), rounded
     (`--radius-card` 20). Tokens in `src/app/globals.css`. Icons: `lucide-react` (no icon font).
     Heading accent: a short coral dash (`.h2Mark`) before section `h2`s.
+    Illustrations: hand-built inline SVG, ink outline + coral accent, no fills —
+    `src/components/KettlebellArt.tsx` (hero) and `src/components/illustrations.tsx`
+    (`RangeIllustration`, `BuyTypeIllustration`, `UsedCheckIllustration`); decorative
+    (aria-hidden) unless a `title` is passed. Preview by rasterising with `sharp`.
     Shared components: `Button.tsx` (`Button` + `ButtonLink`, coral primary / teal secondary+
     tertiary), `Chip.tsx` (cloud→ink pill), `Banner.tsx` (tinted callout).
     Pages were pared back for less text, fewer sections, no side-by-side prose/aside splits.

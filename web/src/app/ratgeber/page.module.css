@@ -193,6 +193,14 @@
   color: var(--text-on-coral);
 }
 
+.figure {
+  display: block;
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  margin: 6px 0;
+}
+
 .steps {
   margin: 0;
   padding-left: 22px;

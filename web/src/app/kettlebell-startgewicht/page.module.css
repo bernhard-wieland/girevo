@@ -81,6 +81,14 @@
   text-underline-offset: 3px;
 }
 
+.rangeIllo {
+  display: block;
+  width: 100%;
+  max-width: 340px;
+  height: auto;
+  margin: 4px 0;
+}
+
 .table {
   width: 100%;
   border-collapse: collapse;

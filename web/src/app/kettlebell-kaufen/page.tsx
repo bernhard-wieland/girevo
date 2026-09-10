@@ -10,6 +10,10 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { Banner } from "@/components/Banner";
+import {
+  BuyTypeIllustration,
+  UsedCheckIllustration,
+} from "@/components/illustrations";
 import { kaufberatung as k } from "@/content/de/kaufberatung";
 import { AFFILIATE_READY } from "@/lib/affiliate";
 import { og } from "@/lib/meta";
@@ -92,6 +96,10 @@ export default function KaufberatungPage() {
         <div className={styles.productGrid}>
           {k.products.map((p) => (
             <div key={p.title} className={styles.productCard}>
+              <BuyTypeIllustration
+                type={p.illo as "klassiker" | "paar" | "verstellbar" | "wettkampf"}
+                className={styles.productIllo}
+              />
               <div className={styles.productHead}>
                 <span className={styles.productKind}>{p.kind}</span>
                 <span className={styles.productTitle}>{p.title}</span>
@@ -126,6 +134,7 @@ export default function KaufberatungPage() {
         <div className={styles.prose}>
           <p className={styles.proseP}>{k.avoid.p}</p>
           <div className={styles.subBlock}>
+            <UsedCheckIllustration className={styles.usedIllo} />
             <h3 className={styles.h3}>{k.avoid.h3}</h3>
             <p className={styles.proseP}>{k.avoid.p2}</p>
           </div>

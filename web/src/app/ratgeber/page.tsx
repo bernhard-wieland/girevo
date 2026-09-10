@@ -8,6 +8,7 @@ import {
   RATGEBER_UPDATED,
 } from "@/content/de/ratgeber";
 import { Banner } from "@/components/Banner";
+import { RangeIllustration } from "@/components/illustrations";
 import { articleLd, breadcrumbLd, jsonLd } from "@/lib/structuredData";
 import { og } from "@/lib/meta";
 import styles from "./page.module.css";
@@ -82,6 +83,7 @@ export default function RatgeberPage() {
           {r.warumBereich.p.map((p, i) => (
             <p key={i}>{p}</p>
           ))}
+          <RangeIllustration className={styles.figure} />
 
           <h2 id="selbsttest" className={styles.h2}>
             {r.selbsttest.h2}
