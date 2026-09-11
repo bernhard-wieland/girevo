@@ -131,12 +131,27 @@ export function UsedCheckIllustration({ className, title }: IlloProps) {
 
 type Movement = "hinge-swing" | "goblet-squat" | "overhead-press" | "carry";
 
-const dot = (cx: number, cy: number) => (
-  <circle key={`${cx}-${cy}`} cx={cx} cy={cy} r={5} fill="var(--color-coral)" stroke="none" />
+const dot = (cx: number, cy: number, r = 5) => (
+  <circle key={`${cx}-${cy}`} cx={cx} cy={cy} r={r} fill="var(--color-coral)" stroke="none" />
 );
 
-/** One motion-accent illustration per movement — the kettlebell plus a coral
- *  path/arrow tracing where it travels, echoing RangeIllustration's grammar. */
+type ArrowDir = "up" | "down" | "right";
+
+/** Filled triangle arrowhead — reads at small sizes where an open chevron
+ *  stroke disappears. */
+function Arrowhead({ x, y, dir, size = 11 }: { x: number; y: number; dir: ArrowDir; size?: number }) {
+  const points =
+    dir === "up"
+      ? `${x},${y - size} ${x - size},${y + size * 0.7} ${x + size},${y + size * 0.7}`
+      : dir === "down"
+        ? `${x},${y + size} ${x - size},${y - size * 0.7} ${x + size},${y - size * 0.7}`
+        : `${x + size},${y} ${x - size * 0.7},${y - size} ${x - size * 0.7},${y + size}`;
+  return <polygon points={points} fill="var(--color-coral)" stroke="none" />;
+}
+
+/** One motion-accent illustration per movement — the kettlebell, always in
+ *  its normal standing orientation, plus a coral path/arrow tracing where it
+ *  travels. Echoes RangeIllustration's grammar (bell + coral accent + dots). */
 export function MovementIllustration({
   movement,
   className,
@@ -145,10 +160,10 @@ export function MovementIllustration({
   if (movement === "goblet-squat") {
     return (
       <Svg viewBox="0 0 180 148" className={className} title={title}>
-        <Bell transform="translate(56 43.8) rotate(180) scale(0.58)" />
-        <path d="M92 40 V126" stroke="var(--color-coral)" strokeWidth={6} />
-        {dot(92, 40)}
-        {dot(92, 126)}
+        <Bell transform="translate(52 128) scale(0.58)" />
+        <path d="M104 30 V110" stroke="var(--color-coral)" strokeWidth={6} />
+        <Arrowhead x={104} y={16} dir="up" />
+        <Arrowhead x={104} y={132} dir="down" />
       </Svg>
     );
   }
@@ -156,13 +171,9 @@ export function MovementIllustration({
   if (movement === "overhead-press") {
     return (
       <Svg viewBox="0 0 180 148" className={className} title={title}>
-        <Bell transform="translate(58 79) rotate(180) scale(0.5)" />
-        <path d="M58 78 V28" stroke="var(--color-coral)" strokeWidth={6} />
-        <path
-          d="M44 42 L58 26 L72 42"
-          stroke="var(--color-coral)"
-          strokeWidth={4}
-        />
+        <Bell transform="translate(58 128) scale(0.62)" />
+        <path d="M58 66 V34" stroke="var(--color-coral)" strokeWidth={6} />
+        <Arrowhead x={58} y={18} dir="up" />
       </Svg>
     );
   }
@@ -170,34 +181,30 @@ export function MovementIllustration({
   if (movement === "carry") {
     return (
       <Svg viewBox="0 0 180 148" className={className} title={title}>
-        <Bell transform="translate(44 128) scale(0.72)" />
+        <Bell transform="translate(44 128) scale(0.68)" />
         <path
-          d="M76 112 H140"
+          d="M80 112 H128"
           stroke="var(--color-coral)"
-          strokeWidth={3.6}
-          strokeDasharray="0.5 12"
+          strokeWidth={4.5}
+          strokeDasharray="9 7"
         />
-        <path
-          d="M130 100 L146 112 L130 124"
-          stroke="var(--color-coral)"
-          strokeWidth={4}
-        />
+        <Arrowhead x={146} y={112} dir="right" />
       </Svg>
     );
   }
 
-  // hinge-swing — the bell tilted mid-arc, a dotted path tracing the pendulum.
+  // hinge-swing — the bell tilted mid-arc, a dashed path tracing the pendulum.
   return (
     <Svg viewBox="0 0 180 148" className={className} title={title}>
-      <Bell transform="translate(48 128) scale(0.78) rotate(-16)" />
+      <Bell transform="translate(48 128) scale(0.76) rotate(-10)" />
       <path
-        d="M38 118 Q66 30 134 64"
+        d="M38 118 Q64 32 122 60"
         stroke="var(--color-coral)"
-        strokeWidth={3.6}
-        strokeDasharray="0.5 12"
+        strokeWidth={4.5}
+        strokeDasharray="9 7"
       />
       {dot(38, 118)}
-      {dot(134, 64)}
+      {dot(128, 58, 6)}
     </Svg>
   );
 }
