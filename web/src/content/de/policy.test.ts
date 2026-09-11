@@ -3,6 +3,7 @@ import { collectStrings, findForbidden } from "@/lib/contentPolicy";
 import { home } from "./home";
 import { kaufberatung } from "./kaufberatung";
 import { kettlebellTraining } from "./kettlebellTraining";
+import { kettlebellUeben } from "./kettlebellUebenOhneKettlebell";
 import { kettlebellWorkout } from "./kettlebellWorkout";
 import { kettlebellZuhause } from "./kettlebellZuhause";
 import { datenschutz, impressum } from "./legal";
@@ -23,6 +24,7 @@ const modules: Record<string, unknown> = {
   kettlebellZuhause,
   kettlebellTraining,
   kettlebellWorkout,
+  kettlebellUeben,
   weightFinder: {
     ...weightFinder,
     // rangeText is a function; collectStrings ignores it.

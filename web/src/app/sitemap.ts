@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { RATGEBER_UPDATED } from "@/content/de/ratgeber";
 import { KETTLEBELL_TRAINING_UPDATED } from "@/content/de/kettlebellTraining";
 import { KETTLEBELL_WORKOUT_UPDATED } from "@/content/de/kettlebellWorkout";
+import { KETTLEBELL_UEBEN_UPDATED } from "@/content/de/kettlebellUebenOhneKettlebell";
 
 export const dynamic = "force-static";
 
@@ -54,6 +55,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: KETTLEBELL_WORKOUT_UPDATED,
       changeFrequency: "monthly",
       priority: 0.7,
+    },
+    {
+      url: `${BASE}/kettlebell-technik-ohne-kettlebell`,
+      lastModified: KETTLEBELL_UEBEN_UPDATED,
+      changeFrequency: "monthly",
+      priority: 0.6,
     },
   ];
 }

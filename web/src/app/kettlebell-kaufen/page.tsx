@@ -41,6 +41,11 @@ const NEXT_CARDS = [
     label: "Einstieg",
     title: "Was ist Kettlebell-Training?",
   },
+  {
+    href: "/kettlebell-technik-ohne-kettlebell",
+    label: "Vorbereitung",
+    title: "Technik schon vor dem Kauf üben",
+  },
 ];
 
 export const metadata: Metadata = {
