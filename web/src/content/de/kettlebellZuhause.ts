@@ -132,6 +132,12 @@ export const kettlebellZuhause = {
       href: "/uebungen",
       ready: true,
     },
+    {
+      label: "Workout zu Hause",
+      title: "Der Ablauf einer Einheit",
+      href: "/kettlebell-workout-zuhause",
+      ready: true,
+    },
   ],
   soonTag: "bald",
 };

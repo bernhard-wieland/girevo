@@ -24,6 +24,11 @@ const NEXT_CARDS = [
     label: "Ratgeber",
     title: "Warum ein Bereich und keine feste Zahl",
   },
+  {
+    href: "/kettlebell-training",
+    label: "Einstieg",
+    title: "Was ist Kettlebell-Training?",
+  },
 ];
 
 const description =

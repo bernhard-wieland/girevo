@@ -25,6 +25,11 @@ const NEXT_CARDS = [
     label: "Kaufberatung",
     title: "Bauart, Griff, Beschichtung, verstellbar",
   },
+  {
+    href: "/kettlebell-workout-zuhause",
+    label: "Workout zu Hause",
+    title: "Der Ablauf einer Einheit",
+  },
 ];
 
 export const metadata: Metadata = {

@@ -1,0 +1,354 @@
+.wrap {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: clamp(32px, 5vw, 56px) clamp(20px, 4vw, 40px) clamp(72px, 10vw, 120px);
+}
+
+.head {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-bottom: clamp(32px, 4vw, 48px);
+  border-bottom: 1px solid var(--color-cloud);
+}
+
+.metaLine {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  font-size: 13px;
+  color: var(--color-stone);
+}
+
+.metaLine span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.h1 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(32px, 4.8vw, 46px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  max-width: 20ch;
+  text-wrap: balance;
+}
+
+.deck {
+  margin: 0;
+  font-size: 18px;
+  line-height: 30px;
+  color: var(--color-stone);
+  max-width: 62ch;
+}
+
+.body {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(32px, 5vw, 64px);
+  align-items: flex-start;
+  padding-top: clamp(32px, 4vw, 48px);
+}
+
+/* --- table of contents ------------------------------------------------- */
+
+.toc {
+  flex: 1 1 200px;
+  max-width: 260px;
+  position: sticky;
+  top: 96px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+}
+
+.tocLabel {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: var(--color-stone);
+}
+
+.tocNav {
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid var(--color-cloud);
+}
+
+.tocLink {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 6px 14px;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--color-stone);
+  border-left: 2px solid transparent;
+  margin-left: -1px;
+  transition:
+    color 0.15s ease-out,
+    border-color 0.15s ease-out;
+}
+
+.tocLink:hover {
+  color: var(--color-ink);
+  border-left-color: var(--color-coral);
+}
+
+/* --- article --------------------------------------------------------- */
+
+.article {
+  flex: 999 1 min(100%, 420px);
+  min-width: 0;
+  max-width: 64ch;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  font-size: 17px;
+  line-height: 30px;
+}
+
+.article p {
+  margin: 0;
+}
+
+.article a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
+.article a.ctaButton,
+.article a.nextCard {
+  text-decoration: none;
+}
+
+.h2 {
+  margin: 18px 0 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(23px, 2.9vw, 28px);
+  line-height: 1.18;
+  letter-spacing: -0.015em;
+  scroll-margin-top: 96px;
+}
+
+.h3 {
+  margin: 6px 0 0;
+  font-family: var(--font-display);
+  font-size: 18px;
+  line-height: 1.4;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  scroll-margin-top: 96px;
+}
+
+.ctaCard {
+  background: var(--surface-card);
+  border-radius: var(--radius-card);
+  box-shadow: var(--elevation-md);
+  padding: clamp(24px, 3.5vw, 32px);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.ctaEyebrow {
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: var(--color-coral-text);
+}
+
+.ctaText {
+  margin: 0;
+  font-size: 16px;
+  line-height: 26px;
+  color: var(--color-stone);
+}
+
+.ctaButton {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  height: 48px;
+  padding: 0 20px;
+  border-radius: var(--radius-button);
+  background: var(--color-coral);
+  color: var(--text-on-coral);
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.ctaButton:hover {
+  background: var(--color-coral-press);
+  color: var(--text-on-coral);
+}
+
+.figure {
+  display: block;
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  margin: 6px 0;
+}
+
+.steps {
+  margin: 0;
+  padding-left: 22px;
+  list-style: decimal;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.steps li {
+  padding-left: 4px;
+}
+
+.dataTable {
+  background: var(--surface-card);
+  border-radius: var(--radius-card);
+  box-shadow: var(--elevation-sm);
+  padding: 8px 24px;
+}
+
+.dataRow {
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--color-cloud);
+}
+
+.dataRow:last-child {
+  border-bottom: none;
+}
+
+.dataKey {
+  font-size: 15px;
+  line-height: 22px;
+  color: var(--color-stone);
+}
+
+.dataVal {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-ink);
+  white-space: nowrap;
+}
+
+.nextRow {
+  margin-top: 18px;
+  padding-top: 28px;
+  border-top: 1px solid var(--color-cloud);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.nextCard {
+  background: var(--surface-card);
+  border-radius: var(--radius-card);
+  box-shadow: var(--elevation-sm);
+  padding: 20px;
+  color: var(--color-ink);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition:
+    box-shadow 0.18s ease-out,
+    transform 0.18s ease-out;
+}
+
+a.nextCard:hover {
+  box-shadow: var(--elevation-md);
+  transform: translateY(-2px);
+  color: var(--color-ink);
+}
+
+.nextLabel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 13px;
+  color: var(--color-stone);
+}
+
+.nextTitle {
+  font-family: var(--font-display);
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.soon {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--color-stone);
+  background: var(--color-cloud);
+  border-radius: var(--radius-pill);
+  padding: 2px 8px;
+}
+
+@media (max-width: 720px) {
+  .toc {
+    position: static;
+    flex-basis: 100%;
+    max-width: none;
+  }
+}
+
+/* --- movement mini-grid (reused MovementIllustration icons) --------- */
+
+.movementRow {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 12px;
+  margin: 4px 0;
+}
+
+.movementItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+  background: var(--surface-card);
+  border-radius: var(--radius-card);
+  box-shadow: var(--elevation-sm);
+  padding: 16px 10px;
+}
+
+.movementIllo {
+  width: 64px;
+  height: auto;
+}
+
+.movementLabel {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: -0.01em;
+}
+
+.movementText {
+  margin: 0;
+  font-size: 12px;
+  line-height: 18px;
+  color: var(--color-stone);
+}

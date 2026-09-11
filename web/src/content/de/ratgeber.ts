@@ -129,6 +129,12 @@ export const ratgeber = {
       href: "/kettlebell-zuhause-training",
       ready: true,
     },
+    {
+      label: "Einstieg",
+      title: "Was ist Kettlebell-Training?",
+      href: "/kettlebell-training",
+      ready: true,
+    },
   ],
   soonTag: "bald",
   tocLabel: "Inhalt",

@@ -36,6 +36,11 @@ const NEXT_CARDS = [
     label: "Zu Hause trainieren",
     title: "Platz, Boden und Lautstärke",
   },
+  {
+    href: "/kettlebell-training",
+    label: "Einstieg",
+    title: "Was ist Kettlebell-Training?",
+  },
 ];
 
 export const metadata: Metadata = {

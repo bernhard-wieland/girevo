@@ -17,6 +17,8 @@ export const NAV: NavEntry[] = [
   { label: "Ratgeber", href: "/ratgeber", ready: true, header: true },
   { label: "Übungen", href: "/uebungen", ready: true, header: true },
   { label: "Zu Hause trainieren", href: "/kettlebell-zuhause-training", ready: true, header: false },
+  { label: "Kettlebell-Training", href: "/kettlebell-training", ready: true, header: false },
+  { label: "Workout zu Hause", href: "/kettlebell-workout-zuhause", ready: true, header: false },
   { label: "Impressum", href: "/impressum", ready: true, header: false, legal: true },
   { label: "Datenschutz", href: "/datenschutz", ready: true, header: false, legal: true },
 ];
