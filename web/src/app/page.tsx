@@ -37,7 +37,7 @@ const ICONS: Record<string, LucideIcon> = {
   BookOpen,
 };
 
-const SIGNPOST_TONE = ["coral", "teal", "amber"] as const;
+const SIGNPOST_TONE = ["coral", "teal", "amber", "teal"] as const;
 
 export default function Home() {
   const { hero, signposts, summary } = home;

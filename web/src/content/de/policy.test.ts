@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import { collectStrings, findForbidden } from "@/lib/contentPolicy";
 import { home } from "./home";
 import { kaufberatung } from "./kaufberatung";
+import { kettlebellZuhause } from "./kettlebellZuhause";
 import { datenschutz, impressum } from "./legal";
 import { ratgeber } from "./ratgeber";
 import { uebungen } from "./uebungen";
@@ -17,6 +18,7 @@ const modules: Record<string, unknown> = {
   datenschutz,
   ratgeber,
   uebungen,
+  kettlebellZuhause,
   weightFinder: {
     ...weightFinder,
     // rangeText is a function; collectStrings ignores it.

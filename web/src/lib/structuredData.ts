@@ -42,6 +42,17 @@ export const articleLd = (args: {
   publisher: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
 });
 
+/** FAQPage — only valid when every Q&A pair is visible on the page. */
+export const faqLd = (items: { q: string; a: string }[]) => ({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: items.map((it) => ({
+    "@type": "Question",
+    name: it.q,
+    acceptedAnswer: { "@type": "Answer", text: it.a },
+  })),
+});
+
 export const breadcrumbLd = (trail: { name: string; path: string }[]) => ({
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",

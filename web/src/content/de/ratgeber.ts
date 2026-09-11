@@ -123,6 +123,12 @@ export const ratgeber = {
       href: "/uebungen",
       ready: true,
     },
+    {
+      label: "Zu Hause",
+      title: "Platz, Boden und Lautstärke zu Hause",
+      href: "/kettlebell-zuhause-training",
+      ready: true,
+    },
   ],
   soonTag: "bald",
   tocLabel: "Inhalt",

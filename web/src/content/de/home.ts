@@ -52,6 +52,13 @@ export const home = {
       href: "/ratgeber",
       ready: true,
     },
+    {
+      icon: "House",
+      title: "Zu Hause trainieren",
+      text: "Platz, Boden und Lautstärke: das Minimal-Setup für die erste Zeit.",
+      href: "/kettlebell-zuhause-training",
+      ready: true,
+    },
   ],
   soonTag: "bald",
 
