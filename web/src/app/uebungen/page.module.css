@@ -40,6 +40,11 @@
   color: var(--color-stone);
 }
 
+.lead a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .movements {
   display: flex;
   flex-direction: column;

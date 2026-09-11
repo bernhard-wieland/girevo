@@ -9,9 +9,18 @@
   --color-ink: #141517;
   --color-coral: #ee5a36;
   --color-coral-press: #d84926;
+  /* Solid-fill CTAs (coral background + white label) need their own darker
+     shade — white on #ee5a36 is only ~3.4:1, short of WCAG AA's 4.5:1 for
+     normal text. Use only where --text-on-coral sits on the fill (buttons,
+     header CTA); keep --color-coral for icons, borders, dashes and other
+     non-text fills, where the brighter brand coral is fine. */
+  --color-coral-cta: #cc4019;
+  --color-coral-cta-press: #c23713;
   /* Darker coral for small text on paper/white — #ee5a36 is only ~3.1:1 there.
-     Use for eyebrows/labels; keep --color-coral for fills, dashes and icons. */
-  --color-coral-text: #c4431f;
+     Use for eyebrows/labels; keep --color-coral for fills, dashes and icons.
+     #c03f1c measures 4.72:1 on the coral-tint selected state (HeroFinderCard);
+     the previous #c4431f was 4.49:1, just short of WCAG AA's 4.5:1. */
+  --color-coral-text: #c03f1c;
   --color-teal: #0f766e;
   --color-amber: #b45309;
   --color-stone: #686766;

@@ -27,7 +27,7 @@ type MovementKey = "hinge-swing" | "goblet-squat" | "overhead-press" | "carry";
 
 export default function KettlebellTrainingPage() {
   return (
-    <div className={styles.wrap}>
+    <main className={styles.wrap}>
       <script
         {...jsonLd([
           articleLd({
@@ -166,6 +166,6 @@ export default function KettlebellTrainingPage() {
           </div>
         </article>
       </div>
-    </div>
+    </main>
   );
 }

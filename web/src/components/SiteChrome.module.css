@@ -95,7 +95,7 @@
     height: 38px;
     padding: 0 16px;
     border-radius: var(--radius-button);
-    background: var(--color-coral);
+    background: var(--color-coral-cta);
     color: var(--text-on-coral);
     font-family: var(--font-display);
     font-size: 13px;
@@ -103,7 +103,7 @@
     letter-spacing: 0.02em;
   }
   .headerCta:hover {
-    background: var(--color-coral-press);
+    background: var(--color-coral-cta-press);
     color: var(--text-on-coral);
   }
 }
@@ -167,7 +167,7 @@
     margin-top: 16px;
     height: 44px;
     border-radius: var(--radius-button);
-    background: var(--color-coral);
+    background: var(--color-coral-cta);
     color: var(--text-on-coral);
     font-family: var(--font-display);
     font-size: 14px;
@@ -176,7 +176,7 @@
   }
 
   .mobileCta:hover {
-    background: var(--color-coral-press);
+    background: var(--color-coral-cta-press);
     color: var(--text-on-coral);
   }
 }

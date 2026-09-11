@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 
 export default function RatgeberPage() {
   return (
-    <div className={styles.wrap}>
+    <main className={styles.wrap}>
       <script
         {...jsonLd([
           articleLd({
@@ -186,6 +186,6 @@ export default function RatgeberPage() {
           </div>
         </article>
       </div>
-    </div>
+    </main>
   );
 }
