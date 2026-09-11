@@ -16,7 +16,7 @@ export const ratgeber = {
   meta: {
     title: "Kettlebell-Startgewicht: warum es ein Bereich ist",
     description:
-      "Warum eine einzelne Zahl beim Kettlebell-Startgewicht nicht funktioniert, wie dein Bereich zustande kommt und wie du dich innerhalb der Spanne von Übung zu Übung entscheidest.",
+      "Warum eine einzelne Zahl beim Kettlebell-Startgewicht nicht funktioniert und wie du dich innerhalb deines Bereichs von Übung zu Übung entscheidest.",
   },
 
   kicker: "Ratgeber",

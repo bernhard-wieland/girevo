@@ -210,8 +210,36 @@ export const copy = {
     bandsHeadActivity: "Wie aktiv du gerade bist",
     bandsHeadRange: "Bereich für eine Allzweck-Hantel",
     ratgeberLine: "Die lange Fassung steht im",
+    faqTitle: "Häufige Fragen zum Startgewicht",
+    nextTitle: "Und dann?",
   },
 };
+
+// §7 check applied to every answer: no bare number, no health/pain language,
+// nothing stored. Every claim here restates copy that already exists above —
+// no new facts introduced just for the FAQ.
+export const faqItems: { q: string; a: string }[] = [
+  {
+    q: "Reicht eine Kettlebell zum Anfangen?",
+    a: "Ja. Eine reicht für den Start. Die meisten kommen nach sechs bis acht Wochen mit einer zweiten Kettlebell weiter — üblicherweise vier Kilogramm über der ersten. Kein Grund, heute schon zwei zu kaufen.",
+  },
+  {
+    q: "Wie genau ist der Selbsttest?",
+    a: "Er ersetzt keine Formel und keine Waage. Er prüft, wie sauber drei Grundbewegungen ohne Gewicht laufen, und verbindet das mit deiner Trainingsaktivität. Das Ergebnis ist deshalb ein Bereich, kein Fixwert — die passende Kettlebell unterscheidet sich ohnehin je nach Übung.",
+  },
+  {
+    q: "Muss ich Alter und Geschlecht angeben?",
+    a: "Nein, beide Angaben sind optional. Ohne sie bekommst du denselben Bereich, nur etwas breiter.",
+  },
+  {
+    q: "Was, wenn eine der drei Testbewegungen noch nicht sauber läuft?",
+    a: "Dann setzt du an der unteren Kante deines Bereichs an und arbeitest zuerst an der Technik. Sobald die Bewegung sitzt, kannst du im Bereich nach oben gehen.",
+  },
+  {
+    q: "Werden meine Angaben gespeichert?",
+    a: "Nein. Der Finder rechnet komplett in deinem Browser. Es wird nichts gespeichert und nichts übertragen.",
+  },
+];
 
 export const bandRows: { label: string; range: string }[] = [
   { label: "kein regelmäßiges Training", range: "8–10 kg" },

@@ -122,3 +122,118 @@
   color: var(--color-ink);
   white-space: nowrap;
 }
+
+/* --- FAQ ------------------------------------------------------------- */
+
+.faqSection {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-top: clamp(24px, 4vw, 40px);
+  border-top: 1px solid var(--color-cloud);
+}
+
+.faqList {
+  display: flex;
+  flex-direction: column;
+}
+
+.faqItem {
+  border-bottom: 1px solid var(--color-cloud);
+}
+
+.faqItem:first-child {
+  border-top: 1px solid var(--color-cloud);
+}
+
+.faqQ {
+  cursor: pointer;
+  list-style: none;
+  padding: 18px 32px 18px 0;
+  position: relative;
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.4;
+}
+
+.faqQ::-webkit-details-marker {
+  display: none;
+}
+
+.faqQ::after {
+  content: "+";
+  position: absolute;
+  right: 4px;
+  top: 16px;
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--color-coral);
+}
+
+.faqItem[open] .faqQ::after {
+  content: "–";
+}
+
+.faqA {
+  margin: 0;
+  padding: 0 0 20px;
+  max-width: 62ch;
+  font-size: 15px;
+  line-height: 25px;
+  color: var(--color-stone);
+}
+
+/* --- next steps -------------------------------------------------------- */
+
+.nextSection {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-top: clamp(24px, 4vw, 40px);
+  border-top: 1px solid var(--color-cloud);
+}
+
+.nextRow {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.nextCard {
+  background: var(--surface-card);
+  border-radius: var(--radius-card);
+  box-shadow: var(--elevation-sm);
+  padding: 20px;
+  color: var(--color-ink);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition:
+    box-shadow 0.18s ease-out,
+    transform 0.18s ease-out;
+}
+
+.nextCard:hover {
+  box-shadow: var(--elevation-md);
+  transform: translateY(-2px);
+  color: var(--color-ink);
+}
+
+.nextLabel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 13px;
+  color: var(--color-stone);
+}
+
+.nextCardTitle {
+  font-family: var(--font-display);
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}

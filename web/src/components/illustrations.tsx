@@ -128,3 +128,76 @@ export function UsedCheckIllustration({ className, title }: IlloProps) {
     </Svg>
   );
 }
+
+type Movement = "hinge-swing" | "goblet-squat" | "overhead-press" | "carry";
+
+const dot = (cx: number, cy: number) => (
+  <circle key={`${cx}-${cy}`} cx={cx} cy={cy} r={5} fill="var(--color-coral)" stroke="none" />
+);
+
+/** One motion-accent illustration per movement — the kettlebell plus a coral
+ *  path/arrow tracing where it travels, echoing RangeIllustration's grammar. */
+export function MovementIllustration({
+  movement,
+  className,
+  title,
+}: IlloProps & { movement: Movement }) {
+  if (movement === "goblet-squat") {
+    return (
+      <Svg viewBox="0 0 180 148" className={className} title={title}>
+        <Bell transform="translate(56 43.8) rotate(180) scale(0.58)" />
+        <path d="M92 40 V126" stroke="var(--color-coral)" strokeWidth={6} />
+        {dot(92, 40)}
+        {dot(92, 126)}
+      </Svg>
+    );
+  }
+
+  if (movement === "overhead-press") {
+    return (
+      <Svg viewBox="0 0 180 148" className={className} title={title}>
+        <Bell transform="translate(58 79) rotate(180) scale(0.5)" />
+        <path d="M58 78 V28" stroke="var(--color-coral)" strokeWidth={6} />
+        <path
+          d="M44 42 L58 26 L72 42"
+          stroke="var(--color-coral)"
+          strokeWidth={4}
+        />
+      </Svg>
+    );
+  }
+
+  if (movement === "carry") {
+    return (
+      <Svg viewBox="0 0 180 148" className={className} title={title}>
+        <Bell transform="translate(44 128) scale(0.72)" />
+        <path
+          d="M76 112 H140"
+          stroke="var(--color-coral)"
+          strokeWidth={3.6}
+          strokeDasharray="0.5 12"
+        />
+        <path
+          d="M130 100 L146 112 L130 124"
+          stroke="var(--color-coral)"
+          strokeWidth={4}
+        />
+      </Svg>
+    );
+  }
+
+  // hinge-swing — the bell tilted mid-arc, a dotted path tracing the pendulum.
+  return (
+    <Svg viewBox="0 0 180 148" className={className} title={title}>
+      <Bell transform="translate(48 128) scale(0.78) rotate(-16)" />
+      <path
+        d="M38 118 Q66 30 134 64"
+        stroke="var(--color-coral)"
+        strokeWidth={3.6}
+        strokeDasharray="0.5 12"
+      />
+      {dot(38, 118)}
+      {dot(134, 64)}
+    </Svg>
+  );
+}

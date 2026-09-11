@@ -17,7 +17,7 @@ import { home } from "@/content/de/home";
 import { og } from "@/lib/meta";
 import styles from "./page.module.css";
 
-const title = "girevo — Kettlebell-Einstieg: Startgewicht und die ersten Wochen";
+const title = "girevo — Kettlebell-Startgewicht und die ersten Wochen";
 const description =
   "Kein Programm, kein Konto. Bestimme dein Kettlebell-Startgewicht per Selbsttest und finde die wenigen Übungen, die für den Anfang zählen.";
 

@@ -17,8 +17,26 @@ import {
 import { kaufberatung as k } from "@/content/de/kaufberatung";
 import { AFFILIATE_READY } from "@/lib/affiliate";
 import { og } from "@/lib/meta";
-import { breadcrumbLd, jsonLd } from "@/lib/structuredData";
+import { breadcrumbLd, faqLd, jsonLd } from "@/lib/structuredData";
 import styles from "./page.module.css";
+
+const NEXT_CARDS = [
+  {
+    href: "/kettlebell-startgewicht",
+    label: "Gewichtsfinder",
+    title: "Welcher Bereich zu dir passt",
+  },
+  {
+    href: "/uebungen",
+    label: "Übungen",
+    title: "Die vier Bewegungen für die ersten Wochen",
+  },
+  {
+    href: "/kettlebell-zuhause-training",
+    label: "Zu Hause trainieren",
+    title: "Platz, Boden und Lautstärke",
+  },
+];
 
 export const metadata: Metadata = {
   title: { absolute: `${k.meta.title} — girevo` },
@@ -42,12 +60,13 @@ export default function KaufberatungPage() {
   return (
     <main className={styles.main}>
       <script
-        {...jsonLd(
+        {...jsonLd([
           breadcrumbLd([
             { name: "Start", path: "/" },
             { name: "Kaufberatung", path: "/kettlebell-kaufen" },
           ]),
-        )}
+          faqLd(k.faq.items),
+        ])}
       />
 
       {AFFILIATE_READY && (
@@ -140,6 +159,35 @@ export default function KaufberatungPage() {
           </div>
         </div>
       </section>
+
+      <section className={styles.section}>
+        <h2 className={styles.h2}>{k.faq.title}</h2>
+        <div className={styles.faqList}>
+          {k.faq.items.map((item) => (
+            <details key={item.q} className={styles.faqItem}>
+              <summary className={styles.faqQ}>{item.q}</summary>
+              <p className={styles.faqA}>{item.a}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+
+      <div className={styles.nextRow}>
+        {NEXT_CARDS.map((c) => (
+          <Link key={c.href} href={c.href} className={styles.nextCard}>
+            <span className={styles.nextLabel}>
+              <span>{c.label}</span>
+              <ArrowUpRight
+                size={17}
+                strokeWidth={2}
+                aria-hidden="true"
+                color="var(--color-coral)"
+              />
+            </span>
+            <span className={styles.nextCardTitle}>{c.title}</span>
+          </Link>
+        ))}
+      </div>
     </main>
   );
 }

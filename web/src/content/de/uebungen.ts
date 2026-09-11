@@ -12,7 +12,7 @@ export const uebungen = {
   meta: {
     title: "Vier Kettlebell-Übungen für die ersten Wochen",
     description:
-      "Hüftbeuge und Swing, Goblet-Kniebeuge, Überkopfdrücken, Tragegang (engl. Kettlebell Swing, Goblet Squat, Overhead Press, Suitcase Carry) — was jede Bewegung ist und der häufigste Fehler.",
+      "Hüftbeuge, Goblet-Kniebeuge, Überkopfdrücken und Tragegang: was jede Übung ist, worauf es ankommt und der häufigste Fehler.",
   },
 
   eyebrow: "Übungen",

@@ -121,8 +121,31 @@ export const kaufberatung = {
   },
 
   meta: {
-    title: "Kettlebell kaufen: Bauart, Griff, Beschichtung, verstellbar",
+    title: "Kettlebell kaufen: Bauart, Griff, Beschichtung",
     description:
-      "Kein Shop, keine Deals: die vier Merkmale, an denen du eine Einsteiger-Kettlebell festmachst — Guss, Griffdurchmesser, Beschichtung und Verstellbarkeit — und vier Optionen im Vergleich.",
+      "Die vier Merkmale, an denen du eine Einsteiger-Kettlebell erkennst — Guss, Griff, Beschichtung, Verstellbarkeit — plus vier Optionen im Vergleich.",
+  },
+
+  faq: {
+    title: "Häufige Fragen zum Kauf",
+    // Every answer restates a fact already stated above — no new claims for the FAQ.
+    items: [
+      {
+        q: "Einzelgewicht oder verstellbare Kettlebell?",
+        a: "Für die ersten Wochen reicht ein Einzelgewicht — kompromisslos einfach, ohne Verschluss, den du bei Schwungübungen im Ohr hast. Eine verstellbare Kettlebell lohnt sich, wenn dir schlicht die Stellfläche fehlt.",
+      },
+      {
+        q: "Worauf achte ich beim Griff?",
+        a: "Auf einen Durchmesser von 33–35 mm. Dicker heißt nicht robuster, sondern nur schwerer zu halten — unter 30 mm wird der Bügel bei schwereren Gewichten unangenehm kantig.",
+      },
+      {
+        q: "Pulverbeschichtet oder lackiert?",
+        a: "Pulverbeschichtung gibt leichten Grip und nutzt sich gleichmäßig ab. Lack wird glatt, sobald die Hände feucht sind, und Vinylhüllen verdecken, was darunter ist.",
+      },
+      {
+        q: "Lohnt sich eine gebrauchte Kettlebell?",
+        a: "Ja, Gusseisen altert nicht. Prüf beim Abholen drei Dinge: keine scharfe Kante oder sichtbare Naht in der Griffzone, eine plane Standfläche, und dass die Beschichtung nicht in Platten abblättert. Rost lässt sich abschleifen.",
+      },
+    ],
   },
 };
